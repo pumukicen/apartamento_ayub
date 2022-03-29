@@ -1,8 +1,12 @@
-<button routerLink="/inicio">INICIO</button>
-<button routerLink="/apartamento">APARTAMENTO</button>
-<button routerLink="/localizacion">LOCALIZACIÓN</button>
-<button routerLink="/experiencias">EXPERIENCIAS</button>
-<button routerLink="/entorno">ENTORNO</button>
-<button routerLink="/blog">BLOG</button>
-<button routerLink="/inforamcion">INFORMACIÓN</button>
-<button routerLink="/reserva">RESERVA</button>
+<button routerLink="/inicio">{{ "menu_inicio" | translate }}</button>
+<button routerLink="/apartamento">{{ "menu_apartamento" | translate }}</button>
+<button routerLink="/localizacion">{{ "menu_localizacion" | translate }}</button>
+<button routerLink="/experiencias">{{ "menu_experiencias" | translate }}</button>
+<button routerLink="/entorno">{{ "menu_entorno" | translate }}</button>
+<button routerLink="/blog">{{ "menu_blog" | translate }}</button>
+<button routerLink="/inforamcion">{{ "menu_informacion" | translate }}</button>
+<button routerLink="/reserva">{{ "menu_reserva" | translate }}</button>
+<br>
+<button (click)="lang('en')">INGLES</button>
+<button (click)="lang('es-ES')">ESPAÑOL</button>
+<button (click)="lang('fr')">FRANCES</button>
