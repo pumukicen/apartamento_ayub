@@ -10,11 +10,14 @@ import { TranslationsService } from './common/translations/translations.service'
 import { ApartamentoComponent } from './pages/apartamento/apartamento.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { EntornoComponent } from './pages/entorno/entorno.component';
-import { ExperienciasComponent } from './pages/experiencias/experiencias.component';
-import { InformacionComponent } from './pages/informacion/informacion.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LocalizacionComponent } from './pages/localizacion/localizacion.component';
 import { ReservaComponent } from './pages/reserva/reserva.component';
+import { RestaurantesComponent } from './pages/restaurantes/restaurantes.component';
+import { LugaresComponent } from './pages/lugares/lugares.component';
+import { EventosComponent } from './pages/eventos/eventos.component';
+import { ServiciosComponent } from './pages/servicios/servicios.component';
+import { CondicionesComponent } from './pages/condiciones/condiciones.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +26,14 @@ import { ReservaComponent } from './pages/reserva/reserva.component';
     InicioComponent,
     ApartamentoComponent,
     LocalizacionComponent,
-    ExperienciasComponent,
     EntornoComponent,
     BlogComponent,
-    InformacionComponent,
     ReservaComponent,
+    RestaurantesComponent,
+    LugaresComponent,
+    EventosComponent,
+    ServiciosComponent,
+    CondicionesComponent,
   ],
   imports: [
     BrowserModule,

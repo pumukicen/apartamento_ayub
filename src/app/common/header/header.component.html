@@ -1,12 +1,99 @@
-<button routerLink="/inicio">{{ "menu_inicio" | translate }}</button>
-<button routerLink="/apartamento">{{ "menu_apartamento" | translate }}</button>
-<button routerLink="/localizacion">{{ "menu_localizacion" | translate }}</button>
-<button routerLink="/experiencias">{{ "menu_experiencias" | translate }}</button>
-<button routerLink="/entorno">{{ "menu_entorno" | translate }}</button>
-<button routerLink="/blog">{{ "menu_blog" | translate }}</button>
-<button routerLink="/inforamcion">{{ "menu_informacion" | translate }}</button>
-<button routerLink="/reserva">{{ "menu_reserva" | translate }}</button>
-<br>
-<button (click)="lang('en')">INGLES</button>
-<button (click)="lang('es-ES')">ESPAÑOL</button>
-<button (click)="lang('fr')">FRANCES</button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"
+       href="#">ICONO APLICACION</a>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor02"
+            aria-controls="navbarColor02"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse"
+         id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <ng-container *ngFor="let item of menuItems">
+          <li class="nav-item"
+              [class.dropdown]="item.children">
+            <ng-container *ngIf="item.link; else dropdown">
+              <a class="nav-link"
+                 [class.active]="item.active"
+                 href="#"
+                 [routerLink]="item.link">
+                {{ item.name | translate }}
+              </a>
+            </ng-container>
+            <ng-template #dropdown>
+              <a class="nav-link dropdown-toggle"
+                 data-bs-toggle="dropdown"
+                 href="#"
+                 role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                {{ item.name | translate }}
+              </a>
+              <div class="dropdown-menu"
+                   data-bs-popper="none">
+                <ng-container *ngFor="let child of item.children">
+                  <a class="dropdown-item"
+                     [class.active]="child.active"
+                     [routerLink]="child.link">
+                    {{ child.name | translate }}
+                  </a>
+                </ng-container>
+              </div>
+            </ng-template>
+          </li>
+        </ng-container>
+
+        <!-- <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/apartamento">
+            {{ "menu_apartamento" | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/localizacion">
+            {{ "menu_localizacion" | translate }}
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle show"
+             data-bs-toggle="dropdown"
+             href="#"
+             role="button"
+             aria-haspopup="true"
+             aria-expanded="true">
+            {{ "menu_experiencias" | translate }}
+          </a>
+          <div class="dropdown-menu show"
+               data-bs-popper="none">
+            <a class="dropdown-item"
+               href="#">Action</a>
+            <a class="dropdown-item"
+               href="#">Another action</a>
+            <a class="dropdown-item"
+               href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item"
+               href="#">Separated link</a>
+          </div>
+        </li> -->
+      </ul>
+      <!-- <form class="d-flex">
+        <input class="form-control me-sm-2"
+               type="text"
+               placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0"
+                type="submit">Search</button>
+      </form> -->
+    </div>
+  </div>
+</nav>
