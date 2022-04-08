@@ -51,23 +51,20 @@
         <div class="btn-group"
              role="group"
              aria-label="Basic radio toggle button group">
-          <input type="radio"
-                 class="btn-check"
-                 name="btnradio"
-                 id="btnradio1"
-                 autocomplete="off"
-                 checked="">
-          <label class="btn btn-outline-dark"
-                 for="btnradio1">Es</label>
-          <input type="radio"
-                 class="btn-check"
-                 name="btnradio"
-                 id="btnradio2"
-                 autocomplete="off"
-                 checked="">
-          <label class="btn btn-outline-dark"
-                 for="btnradio2">En</label>
-
+          <ng-container *ngFor="let lang of languages">
+            <input type="radio"
+                   class="btn-check"
+                   name="btnradio"
+                   [attr.id]="lang.name"
+                   autocomplete="off"
+                   [attr.checked]="lang.key == currentLang"
+                   (click)="changeCurrentLanguage(lang)">
+            <label class="btn btn-outline-dark"
+                   [attr.for]="lang.name"
+                   (click)="changeCurrentLanguage(lang)">
+              {{ lang.name}}
+            </label>
+          </ng-container>
         </div>
 
         <!-- <li class="nav-item">

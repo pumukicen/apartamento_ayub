@@ -1,5 +1,8 @@
+import { UserLangService } from './../translations/user-lang.service';
+import { pageLanguages } from './../translations/translations';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
+import { PAGE_LANGUAGE } from '../translations/translations';
 
 export interface MenuItem {
   name: string;
@@ -39,10 +42,23 @@ export class HeaderComponent implements OnInit {
     { name: 'menu_reserva', link: '/reserva' },
   ];
 
-  constructor(private router: Router) {}
+  languages: PAGE_LANGUAGE[] = pageLanguages;
+
+  get currentLang(): string | undefined {
+    return this.userLangService.getCurrentLang();
+  }
+
+  constructor(
+    private router: Router,
+    private userLangService: UserLangService
+  ) {}
 
   ngOnInit(): void {
     this.listenNavigation();
+  }
+
+  changeCurrentLanguage(lang: PAGE_LANGUAGE): void {
+    this.userLangService.changeLang(lang.key);
   }
 
   private listenNavigation(): void {
