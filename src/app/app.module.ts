@@ -1,3 +1,4 @@
+import { NormasComponent } from './pages/normas/normas.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -11,13 +12,13 @@ import { ApartamentoComponent } from './pages/apartamento/apartamento.component'
 import { BlogComponent } from './pages/blog/blog.component';
 import { EntornoComponent } from './pages/entorno/entorno.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
-import { LocalizacionComponent } from './pages/localizacion/localizacion.component';
 import { ReservaComponent } from './pages/reserva/reserva.component';
 import { RestaurantesComponent } from './pages/restaurantes/restaurantes.component';
 import { LugaresComponent } from './pages/lugares/lugares.component';
 import { EventosComponent } from './pages/eventos/eventos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { CondicionesComponent } from './pages/condiciones/condiciones.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -25,15 +26,16 @@ import { CondicionesComponent } from './pages/condiciones/condiciones.component'
     HeaderComponent,
     InicioComponent,
     ApartamentoComponent,
-    LocalizacionComponent,
-    EntornoComponent,
-    BlogComponent,
-    ReservaComponent,
     RestaurantesComponent,
     LugaresComponent,
     EventosComponent,
+    EntornoComponent,
     ServiciosComponent,
+    NormasComponent,
     CondicionesComponent,
+    BlogComponent,
+    ContactoComponent,
+    ReservaComponent,
   ],
   imports: [
     BrowserModule,

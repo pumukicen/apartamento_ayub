@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
   menuItems: MenuItem[] = [
     { name: 'menu_inicio', link: '/inicio' },
     { name: 'menu_apartamento', link: '/apartamento' },
-    { name: 'menu_localizacion', link: '/localizacion' },
     {
       name: 'menu_experiencias',
       children: [
@@ -27,7 +26,6 @@ export class HeaderComponent implements OnInit {
       ],
     },
     { name: 'menu_entorno', link: '/entorno' },
-    { name: 'menu_blog', link: '/blog' },
     {
       name: 'menu_informacion',
       children: [
@@ -36,7 +34,9 @@ export class HeaderComponent implements OnInit {
         { name: 'menu_informacion_condiciones', link: '/condiciones' },
       ],
     },
-    { name: 'menu_reserva', link: 'reserva' },
+    { name: 'menu_blog', link: '/blog' },
+    { name: 'menu_contacto', link: '/contacto' },
+    { name: 'menu_reserva', link: '/reserva' },
   ];
 
   constructor(private router: Router) {}
