@@ -19,6 +19,8 @@ import { EventosComponent } from './pages/eventos/eventos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { CondicionesComponent } from './pages/condiciones/condiciones.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { SignupComponent } from './authentication/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     BlogComponent,
     ContactoComponent,
     ReservaComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
