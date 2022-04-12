@@ -21,6 +21,7 @@ import { CondicionesComponent } from './pages/condiciones/condiciones.component'
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SignupComponent } from './authentication/signup/signup.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    GoogleMapsModule,
     TranslateModule.forRoot({
       loader: { provide: TranslateLoader, useClass: TranslationsService },
     }),
