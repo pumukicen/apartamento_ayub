@@ -1,9 +1,11 @@
 <h3>
   Localización
 </h3>
-
 <google-map width="750px"
-            height="450px"></google-map>
+            height="450px"
+            [center]="position">
+  <map-marker [position]="position"></map-marker>
+</google-map>
 <form>
   <fieldset>
     <legend>Contacto</legend>
@@ -37,7 +39,6 @@
                 id="mensaje"
                 rows="4"></textarea>
     </div>
-
     <button type="submit"
             class="btn btn-primary">Enviar</button>
   </fieldset>
