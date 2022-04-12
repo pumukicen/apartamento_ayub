@@ -16,3 +16,13 @@ export const TRANSLATIONS: LANGUAGES = {
 };
 
 export const DEFAULT_LANG: { [key: string]: string } = TRANSLATIONS['es-ES'];
+
+export interface PAGE_LANGUAGE {
+  key: string;
+  name: string;
+}
+
+export const pageLanguages: PAGE_LANGUAGE[] = [
+  { key: 'es-ES', name: 'Es' },
+  { key: 'en', name: 'En' },
+];

@@ -1,0 +1,16 @@
+:host {
+  position: fixed;
+  width: 100%;
+}
+
+.nav-link {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.btn-group {
+  background-color: var(--bs-gray-dark);
+  border-radius: 0.4rem;
+}
+.login-btn {
+  margin-right: 1em;
+}

@@ -6,6 +6,8 @@ import { LocalStorageService } from 'ngx-webstorage';
   providedIn: 'root',
 })
 export class UserLangService {
+  private currentLang: string | undefined = undefined;
+
   constructor(
     private localStorage: LocalStorageService,
     private translateService: TranslateService
@@ -17,8 +19,13 @@ export class UserLangService {
   }
 
   changeLang(lang: string): void {
+    this.currentLang = lang;
     this.translateService.use(lang);
     this.localStorage.store('user-lang', lang);
+  }
+
+  getCurrentLang(): string | undefined {
+    return this.currentLang;
   }
 
   private getUserLang(): string | null {
