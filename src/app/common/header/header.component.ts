@@ -1,8 +1,10 @@
-import { UserLangService } from './../translations/user-lang.service';
-import { pageLanguages } from './../translations/translations';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterEvent } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+
 import { PAGE_LANGUAGE } from '../translations/translations';
+import { AuthService } from './../../authentication/auth.service';
+import { pageLanguages } from './../translations/translations';
+import { UserLangService } from './../translations/user-lang.service';
 
 export interface MenuItem {
   name: string;
@@ -50,7 +52,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userLangService: UserLangService
+    private userLangService: UserLangService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +62,13 @@ export class HeaderComponent implements OnInit {
 
   changeCurrentLanguage(lang: PAGE_LANGUAGE): void {
     this.userLangService.changeLang(lang.key);
+  }
+
+  logout(): void {
+    this.authService.logout().then((e) => {
+      console.log('LOGOUT DONE');
+      console.log(e);
+    });
   }
 
   private listenNavigation(): void {
