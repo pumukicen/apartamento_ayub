@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "apartamento-ayub": {
+      "hosting": {
+        "apartamento-ayub": [
+          "apartamento-ayub"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "apartamento-ayub"
+  }
+}
