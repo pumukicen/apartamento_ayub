@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './authentication/login/login.component';
-import { SignupComponent } from './authentication/signup/signup.component';
 import { ApartamentoComponent } from './pages/apartamento/apartamento.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { CondicionesComponent } from './pages/condiciones/condiciones.component';
@@ -29,9 +27,12 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'reserva', component: ReservaComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./authentication/auth.module').then((m) => m.AuthModule),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "petinder-c1b1f": {
+      "hosting": {
+        "apartamento-ayub": [
+          "petinder-c1b1f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "petinder-c1b1f"
+  }
+}
