@@ -25,6 +25,7 @@ import { NormasComponent } from './pages/normas/normas.component';
 import { ReservaComponent } from './pages/reserva/reserva.component';
 import { RestaurantesComponent } from './pages/restaurantes/restaurantes.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
+import { FooterComponent } from './common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
     BlogComponent,
     ContactoComponent,
     ReservaComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
