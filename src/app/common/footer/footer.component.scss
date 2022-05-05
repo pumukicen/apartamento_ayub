@@ -1,3 +1,25 @@
-.box {
-  width: 60%;
+footer {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  bottom: 0;
+  height: 86px;
+  transition: 200ms;
+  &.expanded {
+    height: 276px;
+  }
+}
+.container-fluid {
+  padding: 10px 20px;
+}
+form {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  .col-3 {
+    padding: 4px;
+    min-width: 120px;
+    flex-grow: 1;
+  }
 }

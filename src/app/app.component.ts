@@ -1,6 +1,6 @@
-import { UserLangService } from './common/translations/user-lang.service';
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+
+import { UserLangService } from './common/translations/user-lang.service';
 
 @Component({
   selector: 'app-root',

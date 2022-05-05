@@ -1,54 +1,60 @@
-<footer class="bg-light text-center text-white pb-2">
-  <div class="container-fluid p-4 mb-4 bg-dark">
-    <div class="box">
-      <form style="text-align: left">
-        <div class="row justify-content-evenly">
-          <div class="col-3">
-            <div class="form-group">
-              <div class="input-group">
-                <input readonly=""
-                       rel="checkin"
-                       type="text"
-                       class="form-control datepicker_input in hasDatepicker"
-                       name="checkIn"
-                       autocomplete="off"
-                       placeholder="Llegada">
-                <span class="be-click-icon in-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="form-group">
-              <div class="input-group">
-                <input readonly=""
-                       rel="checkout"
-                       type="text"
-                       onchange="be_caldate()"
-                       class="form-control datepicker_input out hasDatepicker"
-                       autocomplete="off"
-                       placeholder="Salida">
-                <span class="be-click-icon out-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-3">
-            <select class="form-select"
-                    aria-label="Default select example">
-              <option selected>Adultos</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-          </div>
-          <div class="col-3">
-            <a style="width: 100%"
-               class="btn btn-primary">RESERVAR</a>
+<footer class="bg-light text-center text-white"
+        [class.expanded]="showFooterDetails">
+  <div class="container-fluid mb-4 bg-dark">
+    <form style="text-align: left">
+      <div class="col-3">
+        <div class="form-group">
+          <div class="input-group">
+            <!-- <input readonly=""
+                   rel="checkin"
+                   type="text"
+                   class="form-control datepicker_input in hasDatepicker"
+                   name="checkIn"
+                   autocomplete="off"
+                   placeholder="Llegada">
+            <span class="be-click-icon in-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span> -->
+            <!-- <input class="form-control"
+                   placeholder="yyyy-mm-dd"
+                   name="dp"
+                   [(ngModel)]="model"
+                   ngbDatepicker
+                   [footerTemplate]="footerTemplate"
+                   #d="ngbDatepicker">
+            <button class="btn btn-outline-secondary calendar"
+                    (click)="d.toggle()"
+                    type="button"></button> -->
           </div>
         </div>
-
-      </form>
-    </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <div class="input-group">
+            <input readonly=""
+                   rel="checkout"
+                   type="text"
+                   onchange="be_caldate()"
+                   class="form-control datepicker_input out hasDatepicker"
+                   autocomplete="off"
+                   placeholder="Salida">
+            <span class="be-click-icon out-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <select class="form-select"
+                aria-label="Default select example">
+          <option selected>Adultos</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <a style="width: 100%"
+           class="btn btn-primary">RESERVAR</a>
+      </div>
+    </form>
   </div>
 
   <section class="social-links mb-2">

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Comentario } from 'src/app/common/comentarios/comentarios.model';
+
+import { ComentariosService } from './../../common/comentarios/comentarios.service';
 
 @Component({
   selector: 'app-inicio',
@@ -6,7 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.scss'],
 })
 export class InicioComponent implements OnInit {
-  constructor() {}
+  comentarios: Comentario[];
 
-  ngOnInit(): void {}
+  constructor(private comentariosService: ComentariosService) {}
+
+  ngOnInit(): void {
+    this.comentariosService
+      .getComentarios()
+      .subscribe((comentarios: Comentario[]) => {
+        this.comentarios = this.randomComentarios(comentarios);
+      });
+  }
+
+  randomComentarios(comentarios: Comentario[]): Comentario[] {
+    return comentarios
+      .sort(() => (Math.random() > 0.5 ? 1 : -1))
+      .filter((c, i) => i < 3);
+  }
 }

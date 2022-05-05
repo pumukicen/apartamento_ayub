@@ -1,0 +1,14 @@
+:host {
+  max-width: 33%;
+  min-width: min(200px, 100%);
+  flex-grow: 1;
+  padding: 12px;
+}
+.comentario_img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 7px 7px 7 px rgba(0 0 0 / 0.5);
+  border: 3px ridge white;
+}

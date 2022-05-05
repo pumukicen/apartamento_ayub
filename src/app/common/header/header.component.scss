@@ -1,9 +1,12 @@
 :host {
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 .nav-link {
+  display: flex;
+  flex-flow: column;
   padding-top: 2px;
   padding-bottom: 2px;
 }

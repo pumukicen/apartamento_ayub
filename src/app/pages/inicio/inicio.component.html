@@ -115,19 +115,12 @@
       <div class="col-12 mb-5">
         <h3>Comentarios</h3>
       </div>
-      <ul class="col-4">
-        <blockquote>
-          <img src="./assets/img/persona.png"
-               alt=""
-               class="comentario_img" />
-          <p>“El piso era más grande de lo que esperábamos y la ubicación excelente, en todo el centro de Calatayud.”</p>
-        </blockquote>
-        <figcaption class="blockquote-footer">
-          <cite>Julían</cite>
-        </figcaption>
-      </ul>
-
-      <ul class="col-4">
+      <div class="comentarios-list">
+        <ng-container *ngFor="let comentario of comentarios">
+          <app-comentario [comentario]="comentario"></app-comentario>
+        </ng-container>
+      </div>
+      <!-- <ul class="col-4">
         <blockquote>
           <img src="./assets/img/persona.png"
                alt=""
@@ -148,7 +141,7 @@
         <figcaption class="blockquote-footer">
           <cite>Jesús</cite>
         </figcaption>
-      </ul>
+      </ul> -->
     </div>
   </section>
 

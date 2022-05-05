@@ -26,6 +26,7 @@ import { ReservaComponent } from './pages/reserva/reserva.component';
 import { RestaurantesComponent } from './pages/restaurantes/restaurantes.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { FooterComponent } from './common/footer/footer.component';
+import { ComentarioComponent } from './pages/inicio/comentario/comentario.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { FooterComponent } from './common/footer/footer.component';
     ContactoComponent,
     ReservaComponent,
     FooterComponent,
+    ComentarioComponent,
   ],
   imports: [
     BrowserModule,
