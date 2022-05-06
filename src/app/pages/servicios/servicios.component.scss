@@ -1,3 +1,7 @@
+.iconos {
+  display: flex;
+  flex-wrap: wrap;
+}
 .box-tech {
   width: 350px;
   height: 350px;
@@ -29,6 +33,7 @@
       text-transform: uppercase;
       margin-top: 0em;
       transition: all 0.2s ease-in-out;
+      text-align: justify;
     }
 
     .desc {
