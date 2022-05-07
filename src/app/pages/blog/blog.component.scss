@@ -1,0 +1,78 @@
+h2 {
+  color: #fff;
+  font-size: 180%;
+  font-weight: 300;
+}
+
+p {
+  color: #fff;
+  line-height: 120%;
+  margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.noticias {
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: 75%;
+  max-width: 1000px;
+  margin: 5px auto;
+  padding: 10px 10px;
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.box {
+  width: 100%;
+  margin: 10;
+  padding: 10%;
+  border: 1px hidden;
+  position: relative;
+}
+
+.box {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
+    no-repeat center;
+  background-size: cover;
+  border-radius: 0 0 10px 10px;
+}
+
+.first {
+  display: block;
+  position: relative;
+  max-width: 100%;
+}
+
+.second {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #fff;
+}
+
+.box .second {
+  opacity: 0;
+  backface-visibility: hidden;
+}
+
+.box:hover {
+  background: linear-gradient(rgba(134, 89, 89, 0.88), rgba(134, 89, 89, 0.74)),
+    no-repeat center;
+  transition: background 2s;
+}
+
+.box:hover .second {
+  opacity: 1;
+  transition: opacity 0.8s;
+}
+
+.box:hover .first {
+  opacity: 0;
+}
