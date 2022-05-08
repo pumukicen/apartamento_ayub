@@ -23,7 +23,11 @@ export class ComentariosService {
       user: 'Jesus',
       date: new Date(),
     },
-    { text: 'Perfecto para mis bacanales.', user: 'Adrian', date: new Date() },
+    {
+      text: 'Perfecto para mis vacaciones de Seaman Santa en familia.',
+      user: 'Adrián',
+      date: new Date(),
+    },
   ];
 
   set comentarios(comentarios: Comentario[]) {

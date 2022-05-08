@@ -14,7 +14,7 @@ export class FooterComponent implements OnInit {
     const page = document.querySelector('.page-content') as HTMLElement;
     this.renderer.listen(document, 'scroll', () => {
       this.showFooterDetails =
-        (html?.scrollTop || 0) + screen.height + 60 >= page?.scrollHeight;
+        (html?.scrollTop || 0) + screen.height + 30 >= page?.scrollHeight;
     });
   }
 }

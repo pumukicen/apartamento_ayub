@@ -51,6 +51,7 @@ import { ComentarioComponent } from './pages/inicio/comentario/comentario.compon
     BrowserModule,
     AppRoutingModule,
     GoogleMapsModule,
+    // MdbRippleModule,
     TranslateModule.forRoot({
       loader: { provide: TranslateLoader, useClass: TranslationsService },
     }),
