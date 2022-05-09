@@ -1,165 +1,84 @@
-<p>reserva works!</p>
-<div class="section">
-  <label for="guestname"
-         class="field-label">Please Enter Your Name</label>
-  <label for="guestname"
-         class="field prepend-icon">
-    <input type="text"
-           name="guestname"
-           id="guestname"
-           class="gui-input"
-           required=""
-           placeholder="John Doe/Jane Doe">
-    <span class="field-icon"><i class="fa fa-user"></i></span>
-  </label>
-</div>
+<div class="container p-5 col-4 mt-3 bg-light">
+  <form>
+    <fieldset>
+      <h3>Reserva</h3>
+      <div class="form-group">
+        <label for="exampleInputName"
+               class="form-label mt-4">Nombre</label>
+        <input type="name"
+               class="form-control"
+               id="exampleInputName"
+               aria-describedby="nameHelp">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputSurname"
+               class="form-label mt-4">Apellidos</label>
+        <input type="surname"
+               class="form-control"
+               id="exampleInputSurname"
+               aria-describedby="surnameHelp">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputemail1"
+               class="form-label mt-4">Email</label>
+        <input type="email"
+               class="form-control"
+               id="exampleInputEmail1"
+               aria-describedby="emailHelp">
+      </div>
 
-<div class="frm-row">
-  <div class="section colm colm6">
-    <label for="guestemail"
-           class="field-label">Email Address</label>
-    <label for="guestemail"
-           class="field prepend-icon">
-      <input type="email"
-             name="guestemail"
-             id="guestemail"
-             class="gui-input"
-             required=""
-             placeholder="john@something.com">
-      <span class="field-icon"><i class="fa fa-envelope"></i></span>
-    </label>
-  </div>
+      <div class="form-group mt-4">
+        <div class="input-group">
+          <input readonly=""
+                 rel="checkin"
+                 type="text"
+                 class="form-control datepicker_input in hasDatepicker"
+                 name="checkIn"
+                 autocomplete="off"
+                 placeholder="Llegada">
+          <span class="be-click-icon in-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span>
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <div class="input-group">
+          <input readonly=""
+                 rel="checkout"
+                 type="text"
+                 onchange="be_caldate()"
+                 class="form-control datepicker_input out hasDatepicker"
+                 autocomplete="off"
+                 placeholder="Salida">
+          <span class="be-click-icon out-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span>
+        </div>
+      </div>
 
-  <div class="section colm colm6">
-    <label for="guestelephone"
-           class="field-label">Telephone / Mobile</label>
-    <label for="guestelephone"
-           class="field prepend-icon">
-      <input type="text"
-             name="guestelephone"
-             id="guestelephone"
-             class="gui-input"
-             required=""
-             placeholder="Telephone / Moble Number">
-      <span class="field-icon"><i class="fa fa-phone-square"></i></span>
-    </label>
-  </div>
-</div>
+      <div class="row">
+        <div class="col-4 mt-4">
+          <select class="form-select"
+                  aria-label="Default select example">
+            <option selected>Adultos</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="col-4 mt-4">
+          <select class="form-select"
+                  aria-label="Default select example">
+            <option selected>Niños</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-4 mt-4">
+        <a style="width: 100%"
+           class="btn btn-primary">RESERVAR</a>
+      </div>
 
-<div class="frm-row">
-  <div class="section colm colm6">
-    <label for="adults"
-           class="field-label">Number of Adults</label>
-    <label for="adults"
-           class="field prepend-icon">
-      <input type="number"
-             id="adults"
-             name="adults"
-             class="gui-input"
-             required=""
-             placeholder="Number of adults">
-      <span class="field-icon"><i class="fa fa-users"></i></span>
-    </label>
-  </div>
-
-  <div class="section colm colm6">
-    <label for="children"
-           class="field-label">Number of Children</label>
-    <label for="children"
-           class="field prepend-icon">
-      <input type="number"
-             id="children"
-             name="children"
-             class="gui-input"
-             required=""
-             placeholder="Number of children">
-      <span class="field-icon"><i class="fa fa-users"></i></span>
-    </label>
-  </div>
-</div>
-
-<div class="frm-row">
-  <div class="section colm colm6">
-    <label for="checkin"
-           class="field-label">Check-in Date</label>
-    <label for="checkin"
-           class="field prepend-icon">
-      <input type="text"
-             id="checkin"
-             name="checkin"
-             class="gui-input"
-             required=""
-             placeholder="mm/dd/yyyy">
-      <span class="field-icon"><i class="fa fa-calendar"></i></span>
-    </label>
-  </div>
-
-  <div class="section colm colm6">
-    <label for="checkout"
-           class="field-label">Check-out Date</label>
-    <label for="checkout"
-           class="field prepend-icon">
-      <input type="text"
-             id="checkout"
-             name="checkout"
-             class="gui-input"
-             required=""
-             placeholder="mm/dd/yyyy">
-      <span class="field-icon"><i class="fa fa-calendar"></i></span>
-    </label>
-  </div>
-</div>
-
-<div class="spacer-t20 spacer-b30">
-  <div class="tagline"><span>Please answer these questions for a pleasant stay</span></div>
-</div>
-
-<div class="frm-row">
-  <div class="option-group field">
-
-    <div class="section colm colm6">
-      <label class="switch">
-        <input type="checkbox"
-               name="switch1"
-               id="switch1"
-               value="switch1">
-        <span class="switch-label"
-              data-on="YES"
-              data-off="NO"></span>
-        <span>Will you be bringing a pet?</span>
-      </label>
-    </div>
-
-    <div class="section colm colm6">
-      <label class="switch">
-        <input type="checkbox"
-               name="switch2"
-               id="switch2"
-               value="switch2">
-        <span class="switch-label"
-              data-on="YES"
-              data-off="NO"></span>
-        <span>Do you need us to pick you up?</span>
-      </label>
-    </div>
-
-  </div>
-</div>
-
-
-
-<div class="section">
-  <label for="comment"
-         class="field-label">Anything else we should know about?</label>
-  <label for="comment"
-         class="field prepend-icon">
-    <textarea class="gui-textarea"
-              id="comment"
-              name="comment"
-              placeholder="Let us know about any special accommodation needs"></textarea>
-    <span class="field-icon"><i class="fa fa-comments"></i></span>
-    <span class="input-hint">
-      <strong>Please:</strong> Be as descriptive as possible
-    </span>
-  </label>
+    </fieldset>
+  </form>
 </div>

@@ -4,9 +4,9 @@ footer {
   z-index: 100;
   bottom: 0;
   height: 70px;
-  transition: 200ms;
+  transition: 600ms;
   &.expanded {
-    height: 347px;
+    height: 350px;
   }
 }
 .container-fluid {
