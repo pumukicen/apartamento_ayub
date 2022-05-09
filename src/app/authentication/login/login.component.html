@@ -3,12 +3,12 @@
   <fieldset>
     <legend>Login</legend>
     <div class="form-group">
-      <label for="exampleInputEmail1"
+      <label for="inputEmail1"
              class="form-label mt-4">Email</label>
-      <input formControlName="name"
+      <input formControlName="email"
              type="email"
              class="form-control"
-             id="exampleInputEmail1"
+             id="inputEmail1"
              aria-describedby="emailHelp"
              placeholder="Enter email"
              required>
@@ -16,24 +16,20 @@
              class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
-      <label formControlName="password"
-             for="exampleInputPassword1"
-             class="form-label mt-4"
-             required>Password</label>
-      <input type="password"
+      <label for="inputPassword1"
+             class="form-label mt-4">Password</label>
+      <input formControlName="password"
+             type="password"
              class="form-control"
-             id="exampleInputPassword1"
-             placeholder="Password">
+             id="inputPassword1"
+             placeholder="Password"
+             required>
     </div>
     <div class="form-submit-content">
+      {{form.invalid}}
       <button [disabled]="form.invalid"
               type="submit"
               class="btn btn-primary">Submit</button>
     </div>
   </fieldset>
 </form>
-
-
-    </fieldset>
-  </form>
-</div>

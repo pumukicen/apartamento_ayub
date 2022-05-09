@@ -4,26 +4,57 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  UserCredential,
 } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { updateProfile } from '@firebase/auth';
+import { from, map, tap } from 'rxjs';
 
 export interface LoginData {
+  name?: string;
   email: string;
   password: string;
 }
-
+export interface UserData {
+  name: string | null;
+  email: string | null;
+}
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private auth: Auth) {}
+  constructor(private auth: Auth, private router: Router) {}
 
   login({ email, password }: LoginData) {
-    return signInWithEmailAndPassword(this.auth, email, password);
+    from(signInWithEmailAndPassword(this.auth, email, password)).subscribe(() =>
+      this.redirect()
+    );
   }
-  register({ email, password }: LoginData) {
-    return createUserWithEmailAndPassword(this.auth, email, password);
+
+  register({ name, email, password }: LoginData) {
+    from(createUserWithEmailAndPassword(this.auth, email, password))
+      .pipe(
+        map((user: UserCredential) => {
+          updateProfile(user.user, { displayName: name });
+          return user;
+        })
+      )
+      .subscribe(() => this.redirect());
   }
+
   logout() {
-    return signOut(this.auth);
+    from(signOut(this.auth)).subscribe(() => this.redirect());
+  }
+
+  currentUser(): UserData | null {
+    if (!this.auth.currentUser) return null;
+    return {
+      name: this.auth.currentUser.displayName,
+      email: this.auth.currentUser.email,
+    };
+  }
+
+  redirect(): void {
+    this.router.navigate(['/inicio']);
   }
 }

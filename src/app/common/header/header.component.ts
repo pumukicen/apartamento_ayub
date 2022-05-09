@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 import { PAGE_LANGUAGE } from '../translations/translations';
-import { AuthService } from './../../authentication/auth.service';
+import { AuthService, UserData } from './../../authentication/auth.service';
 import { pageLanguages } from './../translations/translations';
 import { UserLangService } from './../translations/user-lang.service';
 
@@ -50,6 +50,10 @@ export class HeaderComponent implements OnInit {
     return this.userLangService.getCurrentLang();
   }
 
+  get currentUser(): UserData | null {
+    return this.authService.currentUser();
+  }
+
   constructor(
     private router: Router,
     private userLangService: UserLangService,
@@ -65,10 +69,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    this.authService.logout().then((e) => {
-      console.log('LOGOUT DONE');
-      console.log(e);
-    });
+    this.authService.logout();
   }
 
   private listenNavigation(): void {

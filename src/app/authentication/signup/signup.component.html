@@ -1,14 +1,25 @@
 <form [formGroup]="form"
       (ngSubmit)="onSubmit()">
   <fieldset>
-    <legend>Login</legend>
+    <legend>Signup</legend>
     <div class="form-group">
-      <label for="exampleInputEmail1"
+      <label for="inputName"
+             class="form-label mt-4">Name</label>
+      <input formControlName="name"
+             type="text"
+             class="form-control"
+             id="inputName"
+             placeholder="Enter your name"
+             minlength="3"
+             required>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail"
              class="form-label mt-4">Email</label>
       <input formControlName="email"
              type="email"
              class="form-control"
-             id="exampleInputEmail1"
+             id="inputEmail"
              aria-describedby="emailHelp"
              placeholder="Enter email"
              required>
@@ -16,13 +27,23 @@
              class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1"
+      <label for="inputPassword1"
              class="form-label mt-4">Password</label>
       <input formControlName="password"
              type="password"
              class="form-control"
-             id="exampleInputPassword1"
+             id="inputPassword1"
              placeholder="Password"
+             required>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword2"
+             class="form-label mt-4">Repeat password</label>
+      <input formControlName="password2"
+             type="password"
+             class="form-control"
+             id="inputPassword2"
+             placeholder="Repeat password"
              required>
     </div>
     <div class="form-submit-content">

@@ -27,11 +27,6 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'reserva', component: ReservaComponent },
-  {
-    path: 'auth',
-    loadChildren: () =>
-      import('./authentication/auth/auth.module').then((m) => m.AuthModule),
-  },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   {
     path: 'auth',
@@ -41,7 +36,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

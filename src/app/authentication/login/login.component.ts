@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (this.authService.currentUser()) this.authService.redirect();
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -33,14 +34,9 @@ export class LoginComponent implements OnInit {
     const email: string = this.email?.value;
     const password: string = this.password?.value;
     this.login({ email, password });
-    // this.formData.emit(this.form.value);
   }
 
   login(loginData: LoginData) {
-    this.authService
-      .login(loginData)
-      // .then(() => this.router.navigate(['/dashboard']))
-      .then(() => console.log('PUTA MADRE'))
-      .catch((e) => console.log(e.message));
+    this.authService.login(loginData);
   }
 }

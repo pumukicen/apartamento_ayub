@@ -16,11 +16,19 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (this.authService.currentUser()) this.authService.redirect();
     this.form = this.fb.group({
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
+      password2: ['', Validators.required],
     });
   }
+
+  get name() {
+    return this.form.get('name');
+  }
+
   get email() {
     return this.form.get('email');
   }
@@ -30,17 +38,13 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
+    const name: string = this.name?.value;
     const email: string = this.email?.value;
     const password: string = this.password?.value;
-    this.register({ email, password });
-    // this.formData.emit(this.form.value);
+    this.register({ name, email, password });
   }
 
   register(loginData: LoginData) {
-    this.authService
-      .register(loginData)
-      // .then(() => this.router.navigate(['/dashboard']))
-      .then(() => console.log('PUTA MADRE'))
-      .catch((e) => console.log(e.message));
+    this.authService.register(loginData);
   }
 }
