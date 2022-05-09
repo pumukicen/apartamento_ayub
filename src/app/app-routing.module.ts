@@ -33,6 +33,11 @@ const routes: Routes = [
       import('./authentication/auth/auth.module').then((m) => m.AuthModule),
   },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./authentication/auth.module').then((m) => m.AuthModule),
+  },
 ];
 
 @NgModule({

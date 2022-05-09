@@ -4,8 +4,6 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  User,
-  UserCredential,
 } from '@angular/fire/auth';
 
 export interface LoginData {
@@ -19,23 +17,13 @@ export interface LoginData {
 export class AuthService {
   constructor(private auth: Auth) {}
 
-  login({ email, password }: LoginData): Promise<UserCredential> {
+  login({ email, password }: LoginData) {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
-
-  register({ email, password }: LoginData): Promise<UserCredential> {
+  register({ email, password }: LoginData) {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
-
-  logout(): Promise<void> {
+  logout() {
     return signOut(this.auth);
-  }
-
-  currentUser(): User | null {
-    return this.auth.currentUser;
-  }
-
-  isLoged(): boolean {
-    return !!this.currentUser;
   }
 }

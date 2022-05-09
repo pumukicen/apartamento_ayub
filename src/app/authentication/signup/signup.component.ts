@@ -11,18 +11,16 @@ export class SignupComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private fb: FormBuilder,
     private readonly authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
+    this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
-    console.log(this.authService.currentUser());
   }
-
   get email() {
     return this.form.get('email');
   }
@@ -38,15 +36,11 @@ export class SignupComponent implements OnInit {
     // this.formData.emit(this.form.value);
   }
 
-  private register(loginData: LoginData) {
+  register(loginData: LoginData) {
     this.authService
       .register(loginData)
       // .then(() => this.router.navigate(['/dashboard']))
-      .then((data) => {
-        console.log('SIGNUP DONE');
-        console.log(data);
-        console.log(this.authService.currentUser());
-      })
+      .then(() => console.log('PUTA MADRE'))
       .catch((e) => console.log(e.message));
   }
 }

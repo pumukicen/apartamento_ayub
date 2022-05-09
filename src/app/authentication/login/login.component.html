@@ -1,30 +1,37 @@
-<div class="container p-5 col-4 mt-3 bg-light">
-  <form>
-    <fieldset>
-      <legend>Iniciar Sesión</legend>
-      <div class="form-group">
-        <label for="exampleInputEmail1"
-               class="form-label mt-4">Email</label>
-        <input type="email"
-               class="form-control"
-               id="exampleInputEmail1"
-               aria-describedby="emailHelp"
-               placeholder="Correo eléctronico">
-        <small id="emailHelp"
-               class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1"
-               class="form-label mt-4">Contraseña</label>
-        <input type="password"
-               class="form-control"
-               id="exampleInputPassword1"
-               placeholder="Contraseña">
-      </div>
-      <div class="form-submit-content mt-4">
-        <button type="submit"
-                class="btn btn-primary">Enviar</button>
-      </div>
+<form [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Login</legend>
+    <div class="form-group">
+      <label for="exampleInputEmail1"
+             class="form-label mt-4">Email</label>
+      <input formControlName="name"
+             type="email"
+             class="form-control"
+             id="exampleInputEmail1"
+             aria-describedby="emailHelp"
+             placeholder="Enter email"
+             required>
+      <small id="emailHelp"
+             class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label formControlName="password"
+             for="exampleInputPassword1"
+             class="form-label mt-4"
+             required>Password</label>
+      <input type="password"
+             class="form-control"
+             id="exampleInputPassword1"
+             placeholder="Password">
+    </div>
+    <div class="form-submit-content">
+      <button [disabled]="form.invalid"
+              type="submit"
+              class="btn btn-primary">Submit</button>
+    </div>
+  </fieldset>
+</form>
 
 
     </fieldset>
