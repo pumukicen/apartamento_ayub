@@ -2,15 +2,11 @@ footer {
   position: fixed;
   width: 100%;
   z-index: 100;
-  bottom: 0;
-  height: 70px;
   transition: 600ms;
-  &.expanded {
-    height: 350px;
-  }
 }
 .container-fluid {
   padding: 10px 20px;
+  margin: 0px !important;
 }
 form {
   width: 100%;
@@ -22,6 +18,9 @@ form {
     min-width: 120px;
     flex-grow: 1;
   }
+}
+.footer-details {
+  padding-top: 8px;
 }
 
 .empresa {

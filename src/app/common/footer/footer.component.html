@@ -1,18 +1,31 @@
 <footer class="bg-light text-center"
-        [class.expanded]="showFooterDetails">
-  <div class="container-fluid mb-2 bg-dark">
+        [style.bottom]="footerBottom">
+  <div #footerBook
+       class="container-fluid mb-2 bg-dark">
     <form style="text-align: left">
       <div class="col-3">
         <div class="form-group">
           <div class="input-group">
-            <input readonly=""
+            <div class="col-12">
+              <!-- <div class="input-group">
+                <input class="form-control"
+                       placeholder="yyyy-mm-dd"
+                       name="dp"
+                       [(ngModel)]="model"
+                       ngbDatepicker>
+                <button class="btn btn-outline-secondary calendar"
+                        (click)="caca()"
+                        type="button"></button>
+              </div> -->
+            </div>
+            <!-- <input readonly=""
                    rel="checkin"
                    type="text"
                    class="form-control datepicker_input in hasDatepicker"
                    name="checkIn"
                    autocomplete="off"
                    placeholder="Llegada">
-            <span class="be-click-icon in-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span>
+            <span class="be-click-icon in-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span> -->
             <!-- <input class="form-control"
                    placeholder="yyyy-mm-dd"
                    name="dp"
@@ -56,50 +69,50 @@
       </div>
     </form>
   </div>
-
-  <section class="social-links mb-1">
-    <span class="text-muted">Síguenos en:</span>
-    <a class="btn btn-outline-dark btn-floating m-2"
-       href="#!"
-       role="button"><i class="fab fa-facebook-f"></i></a>
-    <a class="btn btn-outline-dark btn-floating m-2"
-       href="#!"
-       role="button"><i class="fab fa-instagram"></i></a>
-    <a class="btn btn-outline-dark btn-floating m-2"
-       href="#!"
-       role="button"><i class="fab fa-whatsapp"></i></a>
-    <a class="btn btn-outline-dark btn-floating m-2"
-       href="#!"
-       role="button"><i class="fab fa-google"></i></a>
-  </section>
-  <section class="empresa">
-    <div class="row">
-      <div class="col-6">
-        <h6 class="text-uppercase fw-bold">Apartamento Ayub</h6>
-        <p>La calidez y el confort de nuestro apartamento<br>
-          harán que tu estancia sea más que una estancia,<br>
-          te vas a sentir tan bien como en tu propia casa.</p>
+  <div #footerDetails
+       class="footer-details">
+    <section class="social-links mb-1">
+      <span class="text-muted">Síguenos en:</span>
+      <a class="btn btn-outline-dark btn-floating m-2"
+         href="#!"
+         role="button"><i class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-2"
+         href="#!"
+         role="button"><i class="fab fa-instagram"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-2"
+         href="#!"
+         role="button"><i class="fab fa-whatsapp"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-2"
+         href="#!"
+         role="button"><i class="fab fa-google"></i></a>
+    </section>
+    <section class="empresa">
+      <div class="row">
+        <div class="col-6">
+          <h6 class="text-uppercase fw-bold">Apartamento Ayub</h6>
+          <p>La calidez y el confort de nuestro apartamento<br>
+            harán que tu estancia sea más que una estancia,<br>
+            te vas a sentir tan bien como en tu propia casa.</p>
+        </div>
+        <div class="col-6">
+          <h6 class="text-uppercase fw-bold">Contacto</h6>
+          <p class="credits">Cl. Valentin Gómez, Nº 12 - 1º D<br>
+            50.300 Calatayud (Zaragoza)<br>
+            Teléfono: 685848829<br>
+            Email: <a href="mailto:apartamentoayub@gmail.com"
+               title="Apartamento Ayub">apartamentoayub@gmail.com</a><br>
+        </div>
       </div>
-      <div class="col-6">
-        <h6 class="text-uppercase fw-bold">Contacto</h6>
-        <p class="credits">Cl. Valentin Gómez, Nº 12 - 1º D<br>
-          50.300 Calatayud (Zaragoza)<br>
-          Teléfono: 685848829<br>
-          Email: <a href="mailto:apartamentoayub@gmail.com"
-             title="Apartamento Ayub">apartamentoayub@gmail.com</a><br>
-      </div>
-    </div>
-    <!-- <div class="col">
+      <!-- <div class="col">
       <a href="#!"
          class="text">Politica de privacidad</a>
     </div>-->
-  </section>
-
-  <section class="copyright text-center p-3"
-           style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-white"
-       href="">Apartamento Ayub</a>
-  </section>
-
+    </section>
+    <section class="copyright text-center p-3"
+             style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white"
+         href="">Apartamento Ayub</a>
+    </section>
+  </div>
 </footer>
