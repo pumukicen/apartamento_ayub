@@ -7,6 +7,12 @@
         <div class="form-group">
           <div class="input-group">
             <div class="col-12">
+              <input matInput
+                     [matDatepicker]="picker"
+                     placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix
+                                     [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
               <!-- <div class="input-group">
                 <input class="form-control"
                        placeholder="yyyy-mm-dd"

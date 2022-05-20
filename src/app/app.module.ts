@@ -1,3 +1,4 @@
+import { MaterialModule } from './material.module';
 import { NgModule } from '@angular/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
@@ -54,7 +55,7 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
     BrowserModule,
     AppRoutingModule,
     GoogleMapsModule,
-    // MdbRippleModule,
+    MaterialModule,
     TranslateModule.forRoot({
       loader: { provide: TranslateLoader, useClass: TranslationsService },
     }),
