@@ -1,81 +1,90 @@
-<div class="container p-5 col-4 mt-3 bg-light">
-  <form>
+<div class="form-container">
+  <form [formGroup]="form">
     <fieldset>
       <h3>Reserva</h3>
       <div class="form-group">
-        <label for="exampleInputName"
-               class="form-label mt-4">Nombre</label>
+        <label class="form-label mt-4">Nombre</label>
         <input type="name"
                class="form-control"
-               id="exampleInputName"
-               aria-describedby="nameHelp">
+               formControlName="name"
+               minlength="3"
+               [readonly]="!!user">
       </div>
       <div class="form-group">
-        <label for="exampleInputSurname"
-               class="form-label mt-4">Apellidos</label>
+        <label class="form-label mt-4">Apellidos</label>
         <input type="surname"
                class="form-control"
-               id="exampleInputSurname"
-               aria-describedby="surnameHelp">
+               formControlName="surname"
+               minlength="3">
       </div>
       <div class="form-group">
-        <label for="exampleInputemail1"
-               class="form-label mt-4">Email</label>
+        <label class="form-label mt-4">Email</label>
         <input type="email"
                class="form-control"
-               id="exampleInputEmail1"
-               aria-describedby="emailHelp">
+               formControlName="email"
+               [readonly]="!!user">
       </div>
-
+      <div class="form-group">
+        <label class="form-label mt-4">Teléfono</label>
+        <input type="phone"
+               class="form-control"
+               formControlName="phone"
+               minlength="9">
+      </div>
       <div class="row">
         <div class="form-group  col-6">
-          <label for="exampleInputLlegada"
-                 class="form-label mt-4">LLegada</label>
+          <label class="form-label mt-4">LLegada</label>
           <div class="input-group">
-            <input readonly=""
-                   rel="checkin"
-                   type="text"
-                   class="form-control datepicker_input in hasDatepicker"
-                   name="checkIn"
-                   autocomplete="off"
-                   placeholder="dd/mm/yyyy">
-            <span class="be-click-icon in-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span>
+            <div class="col-12 date-input">
+              <input matInput
+                     class="form-control"
+                     [matDatepicker]="picker1"
+                     placeholder="Entrada"
+                     formControlName="llegada"
+                     [max]="dateSalida"
+                     (click)="picker1.opened = true" />
+              <mat-datepicker-toggle matSuffix
+                                     [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </div>
           </div>
         </div>
         <div class="form-group col-6">
-          <label for="exampleInputLlegada"
-                 class="form-label mt-4">Salida</label>
+          <label class="form-label mt-4">Salida</label>
           <div class="input-group">
-            <input readonly=""
-                   rel="checkout"
-                   type="text"
-                   onchange="be_caldate()"
-                   class="form-control datepicker_input out hasDatepicker"
-                   autocomplete="off"
-                   placeholder="dd/mm/xxxx">
-            <span class="be-click-icon out-icon input-group-addon"><span class="glyphicon glyphicon-calendar color-main"></span></span>
+            <div class="col-12 date-input">
+              <input matInput
+                     class="form-control"
+                     [matDatepicker]="picker2"
+                     placeholder="Salida"
+                     formControlName="salida"
+                     [min]="dateLlegada"
+                     (click)="picker2.opened = true" />
+              <mat-datepicker-toggle matSuffix
+                                     [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </div>
           </div>
         </div>
       </div>
-
-
-
-
       <div class="row">
-        <div class="col-6 mt-5">
+        <div class="col-6">
+          <label class="form-label mt-4">Adultos</label>
           <select class="form-select"
-                  aria-label="Default select example">
-            <option selected>Adultos</option>
+                  aria-label="Default select"
+                  placeholder="Adultos"
+                  formControlName="adultos">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
           </select>
         </div>
-        <div class="col-6 mt-5">
+        <div class="col-6">
+          <label class="form-label mt-4">Niños</label>
           <select class="form-select"
-                  aria-label="Default select example">
-            <option selected>Niños</option>
+                  aria-label="Default select"
+                  formControlName="niños">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -83,11 +92,11 @@
           </select>
         </div>
       </div>
-      <div class="col-4 mt-5">
-        <a style="width: 100%"
-           class="btn btn-primary">RESERVAR</a>
-      </div>
-
+      <button type="submit"
+              class="btn btn-primary mt-5"
+              style="width:100%;"
+              (click)="reservar()"
+              [disabled]="form.invalid">RESERVAR</button>
     </fieldset>
   </form>
 </div>

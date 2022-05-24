@@ -8,7 +8,7 @@ import {
 } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { updateProfile } from '@firebase/auth';
-import { from, map, tap } from 'rxjs';
+import { from, map, tap, BehaviorSubject } from 'rxjs';
 
 export interface LoginData {
   name?: string;
@@ -23,7 +23,16 @@ export interface UserData {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private auth: Auth, private router: Router) {}
+  private _user = new BehaviorSubject<UserData | null>(null);
+  user$ = this._user.asObservable();
+
+  constructor(private auth: Auth, private router: Router) {
+    this.auth.onAuthStateChanged((user) =>
+      this._user.next(
+        !user ? null : { name: user?.displayName, email: user?.email }
+      )
+    );
+  }
 
   login({ email, password }: LoginData) {
     from(signInWithEmailAndPassword(this.auth, email, password)).subscribe(() =>
@@ -47,11 +56,7 @@ export class AuthService {
   }
 
   currentUser(): UserData | null {
-    if (!this.auth.currentUser) return null;
-    return {
-      name: this.auth.currentUser.displayName,
-      email: this.auth.currentUser.email,
-    };
+    return this._user.value;
   }
 
   redirect(): void {

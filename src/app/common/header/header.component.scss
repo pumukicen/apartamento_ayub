@@ -16,5 +16,14 @@
   border-radius: 0.4rem;
 }
 .login-btn {
-  margin-right: 1em;
+  margin-left: 1em;
+}
+.dropdown-menu.user-settings {
+  left: -112px;
+  right: 0px;
+  min-width: 164px;
+}
+.nav-link.user-options {
+  padding: 0.375rem 0.75rem;
+  color: #fff;
 }
