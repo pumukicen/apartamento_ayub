@@ -12,5 +12,5 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
   menu_informacion_condiciones: 'Conditions',
   menu_blog: 'Blog',
   menu_contacto: 'Contact',
-  menu_reserva: 'Booking',
+  menu_reservar: 'Booking',
 };

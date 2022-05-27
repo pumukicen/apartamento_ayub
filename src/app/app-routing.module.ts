@@ -10,7 +10,9 @@ import { EventosComponent } from './pages/eventos/eventos.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LugaresComponent } from './pages/lugares/lugares.component';
 import { NormasComponent } from './pages/normas/normas.component';
-import { ReservaComponent } from './pages/reserva/reserva.component';
+import { ReservaConfirmComponent } from './pages/reserva-confirm/reserva-confirm.component';
+import { ReservaConfirmGuard } from './pages/reserva-confirm/reserva-confirm.guard';
+import { ReservarComponent } from './pages/reservar/reservar.component';
 import { RestaurantesComponent } from './pages/restaurantes/restaurantes.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 
@@ -26,7 +28,12 @@ const routes: Routes = [
   { path: 'condiciones', component: CondicionesComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'reserva', component: ReservaComponent },
+  { path: 'reservar', component: ReservarComponent },
+  {
+    path: 'confirm',
+    component: ReservaConfirmComponent,
+    canActivate: [ReservaConfirmGuard],
+  },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   {
     path: 'auth',

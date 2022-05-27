@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit {
     },
     { name: 'menu_blog', link: '/blog' },
     { name: 'menu_contacto', link: '/contacto' },
-    { name: 'menu_reserva', link: '/reserva' },
+    { name: 'menu_reservar', link: '/reservar' },
   ];
 
   languages: PAGE_LANGUAGE[] = pageLanguages;

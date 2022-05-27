@@ -12,8 +12,8 @@ export class MyToastrService {
       closeButton: true,
     });
   }
-  error(msg: string, title?: string): void {
-    this.toastrService.error(msg, title, {
+  error(msg: string): void {
+    this.toastrService.error(msg, 'ERROR', {
       closeButton: true,
     });
   }

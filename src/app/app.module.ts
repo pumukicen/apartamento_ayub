@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,7 +30,8 @@ import { ComentarioComponent } from './pages/inicio/comentario/comentario.compon
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LugaresComponent } from './pages/lugares/lugares.component';
 import { NormasComponent } from './pages/normas/normas.component';
-import { ReservaComponent } from './pages/reserva/reserva.component';
+import { ReservarComponent } from './pages/reservar/reservar.component';
+import { ReservaConfirmComponent } from './pages/reserva-confirm/reserva-confirm.component';
 import { RestaurantesComponent } from './pages/restaurantes/restaurantes.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 
@@ -47,7 +50,8 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
     CondicionesComponent,
     BlogComponent,
     ContactoComponent,
-    ReservaComponent,
+    ReservarComponent,
+    ReservaConfirmComponent,
     FooterComponent,
     ComentarioComponent,
     PageContentDirective,
@@ -68,10 +72,12 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
       separator: '.',
       caseSensitive: true,
     }),
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
+    provideDatabase(() => getDatabase()),
   ],
   providers: [],
   bootstrap: [AppComponent],

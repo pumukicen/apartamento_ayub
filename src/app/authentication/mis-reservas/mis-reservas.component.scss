@@ -1,0 +1,12 @@
+.reservas-list {
+  width: 100%;
+  margin-top: 42px;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+}
+.reservas-container {
+  max-width: 400px;
+  min-width: 300px;
+  margin: auto;
+  padding-top: 3em;
+}

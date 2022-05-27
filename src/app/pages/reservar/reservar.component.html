@@ -43,6 +43,7 @@
                      placeholder="Entrada"
                      formControlName="llegada"
                      [max]="dateSalida"
+                     [min]="tomorrow"
                      (click)="picker1.opened = true" />
               <mat-datepicker-toggle matSuffix
                                      [for]="picker1"></mat-datepicker-toggle>

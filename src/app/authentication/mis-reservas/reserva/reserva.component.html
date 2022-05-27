@@ -1,0 +1,16 @@
+<div>
+  <b>Fecha llegada:</b> {{ reserva.llegada | dfnsFormat: 'dd/MM/yyyy'}}
+</div>
+<div>
+  <b>Fecha salida:</b> {{ reserva.salida | dfnsFormat: 'dd/MM/yyyy' }}
+</div>
+<div>
+  <b>Adultos:</b> {{ reserva.adultos }}
+</div>
+<div *ngIf="children">
+  <b>Niños:</b> {{ children }}
+</div>
+<div class="reserva-estado"
+     [ngClass]="estadoStyle">
+  {{ estado }}
+</div>

@@ -37,13 +37,11 @@ export class AuthService {
     private myToastService: MyToastrService
   ) {
     this.auth.onAuthStateChanged((user) => {
-      console.log(user);
       const name = user?.displayName ? user.displayName.split(' ')[0] : null;
       const surname = user?.displayName ? user.displayName.split(' ')[1] : null;
       const email = user?.email || null;
       const phone = user?.phoneNumber || null;
       const photo = user?.photoURL || null;
-      console.log(surname);
       this._user.next(!user ? null : { name, surname, email, phone, photo });
     });
   }
@@ -51,7 +49,7 @@ export class AuthService {
   login({ email, password }: LoginData) {
     from(signInWithEmailAndPassword(this.auth, email, password)).subscribe(
       () => this.redirect(),
-      () => this.myToastService.error('email o contraseña incorrectos', 'ERROR')
+      () => this.myToastService.error('email o contraseña incorrectos')
     );
   }
 
@@ -65,7 +63,7 @@ export class AuthService {
       )
       .subscribe(
         () => this.redirect(),
-        () => this.myToastService.error('este emai ya está registrado', 'ERROR')
+        () => this.myToastService.error('este emai ya está registrado')
       );
   }
 
@@ -85,14 +83,21 @@ export class AuthService {
     return this.auth.currentUser;
   }
 
-  updateUserData(updatedName: string): void {
+  updateUserData(name: string, surname: string): void {
     if (!this.fireBaseUser) {
-      this.myToastService.error('No hay ningún usuario registrado.', 'ERROR');
+      this.myToastService.error('No hay ningún usuario registrado');
     } else {
       from(
-        updateProfile(this.fireBaseUser, { displayName: updatedName })
+        updateProfile(this.fireBaseUser, {
+          displayName: `${name} ${surname}`,
+        })
       ).subscribe(() => {
-        this.myToastService.success('Se han actualizado tus datos personales.');
+        this.myToastService.success('Se han actualizado tus datos personales');
+        this._user.next({
+          ...this._user.value,
+          name: name,
+          surname: surname,
+        } as UserData);
       });
     }
   }

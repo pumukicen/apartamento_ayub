@@ -1,1 +1,8 @@
-<p>mis-reservas works!</p>
+<div class="reservas-container">
+  <h3>Mis reservas</h3>
+  <div class="reservas-list">
+    <ng-container *ngFor="let reserva of reservas">
+      <app-reserva [reserva]="reserva"></app-reserva>
+    </ng-container>
+  </div>
+</div>

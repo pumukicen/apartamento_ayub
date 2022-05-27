@@ -47,8 +47,8 @@ export class ClienteComponent {
     console.log('MODIFICAR DATOS');
     const name = this.form.get('name')?.value;
     const surname = this.form.get('surname')?.valid
-      ? ' ' + this.form.get('surname')?.value
+      ? this.form.get('surname')?.value
       : '';
-    this.authService.updateUserData(name + surname);
+    this.authService.updateUserData(name, surname);
   }
 }

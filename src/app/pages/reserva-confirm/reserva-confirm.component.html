@@ -1,0 +1,12 @@
+<h2>GRACIAS</h2>
+<h3>Tu solicitud de reserva ha sido registrada.</h3>
+<p>Nos pondremos en contacto contigo lo antes posible para confirmarla.</p>
+<ng-container *ngIf="isLoged">
+  <p>Para ver el estado de tu reserva, accede a <a routerLink="/auth/reservas">Tus reservas</a></p>
+</ng-container>
+<ng-container *ngIf="!isLoged">
+  <p>Para poder ver el estado de tu reserva debes estar registrado</p>
+  <button class="btn btn-primary mt-5"
+          style="width:100%;"
+          (click)="goLogin()">SIGNUP</button>
+</ng-container>

@@ -1,4 +1,3 @@
-import { ReservaService } from './../../pages/reserva/reserva.service';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -11,10 +10,9 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 
+import { ReservaService } from './../../pages/reservar/reserva.service';
 import { FooterService } from './footer.service';
-// import { NgbDatepicker, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',

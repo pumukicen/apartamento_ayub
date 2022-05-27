@@ -1,14 +1,15 @@
 export enum EstadoReserva {
-  PROCESANDO = "procesando",
-  ACEPTADA = "aceptada",
-  RECHAZADA = "rechazada"
+  PROCESANDO = 'procesando',
+  ACEPTADA = 'aceptada',
+  RECHAZADA = 'rechazada',
+  AHORA = 'ahora',
 }
 
 export interface Reserva {
   name: string | undefined;
   surname: string | undefined;
   email: string | undefined;
-  phone: number | undefined;
+  phone: string | undefined;
   llegada: Date | undefined;
   salida: Date | undefined;
   adultos: number | undefined;

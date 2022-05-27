@@ -4,14 +4,14 @@
 
 export const environment = {
   firebase: {
-    projectId: 'apartamento-ayub',
-    appId: '1:787875081285:web:1c8e8c7fb654ea6133872c',
-    databaseURL: 'https://apartamento-ayub-default-rtdb.firebaseio.com',
-    storageBucket: 'apartamento-ayub.appspot.com',
+    databaseURL: 'https://petinder-c1b1f-default-rtdb.firebaseio.com',
     locationId: 'europe-west',
-    apiKey: 'AIzaSyDQ8JKThgzhVYV71u_8P4qwCScusOWDa0A',
-    authDomain: 'apartamento-ayub.firebaseapp.com',
-    messagingSenderId: '787875081285',
+    apiKey: 'AIzaSyCHRaURFVD0bmqVrGcFDWyrl3G7kwSh1b8',
+    authDomain: 'petinder-c1b1f.firebaseapp.com',
+    projectId: 'petinder-c1b1f',
+    storageBucket: 'petinder-c1b1f.appspot.com',
+    messagingSenderId: '124350205440',
+    appId: '1:124350205440:web:3e6cd1f3718f58a2b752e5',
   },
   production: false,
 };
