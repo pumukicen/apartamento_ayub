@@ -42,6 +42,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
       if (event instanceof NavigationEnd) {
         this.footerService.setHeight(this.footerHeight);
         this.isReservaOpened = this.router.url === '/reserva';
+        setTimeout(() => this.arrangeFooter());
       }
     });
     this.form = this.formBuilder.group({
@@ -71,17 +72,13 @@ export class FooterComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    const html = document.querySelector('html');
-    const page = document.querySelector('.page-content') as HTMLElement;
-    this.renderer.listen(document, 'scroll', () => {
-      this.showFooterDetails =
-        (html?.scrollTop || 0) + screen.height >= page?.scrollHeight;
-    });
+    this.listenScroll();
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => (this.viewIsInit = true));
   }
+
   get bookHeight(): number {
     return !this.footerBook ? 60 : this.footerBook.nativeElement.offsetHeight;
   }
@@ -112,5 +109,19 @@ export class FooterComponent implements OnInit, AfterViewInit {
 
   reservar(): void {
     this.router.navigate(['/reserva']);
+  }
+  private listenScroll(): void {
+    const html = document.querySelector('html');
+    const page = document.querySelector('.page-content') as HTMLElement;
+    this.renderer.listen(document, 'scroll', () => {
+      this.showFooterDetails =
+        (html?.scrollTop || 0) + screen.height > page?.scrollHeight;
+    });
+  }
+
+  private arrangeFooter(): void {
+    const page = document.querySelector('.page-content') as HTMLElement;
+    if (page) page.scrollTo(0, 0);
+    setTimeout(() => (this.showFooterDetails = false));
   }
 }

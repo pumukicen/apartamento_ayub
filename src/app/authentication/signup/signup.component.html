@@ -32,7 +32,8 @@
                type="password"
                class="form-control"
                id="inputPassword1"
-               required>
+               required
+               minlength="6">
       </div>
       <div class="form-group">
         <label for="inputPassword2"
@@ -41,7 +42,8 @@
                type="password"
                class="form-control"
                id="inputPassword2"
-               required>
+               required
+               minlength="6">
       </div>
       <div class="form-submit-content">
         <button [disabled]="form.invalid"

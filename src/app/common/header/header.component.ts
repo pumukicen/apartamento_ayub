@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 import { PAGE_LANGUAGE } from '../translations/translations';
 import { AuthService, UserData } from './../../authentication/auth.service';
@@ -19,6 +25,7 @@ export interface MenuItem {
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('navbar') navbar: ElementRef;
   menuItems: MenuItem[] = [
     { name: 'menu_inicio', link: '/inicio' },
     { name: 'menu_apartamento', link: '/apartamento' },
@@ -57,7 +64,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private userLangService: UserLangService,
-    private authService: AuthService
+    private authService: AuthService,
+    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
@@ -74,6 +82,10 @@ export class HeaderComponent implements OnInit {
 
   private listenNavigation(): void {
     this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        if (this.navbar)
+          this.renderer.removeClass(this.navbar.nativeElement, 'show');
+      }
       if (event instanceof NavigationEnd) {
         this.unactiveItems(this.menuItems);
         const selectedItem = this.findItemByUrl(event.url, this.menuItems);

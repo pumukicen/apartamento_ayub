@@ -43,3 +43,21 @@
 .dropdown-toggle::after {
   border: none !important;
 }
+.toast-top-right {
+  top: 68px !important;
+  right: 12px !important;
+}
+.toast-close-button {
+  color: white !important;
+  opacity: 0.8 !important;
+  &:hover {
+    color: white !important;
+    opacity: 1 !important;
+  }
+}
+.toast-container .ngx-toastr {
+  box-shadow: 0 0 12px #99999978 !important;
+  &:hover {
+    box-shadow: 0 0 12px #99999978 !important;
+  }
+}

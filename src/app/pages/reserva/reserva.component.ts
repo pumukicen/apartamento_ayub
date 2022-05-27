@@ -15,14 +15,13 @@ export class ReservaComponent implements OnDestroy {
   form: FormGroup;
   reserva: Reserva;
   _subs: (Subscription | undefined)[] = [];
-
   user: UserData | null;
 
   constructor(private formBuilder: FormBuilder, private reservaService: ReservaService, private authService: AuthService) {
     this.reserva = this.reservaService.reserva;
     this.form = this.formBuilder.group({
       name: new FormControl(this.user?.name || this.reserva.name, [Validators.required]),
-      surname: new FormControl(this.reserva.surname, [Validators.required]),
+      surname: new FormControl(this.user?.surname || this.reserva.surname, [Validators.required]),
       email: new FormControl(this.user?.email || this.reserva.email, [Validators.required, Validators.email]),
       phone: new FormControl(this.reserva.phone, [Validators.required, Validators.pattern('[- +()0-9]+')]),
       llegada: new FormControl(this.reserva.llegada, [Validators.required]),
@@ -42,6 +41,7 @@ export class ReservaComponent implements OnDestroy {
       this.user = user;
       if (!user) return;
       this.form.controls["name"].setValue(user.name);
+      this.form.controls["surname"].setValue(user.surname);
       this.form.controls["email"].setValue(user.email);
     }))
   }

@@ -11,7 +11,8 @@
             aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse"
+    <div #navbar
+         class="collapse navbar-collapse"
          id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <ng-container *ngFor="let item of menuItems">
@@ -49,8 +50,8 @@
         </ng-container>
       </ul>
       <ng-container *ngIf="currentUser; else logOptions">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
+        <ul class="navbar-nav ">
+          <li class="nav-item dropdown user-button">
             <button class="nav-link dropdown-toggle login-btn btn btn-secondary user-options"
                     data-bs-toggle="dropdown"
                     href="#"
@@ -61,25 +62,44 @@
             </button>
             <div class="dropdown-menu user-settings"
                  data-bs-popper="none">
+              <div class="user-profile">
+                <div class="user-data">
+                  <span>{{currentUser.name}}</span>
+                  <span class="user-email">{{currentUser.email}}</span>
+                </div>
+                <div class="user-avatar">
+                  <img width="42px"
+                       src="./assets/img/persona.png"
+                       alt=""
+                       class="comentario_img">
+                </div>
+
+              </div>
               <a class="dropdown-item"
                  routerLink="auth/cliente">
-                Area cliente
+                Mis datos
+              </a>
+              <a class="dropdown-item"
+                 routerLink="auth/reservas">
+                Mis reservas
               </a>
               <a class="dropdown-item"
                  (click)="logout()">
-                Logout
+                Cerrar sesion
               </a>
             </div>
           </li>
         </ul>
       </ng-container>
       <ng-template #logOptions>
-        <button type="button"
-                class="btn btn-secondary login-btn"
-                routerLink="auth/login">LOGIN</button>
-        <button type="button"
-                class="btn btn-secondary login-btn"
-                routerLink="auth/signup">SIGNUP</button>
+        <div class="log-options">
+          <button type="button"
+                  class="btn btn-secondary login-btn"
+                  routerLink="auth/login">LOGIN</button>
+          <button type="button"
+                  class="btn btn-secondary login-btn"
+                  routerLink="auth/signup">SIGNUP</button>
+        </div>
       </ng-template>
       <!-- <div class="btn-group"
            role="group"
