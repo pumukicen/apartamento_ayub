@@ -40,9 +40,10 @@
 
   .user-avatar {
     min-width: 42px;
-    min-height: 42px;
+    height: 42px;
     background-color: grey;
     border-radius: 50%;
+    overflow: hidden;
   }
   .user-data {
     display: flex;
