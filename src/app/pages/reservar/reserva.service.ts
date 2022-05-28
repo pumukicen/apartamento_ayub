@@ -27,6 +27,7 @@ export class ReservaService {
     adultos: undefined,
     niños: 0,
     estado: EstadoReserva.PROCESANDO,
+    observaciones: undefined,
   };
   get reserva(): Reserva {
     return this._reserva;
@@ -74,6 +75,10 @@ export class ReservaService {
 
   get reservasList(): Reserva[] {
     return this._reservas;
+  }
+
+  set observaciones(value: string | undefined) {
+    this._reserva.observaciones = value;
   }
 
   constructor(
@@ -167,5 +172,6 @@ export class ReservaService {
     this.salida = undefined;
     this.adultos = undefined;
     this.niños = 0;
+    this.observaciones = undefined;
   }
 }

@@ -15,4 +15,5 @@ export interface Reserva {
   adultos: number | undefined;
   niños?: number | undefined;
   estado: EstadoReserva;
+  observaciones: string | undefined;
 }

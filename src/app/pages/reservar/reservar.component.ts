@@ -53,6 +53,7 @@ export class ReservarComponent implements OnDestroy {
       salida: new FormControl(this.reserva.salida, [Validators.required]),
       adultos: new FormControl(this.reserva.adultos, [Validators.required]),
       niños: new FormControl(this.reserva.niños),
+      observaciones: new FormControl(this.reserva.observaciones),
     });
     this._subs.push(
       this.form
@@ -101,6 +102,13 @@ export class ReservarComponent implements OnDestroy {
       this.form
         .get('niños')
         ?.valueChanges.subscribe((value) => (this.reservaService.niños = value))
+    );
+    this._subs.push(
+      this.form
+        .get('observaciones')
+        ?.valueChanges.subscribe(
+          (value) => (this.reservaService.observaciones = value)
+        )
     );
     this._subs.push(
       this.authService.user$.subscribe((user) => {

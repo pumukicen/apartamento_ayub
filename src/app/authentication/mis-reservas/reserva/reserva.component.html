@@ -10,6 +10,9 @@
 <div *ngIf="children">
   <b>Niños:</b> {{ children }}
 </div>
+<div *ngIf="reserva.observaciones">
+  <b>Observaciones:</b> {{ reserva.observaciones }}
+</div>
 <div class="reserva-estado"
      [ngClass]="estadoStyle">
   {{ estado }}
