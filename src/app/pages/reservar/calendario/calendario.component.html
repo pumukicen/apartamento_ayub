@@ -1,0 +1,47 @@
+<div class="dialog-bg"
+     [class.opened]="opened"
+     (click)="opened = false"></div>
+<div class="dialog-content"
+     [class.opened]="opened">
+  <div class="calendar-header">
+    <button *ngIf="calendar"
+            class="btn btn-primary"
+            (click)="moveMonth(-1, $event)"
+            [disabled]="noPrevious(calendar.viewDate)">prev</button>
+    <div *ngIf="calendar"
+         class="calendar-header-text">{{calendar.viewDate.toLocaleDateString("es", {month: "long"}) | uppercase}} {{calendar.viewDate.getFullYear()}}</div>
+    <button class="btn btn-primary"
+            (click)="moveMonth(1, $event)">next</button>
+  </div>
+  <mwl-calendar-month-view #calendar
+                           [viewDate]="viewDate"
+                           [events]="events"
+                           [locale]="'es'"
+                           [cellTemplate]="cell"
+                           [weekStartsOn]="1">
+  </mwl-calendar-month-view>
+  <div class="calendar-footer">
+    {{alertMsg}}
+  </div>
+</div>
+<ng-template #cell
+             let-day="day">
+  <div class="calendario-day"
+       [class.opened]="opened"
+       [class.bussy]="day.events.length"
+       [class.weekend]="day.day == 0 || day.day == 6"
+       [class.other-month]="day.date.getMonth() != calendar.viewDate.getMonth()"
+       [class.today]="today(day.date)"
+       [class.past]="past(day.date)"
+       [class.since]="isSince(day.date)"
+       [class.until]="isUntil(day.date)"
+       [class.book]="isBook(day.date)"
+       [class.unavailable]="isUnavailable(day.date)"
+       (click)="onSelectDate(day.date)">
+    <div class="day-msg day-msg-since"
+         *ngIf="isSince(day.date)">LLEGADA</div>
+    {{day.date.getDate()}}
+    <div class=" day-msg day-msg-until"
+         *ngIf="isUntil(day.date)">SALIDA</div>
+  </div>
+</ng-template>

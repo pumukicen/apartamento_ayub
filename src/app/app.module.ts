@@ -8,7 +8,10 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
@@ -30,8 +33,9 @@ import { ComentarioComponent } from './pages/inicio/comentario/comentario.compon
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LugaresComponent } from './pages/lugares/lugares.component';
 import { NormasComponent } from './pages/normas/normas.component';
-import { ReservarComponent } from './pages/reservar/reservar.component';
 import { ReservaConfirmComponent } from './pages/reserva-confirm/reserva-confirm.component';
+import { CalendarioComponent } from './pages/reservar/calendario/calendario.component';
+import { ReservarComponent } from './pages/reservar/reservar.component';
 import { RestaurantesComponent } from './pages/restaurantes/restaurantes.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 
@@ -55,11 +59,13 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
     FooterComponent,
     ComentarioComponent,
     PageContentDirective,
+    CalendarioComponent,
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     GoogleMapsModule,
     MaterialModule,
@@ -78,6 +84,10 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

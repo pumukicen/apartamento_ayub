@@ -1,2 +1,56 @@
-.container-reserva {
+.open-calendar-btn {
+  display: flex;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  background-color: #78c2ad;
+  color: white;
+  position: relative;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-left: 6px;
+  cursor: pointer;
+  line-height: 11px;
+  .shrink {
+    position: absolute;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .no-shrink {
+    opacity: 0;
+    font-size: 11px;
+  }
+  &:hover {
+    background-color: #66a593;
+    width: 100px;
+    min-width: 100px;
+    .shrink {
+      opacity: 0;
+    }
+    .no-shrink {
+      opacity: 1;
+    }
+  }
+}
+.label-date {
+  display: flex;
+  align-items: center;
+}
+.open-calendar-btn,
+.shrink,
+.no-shrink {
+  transition: 200ms;
+}
+.date-input {
+  input {
+    cursor: pointer;
+  }
+  mat-datepicker-toggle {
+    pointer-events: none;
+  }
 }

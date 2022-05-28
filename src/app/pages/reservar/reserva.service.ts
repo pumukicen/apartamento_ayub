@@ -7,39 +7,27 @@ import {
   AngularFireDatabase,
   AngularFireList,
 } from '@angular/fire/compat/database';
-import { endOfDay, startOfDay } from 'date-fns';
+import { endOfDay, startOfDay, addDays } from 'date-fns';
 @Injectable({
   providedIn: 'root',
 })
 export class ReservaService {
   _reservaIsDone: boolean;
   _reservasDBList: AngularFireList<Reserva>;
-  _reservas: Reserva[];
-  _misReservas: Reserva[];
+  _reservas: Reserva[] = [];
+  _misReservas: Reserva[] = [];
 
   _reserva: Reserva = {
     name: undefined,
     surname: undefined,
     email: undefined,
-    phone: '627922929',
+    phone: undefined,
     llegada: undefined,
     salida: undefined,
-    adultos: 2,
+    adultos: undefined,
     niños: 0,
     estado: EstadoReserva.PROCESANDO,
   };
-  // _reserva: Reserva = {
-  //   name: 'hola',
-  //   surname: 'hola',
-  //   email: 'adrian@gmail.com',
-  //   phone: 627022020,
-  //   llegada: new Date(),
-  //   salida: new Date(),
-  //   adultos: 1,
-  //   niños: 1,
-  //   estado: EstadoReserva.PROCESANDO,
-  // };
-
   get reserva(): Reserva {
     return this._reserva;
   }
@@ -56,19 +44,19 @@ export class ReservaService {
     this._reserva.email = value;
   }
 
-  set phone(value: string) {
+  set phone(value: string | undefined) {
     this._reserva.phone = value;
   }
 
-  set llegada(value: Date) {
+  set llegada(value: Date | undefined) {
     this._reserva.llegada = value;
   }
 
-  set salida(value: Date) {
+  set salida(value: Date | undefined) {
     this._reserva.salida = value;
   }
 
-  set adultos(value: number) {
+  set adultos(value: number | undefined) {
     this._reserva.adultos = value;
   }
 
@@ -84,6 +72,10 @@ export class ReservaService {
     return this._misReservas;
   }
 
+  get reservasList(): Reserva[] {
+    return this._reservas;
+  }
+
   constructor(
     private db: AngularFireDatabase,
     private authService: AuthService,
@@ -91,7 +83,8 @@ export class ReservaService {
     private router: Router
   ) {
     this.authService.user$.subscribe((user) => {
-      if (user && !this._reservasDBList) this.getReservas();
+      if (user && this._reservasDBList) this.setMisReservas();
+      if (!this._reservasDBList) this.getReservas();
     });
   }
 
@@ -106,6 +99,7 @@ export class ReservaService {
       .then(
         () => {
           this.myToastrService.success('Se ha creado tu solicitud de reserva.');
+          this.cleanReserva();
           this._reservaIsDone = true;
           this.router.navigate(['/confirm']);
         },
@@ -118,11 +112,14 @@ export class ReservaService {
       this._reservas = this.getReservasFuturas(
         reservas.map((r) => this.convertReservaFromDB(r))
       );
-      this._misReservas = this.getReservasByUser(
-        this._reservas,
-        this.authService.currentUser()
-      );
+      this.setMisReservas();
     });
+  }
+  private setMisReservas(): void {
+    this._misReservas = this.getReservasByUser(
+      this._reservas,
+      this.authService.currentUser()
+    );
   }
   private getReservasByUser(
     reservas: Reserva[],
@@ -155,17 +152,20 @@ export class ReservaService {
     const entry = JSON.parse(JSON.stringify(reserva));
     entry.llegada = new Date(reserva.llegada as number);
     entry.salida = new Date(reserva.salida as number);
-    if (
-      entry.llegada >= startOfDay(new Date()) &&
-      entry.salida <= endOfDay(new Date())
-    )
+    if (entry.llegada <= new Date() && entry.salida >= new Date())
       entry.estado = EstadoReserva.AHORA;
     return entry;
   }
 
   private getReservasFuturas(reservas: Reserva[]): Reserva[] {
-    return reservas.filter(
-      (r) => (r.llegada as Date) >= startOfDay(new Date())
-    );
+    return reservas.filter((r) => (r.salida as Date) >= new Date());
+  }
+
+  private cleanReserva(): void {
+    this.phone = undefined;
+    this.llegada = undefined;
+    this.salida = undefined;
+    this.adultos = undefined;
+    this.niños = 0;
   }
 }

@@ -21,18 +21,18 @@ export class ReservaComponent implements OnInit {
   }
 
   get estado(): string {
-    if (this.reserva.estado === EstadoReserva.PROCESANDO) return 'PROCESANDO';
+    if (this.reserva.estado === EstadoReserva.AHORA) return 'ACTUAL';
     else if (this.reserva.estado === EstadoReserva.ACEPTADA)
       return 'CONFIRMADA';
     else if (this.reserva.estado === EstadoReserva.RECHAZADA)
       return 'RECHAZADA';
-    else return 'ACTUAL';
+    else return 'PROCESANDO';
   }
 
   get estadoStyle(): string {
-    if (this.reserva.estado === EstadoReserva.PROCESANDO) return 'process';
+    if (this.reserva.estado === EstadoReserva.AHORA) return 'now';
     else if (this.reserva.estado === EstadoReserva.ACEPTADA) return 'confirm';
     else if (this.reserva.estado === EstadoReserva.RECHAZADA) return 'denied';
-    else return 'now';
+    else return 'process';
   }
 }

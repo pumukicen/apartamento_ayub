@@ -34,7 +34,13 @@
       </div>
       <div class="row">
         <div class="form-group  col-6">
-          <label class="form-label mt-4">LLegada</label>
+          <label class="label-date form-label mt-4">
+            LLegada
+            <!-- <span class="open-calendar-btn">
+              <div class="shrink">?</div>
+              <div class="no-shrink">DISPONIBILIDAD</div>
+            </span> -->
+          </label>
           <div class="input-group">
             <div class="col-12 date-input">
               <input matInput
@@ -44,7 +50,7 @@
                      formControlName="llegada"
                      [max]="dateSalida"
                      [min]="tomorrow"
-                     (click)="picker1.opened = true" />
+                     (click)="openCalendar()" />
               <mat-datepicker-toggle matSuffix
                                      [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
@@ -52,7 +58,13 @@
           </div>
         </div>
         <div class="form-group col-6">
-          <label class="form-label mt-4">Salida</label>
+          <label class="label-date form-label mt-4">
+            Salida
+            <!-- <span class="open-calendar-btn">
+              <div class="shrink">?</div>
+              <div class="no-shrink">DISPONIBILIDAD</div>
+            </span> -->
+          </label>
           <div class="input-group">
             <div class="col-12 date-input">
               <input matInput
@@ -61,7 +73,7 @@
                      placeholder="Salida"
                      formControlName="salida"
                      [min]="dateLlegada"
-                     (click)="picker2.opened = true" />
+                     (click)="openCalendar()" />
               <mat-datepicker-toggle matSuffix
                                      [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
@@ -102,3 +114,9 @@
     </fieldset>
   </form>
 </div>
+<app-calendario class="app-dialog"
+                [alertMsg]="calendarAlert"
+                [since]="llegada"
+                [until]="dateSalida"
+                [nextBook]="nextBook"
+                (selectDate)="onSelectDate($event)"></app-calendario>

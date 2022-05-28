@@ -1,4 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
+import { CalendarioComponent } from './calendario/calendario.component';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -18,11 +19,15 @@ import { ReservaService } from './reserva.service';
   styleUrls: ['./reservar.component.scss'],
 })
 export class ReservarComponent implements OnDestroy {
+  @ViewChild(CalendarioComponent) calendario: CalendarioComponent;
   form: FormGroup;
   reserva: Reserva;
   _subs: (Subscription | undefined)[] = [];
   user: UserData | null;
-
+  calendarFor: 'since' | 'until';
+  calendarAlert: string;
+  nextBook: Date;
+  private blocked: boolean;
   constructor(
     private formBuilder: FormBuilder,
     private reservaService: ReservaService,
@@ -100,13 +105,21 @@ export class ReservarComponent implements OnDestroy {
     this._subs.push(
       this.authService.user$.subscribe((user) => {
         this.user = user;
-        if (!user) return;
-        this.form.controls['name'].setValue(user.name);
-        this.form.controls['surname'].setValue(user.surname);
-        this.form.controls['email'].setValue(user.email);
-        this.form.controls['name'].disable();
-        this.form.controls['surname'].disable();
-        this.form.controls['email'].disable();
+        if (!user) {
+          this.form.controls['name'].setValue(undefined);
+          this.form.controls['surname'].setValue(undefined);
+          this.form.controls['email'].setValue(undefined);
+          this.form.controls['name'].enable();
+          this.form.controls['surname'].enable();
+          this.form.controls['email'].enable();
+        } else {
+          this.form.controls['name'].setValue(user.name);
+          this.form.controls['surname'].setValue(user.surname);
+          this.form.controls['email'].setValue(user.email);
+          this.form.controls['name'].disable();
+          this.form.controls['surname'].disable();
+          this.form.controls['email'].disable();
+        }
       })
     );
   }
@@ -119,13 +132,52 @@ export class ReservarComponent implements OnDestroy {
   get tomorrow(): Date {
     return addDays(new Date(), 1);
   }
-
+  get llegada(): Date {
+    return this.form.get('llegada')?.value;
+  }
   get dateLlegada(): Date {
-    return this.form.get('llegada')?.value || this.tomorrow;
+    return this.llegada || this.tomorrow;
   }
 
   get dateSalida(): Date {
     return this.form.get('salida')?.value;
+  }
+
+  openCalendar(): void {
+    this.calendarFor = this.llegada && !this.dateSalida ? 'until' : 'since';
+    this.calendario.opened = true;
+  }
+
+  onSelectDate(date: Date): void {
+    if (this.blocked) return;
+    if (this.calendarFor === 'since') {
+      this.form.controls['salida'].setValue(undefined);
+      this.form.controls['llegada'].setValue(date);
+      this.setNextBook();
+      this.calendarFor = 'until';
+    } else if (this.calendarFor === 'until') {
+      if (date < this.llegada) {
+        this.calendarAlert =
+          'La fecha de salida debe ser posterior a la fecha de llegada';
+      } else {
+        this.form.controls['salida'].setValue(date);
+        this.calendarAlert = '';
+        this.blocked = true;
+        setTimeout(() => {
+          this.calendario.opened = false;
+          this.blocked = false;
+        }, 500);
+      }
+    }
+  }
+
+  private setNextBook(): void {
+    const events = JSON.parse(
+      JSON.stringify(this.calendario.events.map((e) => new Date(e.start)))
+    ).sort((a: Date, b: Date) => (a > b ? 1 : -1));
+    this.nextBook = events.find(
+      (e: Date) => new Date(e) > new Date(this.llegada)
+    );
   }
 
   ngOnDestroy(): void {

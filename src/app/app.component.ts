@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserLangService } from './common/translations/user-lang.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

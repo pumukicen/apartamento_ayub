@@ -16,6 +16,7 @@
                      placeholder="Llegada"
                      formControlName="llegada"
                      [max]="dateSalida"
+                     [min]="tomorrow"
                      (click)="picker1.opened = true" />
               <mat-datepicker-toggle matSuffix
                                      [for]="picker1"></mat-datepicker-toggle>
@@ -33,7 +34,7 @@
                      [matDatepicker]="picker2"
                      placeholder="Salida"
                      formControlName="salida"
-                     [min]="dateLlegada"
+                     [min]="min"
                      (click)="picker2.opened = true" />
               <mat-datepicker-toggle matSuffix
                                      [for]="picker2"></mat-datepicker-toggle>

@@ -10,9 +10,11 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
+import { addDays } from 'date-fns';
 
 import { ReservaService } from './../../pages/reservar/reserva.service';
 import { FooterService } from './footer.service';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -39,7 +41,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.footerService.setHeight(this.footerHeight);
-        this.isReservaOpened = this.router.url === '/reserva';
+        this.isReservaOpened = this.router.url === '/reservar';
         setTimeout(() => this.arrangeFooter());
       }
     });
@@ -96,7 +98,9 @@ export class FooterComponent implements OnInit, AfterViewInit {
   get footerHeight(): number {
     return this.bookHeight + this.detailsHeight;
   }
-
+  get min(): Date {
+    return this.dateLlegada || this.tomorrow;
+  }
   get dateLlegada(): Date {
     return this.form.get('llegada')?.value;
   }
@@ -104,7 +108,9 @@ export class FooterComponent implements OnInit, AfterViewInit {
   get dateSalida(): Date {
     return this.form.get('salida')?.value;
   }
-
+  get tomorrow(): Date {
+    return addDays(new Date(), 1);
+  }
   reservar(): void {
     this.router.navigate(['/reservar']);
   }
@@ -116,7 +122,6 @@ export class FooterComponent implements OnInit, AfterViewInit {
         (html?.scrollTop || 0) + screen.height > page?.scrollHeight;
     });
   }
-
   private arrangeFooter(): void {
     const page = document.querySelector('.page-content') as HTMLElement;
     if (page) page.scrollTo(0, 0);
