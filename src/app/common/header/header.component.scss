@@ -44,6 +44,8 @@
     background-color: grey;
     border-radius: 50%;
     overflow: hidden;
+    background-position: center center;
+    background-size: cover;
   }
   .user-data {
     display: flex;
@@ -76,4 +78,7 @@
     position: static;
     margin-top: 40px;
   }
+}
+.dropdown-item {
+  cursor: pointer;
 }

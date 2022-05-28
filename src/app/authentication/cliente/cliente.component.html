@@ -3,6 +3,14 @@
     <fieldset>
       <h3>Mis datos personales</h3>
       <div class="form-group">
+        <div class="cliente-avatar"
+             [style.backgroundImage]="photoUrl"
+             (click)="changeAvatar()">
+          <div class="add-avatar">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
         <label class="form-label mt-4">Nombre</label>
         <input type="name"
                class="form-control"
@@ -35,3 +43,4 @@
 </div>
 <div class="recaptcha-container"
      id="recaptcha-container"></div>
+<app-avatar class="opened"></app-avatar>

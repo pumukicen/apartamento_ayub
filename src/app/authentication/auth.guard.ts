@@ -5,7 +5,7 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { AuthService } from './auth.service';
 
@@ -19,9 +19,11 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
+    let sub: Subscription;
     if (!this.authService.currentUser()) {
       let wait = false;
-      this.authService.user$.subscribe((value) => {
+      sub = this.authService.user$.subscribe((value) => {
+        if (value) sub.unsubscribe();
         if (wait) this.router.navigate(value ? [state.url] : ['auth/login']);
         wait = true;
       });

@@ -34,22 +34,15 @@ export class AuthService {
   constructor(
     private auth: Auth,
     private router: Router,
-    private myToastService: MyToastrService
+    private myToastrService: MyToastrService
   ) {
-    this.auth.onAuthStateChanged((user) => {
-      const name = user?.displayName ? user.displayName.split(' ')[0] : null;
-      const surname = user?.displayName ? user.displayName.split(' ')[1] : null;
-      const email = user?.email || null;
-      const phone = user?.phoneNumber || null;
-      const photo = user?.photoURL || null;
-      this._user.next(!user ? null : { name, surname, email, phone, photo });
-    });
+    this.auth.onAuthStateChanged((user) => this.createUserData(user));
   }
 
   login({ email, password }: LoginData) {
     from(signInWithEmailAndPassword(this.auth, email, password)).subscribe(
       () => this.redirect(),
-      () => this.myToastService.error('email o contraseña incorrectos')
+      () => this.myToastrService.error('email o contraseña incorrectos')
     );
   }
 
@@ -62,8 +55,14 @@ export class AuthService {
         })
       )
       .subscribe(
-        () => this.redirect(),
-        () => this.myToastService.error('este emai ya está registrado')
+        (userCredential) => {
+          this.createUserData({
+            ...userCredential.user,
+            displayName: name as string,
+          });
+          this.redirect();
+        },
+        () => this.myToastrService.error('este emai ya está registrado')
       );
   }
 
@@ -85,14 +84,14 @@ export class AuthService {
 
   updateUserData(name: string, surname: string): void {
     if (!this.fireBaseUser) {
-      this.myToastService.error('No hay ningún usuario registrado');
+      this.myToastrService.error('No hay ningún usuario registrado');
     } else {
       from(
         updateProfile(this.fireBaseUser, {
           displayName: `${name} ${surname}`,
         })
       ).subscribe(() => {
-        this.myToastService.success('Se han actualizado tus datos personales');
+        this.myToastrService.success('Se han actualizado tus datos personales');
         this._user.next({
           ...this._user.value,
           name: name,
@@ -100,5 +99,36 @@ export class AuthService {
         } as UserData);
       });
     }
+  }
+
+  private createUserData(user: User | null): void {
+    if (user?.displayName) {
+      const name =
+        (user?.displayName as string).split(' ')[0] ||
+        (user?.displayName as string);
+      const surname = user?.displayName ? user.displayName.split(' ')[1] : null;
+      const email = user?.email || null;
+      const phone = user?.phoneNumber || null;
+      const photo = user?.photoURL || null;
+      const userObject = { name, surname, email, phone, photo };
+      this._user.next(userObject);
+    } else {
+      this._user.next(null);
+    }
+  }
+
+  updateAvatar(photo: string): void {
+    from(
+      updateProfile(this.auth.currentUser as User, { photoURL: photo })
+    ).subscribe(
+      () => {
+        this._user.next({ ...(this._user.value as UserData), photo: photo });
+        this.myToastrService.success('Se ha actualizado tu imagen de perfil');
+      },
+      () =>
+        this.myToastrService.success(
+          'No se ha podido actualizar tu imagen de perfil'
+        )
+    );
   }
 }

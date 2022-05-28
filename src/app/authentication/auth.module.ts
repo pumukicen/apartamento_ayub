@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { MisReservasComponent } from './mis-reservas/mis-reservas.component';
 import { ReservaComponent } from './mis-reservas/reserva/reserva.component';
 import { SignupComponent } from './signup/signup.component';
+import { AvatarComponent } from './cliente/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SignupComponent } from './signup/signup.component';
     ClienteComponent,
     MisReservasComponent,
     ReservaComponent,
+    AvatarComponent,
   ],
   imports: [
     CommonModule,

@@ -106,7 +106,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
   }
 
   reservar(): void {
-    this.router.navigate(['/reserva']);
+    this.router.navigate(['/reservar']);
   }
   private listenScroll(): void {
     const html = document.querySelector('html');

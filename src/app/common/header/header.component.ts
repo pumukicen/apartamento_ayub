@@ -61,6 +61,14 @@ export class HeaderComponent implements OnInit {
     return this.authService.currentUser();
   }
 
+  get userAvatar(): string {
+    if (!this.currentUser) return '';
+    else
+      return this.currentUser.photo
+        ? `url("${this.currentUser.photo}")`
+        : `url("./assets/img/persona.png")`;
+  }
+
   constructor(
     private router: Router,
     private userLangService: UserLangService,

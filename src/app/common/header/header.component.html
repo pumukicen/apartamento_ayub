@@ -67,11 +67,8 @@
                   <span>{{currentUser.name}}</span>
                   <span class="user-email">{{currentUser.email}}</span>
                 </div>
-                <div class="user-avatar">
-                  <img width="42px"
-                       src="./assets/img/persona.png"
-                       alt=""
-                       class="comentario_img">
+                <div class="user-avatar"
+                     [style.backgroundImage]="userAvatar">
                 </div>
 
               </div>
@@ -82,6 +79,10 @@
               <a class="dropdown-item"
                  routerLink="auth/reservas">
                 Mis reservas
+              </a>
+              <a class="dropdown-item"
+                 routerLink="auth/feedback">
+                Feedback
               </a>
               <a class="dropdown-item"
                  (click)="logout()">

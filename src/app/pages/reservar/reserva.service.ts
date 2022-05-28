@@ -90,15 +90,8 @@ export class ReservaService {
     private myToastrService: MyToastrService,
     private router: Router
   ) {
-    this._reservasDBList = this.db.list('reservas');
-    this._reservasDBList.valueChanges().subscribe((reservas) => {
-      this._reservas = this.getReservasFuturas(
-        reservas.map((r) => this.convertReservaFromDB(r))
-      );
-      this._misReservas = this.getReservasByUser(
-        this._reservas,
-        this.authService.currentUser()
-      );
+    this.authService.user$.subscribe((user) => {
+      if (user && !this._reservasDBList) this.getReservas();
     });
   }
 
@@ -119,7 +112,18 @@ export class ReservaService {
         () => this.myToastrService.error('No ha sido posible crear tu reserva')
       );
   }
-
+  private getReservas(): void {
+    this._reservasDBList = this.db.list('reservas');
+    this._reservasDBList.valueChanges().subscribe((reservas) => {
+      this._reservas = this.getReservasFuturas(
+        reservas.map((r) => this.convertReservaFromDB(r))
+      );
+      this._misReservas = this.getReservasByUser(
+        this._reservas,
+        this.authService.currentUser()
+      );
+    });
+  }
   private getReservasByUser(
     reservas: Reserva[],
     user: UserData | null

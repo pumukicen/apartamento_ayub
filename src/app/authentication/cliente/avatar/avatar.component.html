@@ -1,0 +1,22 @@
+<div class="upload-bg"
+     [class.opened]="opened"></div>
+<div class="upload-dialog"
+     [class.opened]="opened">
+  <input #openfile
+         type="file"
+         class="text-nowrap text-truncate"
+         placeholder="caca"
+         (change)="selectFile($event)"
+         style="display: none;"
+         accept="image/png, image/jpeg" />
+  <div class="progress">
+    <div class="progress-bar progress-bar-info"
+         role="progressbar"
+         attr.aria-valuenow="{{ percentage }}"
+         aria-valuemin="0"
+         aria-valuemax="100"
+         [ngStyle]="{ width: percentage + '%' }">
+      {{ percentage }}%
+    </div>
+  </div>
+</div>

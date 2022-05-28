@@ -58,22 +58,16 @@
               "outputHashing": "all"
             },
             "adri": {
-              "budgets": [{
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
               "fileReplacements": [{
                 "replace": "src/environments/environment.ts",
                 "with": "src/environments/environment.adri.ts"
-              }],
-              "outputHashing": "all"
+              }]
             },
             "development": {
               "buildOptimizer": false,
