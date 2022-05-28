@@ -118,3 +118,9 @@
 .mat-datepicker-toggle-active {
   color: #78c2ad !important;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
+textarea {
+  resize: none;
+}

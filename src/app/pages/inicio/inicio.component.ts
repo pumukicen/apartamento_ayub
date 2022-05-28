@@ -14,11 +14,11 @@ export class InicioComponent implements OnInit {
   constructor(private comentariosService: ComentariosService) {}
 
   ngOnInit(): void {
-    this.comentariosService
-      .getComentarios()
-      .subscribe((comentarios: Comentario[]) => {
+    this.comentariosService.comentariosList$.subscribe(
+      (comentarios: Comentario[]) => {
         this.comentarios = this.randomComentarios(comentarios);
-      });
+      }
+    );
   }
 
   randomComentarios(comentarios: Comentario[]): Comentario[] {

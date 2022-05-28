@@ -1,6 +1,6 @@
 <footer class="text-center"
         [style.bottom]="footerBottom"
-        (mouseleave)="expand = false">
+        (mouseleave)="intervalExpand(false)">
   <div #footerBook
        class="barra-reserva container-fluid mb-2 bg-dark"
        [class.ocultar]="isReservaOpened">
@@ -65,11 +65,11 @@
       </div>
     </form>
     <div class="hidden-line"
-         (mouseover)="expand = true"></div>
+         (mouseenter)="intervalExpand(true)"></div>
   </div>
   <div #footerDetails
        class="footer-details bg-light"
-       (mouseover)="expand = true">
+       (mouseenter)="intervalExpand(true)">
     <section class="social-links mb-1">
       <span class="text-muted">Síguenos en:</span>
       <a class="btn btn-outline-dark btn-floating m-2"

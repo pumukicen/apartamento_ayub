@@ -33,7 +33,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
   expand: boolean;
   form: FormGroup;
   private viewIsInit = false;
-
+  private _intervalExpand: NodeJS.Timeout | undefined;
   constructor(
     private renderer: Renderer2,
     private cdr: ChangeDetectorRef,
@@ -127,12 +127,24 @@ export class FooterComponent implements OnInit, AfterViewInit {
     const page = document.querySelector('.page-content') as HTMLElement;
     this.renderer.listen(document, 'scroll', () => {
       this.showFooterDetails =
-        (html?.scrollTop || 0) + screen.height > page?.scrollHeight;
+        (html?.scrollTop || 0) + screen.height >
+        page?.scrollHeight + this.bookHeight;
     });
   }
   private arrangeFooter(): void {
     const page = document.querySelector('.page-content') as HTMLElement;
     if (page) page.scrollTo(0, 0);
     setTimeout(() => (this.showFooterDetails = false));
+  }
+  intervalExpand(expand: boolean): void {
+    if (!expand) {
+      this.expand = false;
+      clearTimeout(this._intervalExpand as NodeJS.Timeout);
+      this._intervalExpand = undefined;
+    } else if (!this._intervalExpand) {
+      this._intervalExpand = setTimeout(() => {
+        this.expand = true;
+      }, 600);
+    }
   }
 }

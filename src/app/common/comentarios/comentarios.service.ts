@@ -1,46 +1,83 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+} from '@angular/fire/compat/database';
+import { BehaviorSubject, from, map, Observable, of, tap } from 'rxjs';
 
+import { AuthService, UserData } from './../../authentication/auth.service';
 import { Comentario } from './comentarios.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ComentariosService {
-  private _comentarios: Comentario[] = [
-    {
-      text: 'El piso era más grande de lo que esperábamos y la ubicación excelente, en todo el centro de Calatayud.',
-      user: 'Julian',
-      date: new Date(),
-    },
-    {
-      text: 'Apartamento decorado con un gusto exquisito y menaje muy completo. A los niños les gustó mucho el cuarto infantil con libros y juguetes a su disposición (todo un detalle). Fácil aparcamiento.',
-      user: 'Maria',
-      date: new Date(),
-    },
-    {
-      text: 'Un apartamento cómodo y súper céntrico. Hemos pasado el puente muy a gusto, un espacio con todas las comodidades y cálido. Muy bien situado en el centro de la ciudad.',
-      user: 'Jesus',
-      date: new Date(),
-    },
-    {
-      text: 'Perfecto para mis vacaciones de Seaman Santa en familia.',
-      user: 'Adrián',
-      date: new Date(),
-    },
-  ];
+  private _myComment = new BehaviorSubject<Comentario | undefined>(undefined);
+  myComment$ = this._myComment.asObservable();
+
+  private _comentarios: Comentario[] = [];
+  private _comentariosList = new BehaviorSubject<Comentario[]>([]);
+  comentariosList$ = this._comentariosList.asObservable();
+
+  private _comentariosDBList: AngularFireList<Comentario>;
 
   set comentarios(comentarios: Comentario[]) {
     this._comentarios = comentarios;
+    this._comentariosList.next(this._comentarios);
   }
 
-  get comentarios(): Comentario[] {
-    return this._comentarios;
+  constructor(
+    private db: AngularFireDatabase,
+    private authService: AuthService
+  ) {
+    this._comentariosDBList = this.db.list('comments');
+    this._comentariosDBList
+      .valueChanges(undefined, { idField: 'key' })
+      .subscribe((list) => {
+        this.comentarios = list;
+        if (this.authService.currentUser())
+          this.findMyComment(
+            (this.authService.currentUser() as UserData).email
+          );
+      });
+    this.authService.user$.subscribe((user) => {
+      if (user) this.findMyComment(user.email);
+    });
   }
 
-  constructor() {}
+  private findMyComment(email: string | null): void {
+    const myComment = this._comentarios.find((c) => c.email === email);
+    this._myComment.next(myComment);
+  }
 
-  getComentarios(): Observable<Comentario[]> {
-    return of(this.comentarios);
+  saveComment(comment: string): Observable<any> {
+    if (!this.authService.currentUser()) return of(false);
+    const myComment = this._myComment.value;
+    if (!myComment) {
+      const newComment: Comentario = {
+        text: comment,
+        user: this.authService.currentUser()?.name as string,
+        img: this.authService.currentUser()?.photo as string,
+        email: this.authService.currentUser()?.email as string,
+        date: new Date().valueOf(),
+      };
+      return from(this._comentariosDBList.push(newComment)).pipe(
+        map(
+          () => true,
+          () => false
+        )
+      );
+    } else {
+      return from(
+        this._comentariosDBList.update(myComment.key as string, {
+          text: comment,
+        })
+      ).pipe(
+        map(
+          () => true,
+          () => false
+        )
+      );
+    }
   }
 }

@@ -1,3 +1,4 @@
+import { FeedbackComponent } from './feedback/feedback.component';
 import {
   Component,
   ElementRef,
@@ -26,6 +27,7 @@ export interface MenuItem {
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('navbar') navbar: ElementRef;
+  @ViewChild(FeedbackComponent) feedback: FeedbackComponent;
   menuItems: MenuItem[] = [
     { name: 'menu_inicio', link: '/inicio' },
     { name: 'menu_apartamento', link: '/apartamento' },
@@ -88,6 +90,10 @@ export class HeaderComponent implements OnInit {
     this.authService.logout();
   }
 
+  openFeedback(): void {
+    if (!this.currentUser) return;
+    this.feedback.opened = true;
+  }
   private listenNavigation(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {

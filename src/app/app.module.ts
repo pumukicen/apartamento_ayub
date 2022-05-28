@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './common/footer/footer.component';
+import { FeedbackComponent } from './common/header/feedback/feedback.component';
 import { HeaderComponent } from './common/header/header.component';
 import { PageContentDirective } from './common/page-content/page-content.directive';
 import { TranslationsService } from './common/translations/translations.service';
@@ -60,6 +61,7 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
     ComentarioComponent,
     PageContentDirective,
     CalendarioComponent,
+    FeedbackComponent,
   ],
   imports: [
     FormsModule,

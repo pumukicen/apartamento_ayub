@@ -8,5 +8,9 @@ import { Comentario } from 'src/app/common/comentarios/comentarios.model';
 })
 export class ComentarioComponent {
   @Input() comentario: Comentario;
-  constructor() {}
+  get userAvatar(): string {
+    return this.comentario.img
+      ? `url("${this.comentario.img}")`
+      : `url("./assets/img/persona.png")`;
+  }
 }

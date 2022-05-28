@@ -2,6 +2,8 @@ export interface Comentario {
   text: string;
   user: string;
   img?: string;
-  date: Date;
+  date: Date | number;
   lang?: string;
+  email: string;
+  key?: string;
 }
