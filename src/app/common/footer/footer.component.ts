@@ -9,6 +9,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { NativeDateAdapter } from '@angular/material/core';
+import { MatDatepicker } from '@angular/material/datepicker';
 import { NavigationEnd, Router } from '@angular/router';
 import { addDays } from 'date-fns';
 
@@ -21,6 +23,8 @@ import { FooterService } from './footer.service';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit, AfterViewInit {
+  @ViewChild('picker1') caledar1: MatDatepicker<any>;
+  @ViewChild('picker2') caledar2: MatDatepicker<any>;
   @ViewChild('footerBook') footerBook: ElementRef;
 
   @ViewChild('footerDetails') footerDetails: ElementRef;
@@ -77,6 +81,10 @@ export class FooterComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => (this.viewIsInit = true));
+    (this.caledar1['_dateAdapter'] as NativeDateAdapter).getFirstDayOfWeek =
+      () => 1;
+    (this.caledar2['_dateAdapter'] as NativeDateAdapter).getFirstDayOfWeek =
+      () => 1;
   }
 
   get bookHeight(): number {
