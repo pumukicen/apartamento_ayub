@@ -86,4 +86,22 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
 
   servicios_text_1:
     'We strive to offer all the comforts in our apartment, because we want you to feel at home to enjoy all that our territory has to offer soaking in its history, culture and nature.',
+  servicios_wifi_title: 'Wifi',
+  servicios_wifi_text:
+    'You will be able to enjoy WiFi connection in our apartment, it is free for all our clients.',
+  servicios_cocina_title: 'Kitchen',
+  servicios_cocina_text:
+    'Fully equipped with everything you need. It has: cookware, crockery, coffee maker, kitchen utensils, dishwasher, microwave, oven and cleaning material.',
+  servicios_bano_title: 'Bathroom',
+  servicios_bano_text:
+    'Fully equipped with everything you need. Among other things: towels, soap, shampoo and shower gel and hair dryer.',
+  servicios_calef_title: 'Heating',
+  servicios_calef_text:
+    'Our apartment has heating so that you can enjoy a pleasant stay in winter days.',
+  servicios_bebe_title: 'Babies',
+  servicios_bebe_text:
+    'We have cribs, high chairs and games at your disposal. No extra cost if you inform us when you make your reservation.',
+  servicios_parkin_title: 'Parking',
+  servicios_parkin_text:
+    'The parking lot in the historic center is payable except on weekends and holidays, but free parking is available 100 meters away.',
 };

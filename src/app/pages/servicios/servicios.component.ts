@@ -14,34 +14,34 @@ export interface Servicio {
 export class ServiciosComponent implements OnInit {
   servicios: Servicio[] = [
     {
-      title: 'Wifi',
+      title: 'servicios_wifi_title',
       logo: 'wifi',
-      text: 'Podrás disfrutar de conexión WiFi en nuestro apartamento, es gratuito para todos nuestros clientes.',
+      text: 'servicios_wifi_text',
     },
     {
-      title: 'Cocina',
+      title: 'servicios_cocina_title',
       logo: 'cocina',
-      text: 'Totalmente equipada con todo lo necesario. Dispone de: batería de cocina, vajilla, cafetera, utensilios de cocina, lavavajillas, microondas, horno y material de limpieza.',
+      text: 'servicios_cocina_text',
     },
     {
-      title: 'Baño',
+      title: 'servicios_bano_title',
       logo: 'baño',
-      text: 'Totalmente equipado con todo lo necesario. Entre otras cosas dispone de: toallas, jabón, champú y gel de baño y secador de pelo.',
+      text: 'servicios_bano_text',
     },
     {
-      title: 'Calefacción',
+      title: 'servicios_calef_title',
       logo: 'calefaccion',
-      text: 'Nuestro apartamento dispone de calefacción para que podáis disfrutar de una estancia agradable los días de invierno.',
+      text: 'servicios_calef_text',
     },
     {
-      title: 'Bebes',
+      title: 'servicios_bebe_title',
       logo: 'bebe',
-      text: 'Tenemos cunas, tronas y juegos a tu disposición. Sin coste extra avisando al realizar la reserva.',
+      text: 'servicios_calef_text',
     },
     {
-      title: 'Parking',
+      title: 'servicios_parkin_title',
       logo: 'parking',
-      text: 'El parking del casco histórico es de pago excepto fines de semana y festivos, pero a 100 metros hay disponible un aparacamiento libre y gratuito.',
+      text: 'servicios_calef_text',
     },
   ];
 
