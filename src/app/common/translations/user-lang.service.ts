@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DateAdapter } from '@angular/material/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from 'ngx-webstorage';
 
@@ -10,7 +11,8 @@ export class UserLangService {
 
   constructor(
     private localStorage: LocalStorageService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private dateAdapter: DateAdapter<any>
   ) {}
 
   initLang(): void {
@@ -22,6 +24,7 @@ export class UserLangService {
     this.currentLang = lang;
     this.translateService.use(lang);
     this.localStorage.store('user-lang', lang);
+    this.dateAdapter.setLocale(lang);
   }
 
   getCurrentLang(): string | undefined {

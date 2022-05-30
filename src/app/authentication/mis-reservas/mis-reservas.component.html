@@ -1,5 +1,5 @@
 <div class="reservas-container">
-  <h3>Mis reservas</h3>
+  <h3>{{ "client_books" | translate }}</h3>
   <ng-container *ngIf="reservas.length; else noreservas;">
     <div class="reservas-list">
       <ng-container *ngFor="let reserva of reservas">
@@ -8,7 +8,7 @@
     </div>
   </ng-container>
   <ng-template #noreservas>
-    <p class="mt-5">No tienes ninguna reserva</p>
+    <p class="mt-5">{{ "book_no_books" | translate }}</p>
 
   </ng-template>
 </div>

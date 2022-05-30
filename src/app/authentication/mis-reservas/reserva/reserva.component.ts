@@ -21,12 +21,12 @@ export class ReservaComponent implements OnInit {
   }
 
   get estado(): string {
-    if (this.reserva.estado === EstadoReserva.AHORA) return 'ACTUAL';
+    if (this.reserva.estado === EstadoReserva.AHORA) return 'book_current';
     else if (this.reserva.estado === EstadoReserva.ACEPTADA)
-      return 'CONFIRMADA';
+      return 'book_acepted';
     else if (this.reserva.estado === EstadoReserva.RECHAZADA)
-      return 'RECHAZADA';
-    else return 'PROCESANDO';
+      return 'book_denied';
+    else return 'book_processing';
   }
 
   get estadoStyle(): string {

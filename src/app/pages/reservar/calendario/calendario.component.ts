@@ -1,3 +1,4 @@
+import { UserLangService } from './../../../common/translations/user-lang.service';
 import { Reserva } from './../reserva.model';
 import { ReservaService } from './../reserva.service';
 import { registerLocaleData } from '@angular/common';
@@ -30,7 +31,10 @@ export class CalendarioComponent {
   viewDate = new Date();
   cell: CalendarMonthViewComponent;
   opened: boolean;
-  constructor(private reservaService: ReservaService) {
+  constructor(
+    private reservaService: ReservaService,
+    private userLangService: UserLangService
+  ) {
     registerLocaleData(localeEs);
   }
   get events(): CalendarEvent[] {
@@ -43,20 +47,9 @@ export class CalendarioComponent {
       };
     });
   }
-  // = [
-  //   {
-  //     start: new Date(1656021600000),
-  //     end: new Date(1656280799999),
-  //     title: '',
-  //     allDay: true,
-  //   },
-  //   {
-  //     start: new Date(),
-  //     end: addDays(new Date(), 4),
-  //     title: '',
-  //     allDay: true,
-  //   },
-  // ];
+  get currentLang(): string {
+    return this.userLangService.getCurrentLang() as string;
+  }
   currentMonth(): number {
     return 0;
   }

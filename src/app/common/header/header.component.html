@@ -58,35 +58,34 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false">
-              {{currentUser.name | uppercase}}
+              {{ currentUser.name | uppercase }}
             </button>
             <div class="dropdown-menu user-settings"
                  data-bs-popper="none">
               <div class="user-profile">
                 <div class="user-data">
-                  <span>{{currentUser.name}}</span>
-                  <span class="user-email">{{currentUser.email}}</span>
+                  <span>{{ currentUser.name }}</span>
+                  <span class="user-email">{{ currentUser.email }}</span>
                 </div>
                 <div class="user-avatar"
                      [style.backgroundImage]="userAvatar">
                 </div>
-
               </div>
               <a class="dropdown-item"
                  routerLink="auth/cliente">
-                Mis datos
+                {{ "client_data" | translate }}
               </a>
               <a class="dropdown-item"
                  routerLink="auth/reservas">
-                Mis reservas
+                {{ "client_books" | translate }}
               </a>
               <a class="dropdown-item"
                  (click)="openFeedback()">
-                Feedback
+                {{ "client_feedback" | translate }}
               </a>
               <a class="dropdown-item"
                  (click)="logout()">
-                Cerrar sesion
+                {{ "client_logout" | translate }}
               </a>
             </div>
           </li>
@@ -96,31 +95,37 @@
         <div class="log-options">
           <button type="button"
                   class="btn btn-secondary login-btn"
-                  routerLink="auth/login">LOGIN</button>
+                  routerLink="auth/login">{{ "btn_login" | translate | uppercase }}</button>
           <button type="button"
                   class="btn btn-secondary login-btn"
-                  routerLink="auth/signup">SIGNUP</button>
+                  routerLink="auth/signup">{{ "btn_signup" | translate | uppercase }}</button>
+          <ng-container *ngTemplateOutlet="idiomas"></ng-container>
         </div>
       </ng-template>
-      <!-- <div class="btn-group"
-           role="group"
-           aria-label="Basic radio toggle button group">
-        <ng-container *ngFor="let lang of languages">
-          <input type="radio"
-                 class="btn-check"
-                 name="btnradio"
-                 [attr.id]="lang.name"
-                 autocomplete="off"
-                 [attr.checked]="lang.key == currentLang"
-                 (click)="changeCurrentLanguage(lang)">
-          <label class="btn btn-outline-secondary"
-                 [attr.for]="lang.name"
-                 (click)="changeCurrentLanguage(lang)">
-            {{ lang.name}}
-          </label>
-        </ng-container>
-      </div> -->
     </div>
   </div>
 </nav>
 <app-feedback class="app-dialog"></app-feedback>
+<ng-template #idiomas>
+  <div *ngIf="!!currentLang"
+       class="btn-group btn-idiomas"
+       role="group"
+       aria-label="Basic radio toggle button group">
+    <ng-container *ngFor="let lang of languages">
+      <input type="radio"
+             class="btn-check"
+             name="btnradio"
+             [attr.id]="lang.name"
+             autocomplete="off"
+             [attr.checked]="lang.key == currentLang"
+             (click)="changeCurrentLanguage(lang)">
+      <label class="btn btn-outline-secondary"
+             [attr.for]="lang.name"
+             [class.lang-selected]="lang.key == currentLang"
+             [class.lang-unselected]="lang.key != currentLang"
+             (click)="changeCurrentLanguage(lang)">
+        {{ lang.name }}
+      </label>
+    </ng-container>
+  </div>
+</ng-template>

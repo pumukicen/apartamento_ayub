@@ -1,4 +1,3 @@
-import { FeedbackComponent } from './feedback/feedback.component';
 import {
   Component,
   ElementRef,
@@ -12,6 +11,7 @@ import { PAGE_LANGUAGE } from '../translations/translations';
 import { AuthService, UserData } from './../../authentication/auth.service';
 import { pageLanguages } from './../translations/translations';
 import { UserLangService } from './../translations/user-lang.service';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 export interface MenuItem {
   name: string;

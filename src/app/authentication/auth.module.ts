@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { DateFnsModule } from 'ngx-date-fns';
 
+import { TranslationsService } from '../common/translations/translations.service';
 import { AuthRoutingModule } from './auth-routing.module';
+import { AvatarComponent } from './cliente/avatar/avatar.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { LoginComponent } from './login/login.component';
 import { MisReservasComponent } from './mis-reservas/mis-reservas.component';
 import { ReservaComponent } from './mis-reservas/reserva/reserva.component';
 import { SignupComponent } from './signup/signup.component';
-import { AvatarComponent } from './cliente/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { AvatarComponent } from './cliente/avatar/avatar.component';
     AuthRoutingModule,
     ReactiveFormsModule,
     DateFnsModule.forRoot(),
+    TranslateModule,
   ],
 })
 export class AuthModule {}

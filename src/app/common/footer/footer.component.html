@@ -13,7 +13,7 @@
               <input matInput
                      class="form-control"
                      [matDatepicker]="picker1"
-                     placeholder="Llegada"
+                     [placeholder]="'book_since' | translate"
                      formControlName="llegada"
                      [max]="dateSalida"
                      [min]="tomorrow"
@@ -32,7 +32,7 @@
               <input matInput
                      class="form-control"
                      [matDatepicker]="picker2"
-                     placeholder="Salida"
+                     [placeholder]="'book_until' | translate"
                      formControlName="salida"
                      [min]="min"
                      (click)="picker2.opened = true" />
@@ -45,11 +45,10 @@
       </div>
       <div class="col-3">
         <select class="form-select"
-                formControlName="adultos"
-                placeholder="Adultos">
+                formControlName="adultos">
           <option hidden
                   selected
-                  value="0">Adultos</option>
+                  value="0">{{ "book_adults" | translate }}</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -61,7 +60,9 @@
                 class="btn btn-primary"
                 style="width:100%;"
                 (click)="reservar()"
-                [disabled]="isReservaOpened">RESERVAR</button>
+                [disabled]="isReservaOpened">
+          {{ "btn_reservar" | translate | uppercase }}
+        </button>
       </div>
     </form>
     <div class="hidden-line"
@@ -71,7 +72,7 @@
        class="footer-details bg-light"
        (mouseenter)="intervalExpand(true)">
     <section class="social-links mb-1">
-      <span class="text-muted">Síguenos en:</span>
+      <span class="text-muted">{{ "footer_follow_us" | translate }}</span>
       <a class="btn btn-outline-dark btn-floating m-2"
          href="#!"
          role="button"><i class="fab fa-facebook-f"></i></a>
@@ -89,19 +90,15 @@
       <div class="row">
         <div class="col-6">
           <h6 class="text-uppercase fw-bold">Apartamento Ayub</h6>
-          <p>
-            La calidez y el confort de nuestro apartamento<br />
-            harán que tu estancia sea más que una estancia,<br />
-            te vas a sentir tan bien como en tu propia casa.
-          </p>
+          <p [innerHTML]="'footer_text_1' | translate"></p>
         </div>
         <div class="col-6">
-          <h6 class="text-uppercase fw-bold">Contacto</h6>
+          <h6 class="text-uppercase fw-bold">{{ 'menu_contacto' | translate }}</h6>
           <p class="credits">
             Cl. Valentin Gómez, Nº 12 - 1º D<br />
             50.300 Calatayud (Zaragoza)<br />
-            Teléfono: 685848829<br />
-            Email:
+            {{ 'auth_phone' | translate }}: 685848829<br />
+            {{ 'auth_phone' | translate }}:
             <a href="mailto:apartamentoayub@gmail.com"
                title="Apartamento Ayub">apartamentoayub@gmail.com</a><br />
           </p>

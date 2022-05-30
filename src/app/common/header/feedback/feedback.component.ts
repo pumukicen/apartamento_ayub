@@ -32,10 +32,9 @@ export class FeedbackComponent {
         .saveComment(this.comment)
         .subscribe((response) => {
           if (response) {
-            this.myToastrService.success('Se ha registrado su comentario');
+            this.myToastrService.success('toastr_feedback_succes');
             this.opened = false;
-          } else
-            this.myToastrService.error('No se ha registrado su comentario');
+          } else this.myToastrService.error('toastr_feedback_error');
         });
   }
 }

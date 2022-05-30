@@ -6,8 +6,13 @@ import {
   Validators,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import {
+  PAGE_LANGUAGE,
+  pageLanguages,
+} from 'src/app/common/translations/translations';
 
 import { AuthService, UserData } from '../auth.service';
+import { UserLangService } from './../../common/translations/user-lang.service';
 import { AvatarComponent } from './avatar/avatar.component';
 
 @Component({
@@ -21,10 +26,11 @@ export class ClienteComponent {
   _subs: (Subscription | undefined)[] = [];
   user: UserData | null;
   photoUrl: string;
-
+  languages: PAGE_LANGUAGE[] = pageLanguages;
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private userLangService: UserLangService
   ) {
     this.form = this.formBuilder.group({
       name: new FormControl(this.user?.name, [Validators.required]),
@@ -33,6 +39,7 @@ export class ClienteComponent {
         Validators.required,
         Validators.email,
       ]),
+      language: new FormControl({ value: this.currentLang }),
     });
     this._subs.push(
       this.authService.user$.subscribe((user) => {
@@ -44,6 +51,10 @@ export class ClienteComponent {
         this.setPhotoUrl(user.photo as string);
       })
     );
+  }
+
+  get currentLang(): string | undefined {
+    return this.userLangService.getCurrentLang();
   }
 
   modificarDatos(): void {
@@ -58,7 +69,9 @@ export class ClienteComponent {
   changeAvatar(): void {
     this.avatar.openFile();
   }
-
+  changeLang(): void {
+    this.userLangService.changeLang(this.form.controls['language'].value);
+  }
   private setPhotoUrl(url: string) {
     this.photoUrl = url ? `url("${url}")` : `url("./assets/img/persona.png")`;
   }

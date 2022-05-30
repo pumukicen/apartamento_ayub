@@ -7,16 +7,20 @@
     <button *ngIf="calendar"
             class="btn btn-primary"
             (click)="moveMonth(-1, $event)"
-            [disabled]="noPrevious(calendar.viewDate)">prev</button>
+            [disabled]="noPrevious(calendar.viewDate)">
+      <mat-icon>arrow_back_ios_new</mat-icon>
+    </button>
     <div *ngIf="calendar"
-         class="calendar-header-text">{{calendar.viewDate.toLocaleDateString("es", {month: "long"}) | uppercase}} {{calendar.viewDate.getFullYear()}}</div>
+         class="calendar-header-text">{{calendar.viewDate.toLocaleDateString(currentLang, {month: "long"}) | uppercase}} {{calendar.viewDate.getFullYear()}}</div>
     <button class="btn btn-primary"
-            (click)="moveMonth(1, $event)">next</button>
+            (click)="moveMonth(1, $event)">
+      <mat-icon style="transform: scaleX(-1);">arrow_back_ios_new</mat-icon>
+    </button>
   </div>
   <mwl-calendar-month-view #calendar
                            [viewDate]="viewDate"
                            [events]="events"
-                           [locale]="'es'"
+                           [locale]="currentLang"
                            [cellTemplate]="cell"
                            [weekStartsOn]="1">
   </mwl-calendar-month-view>
@@ -39,9 +43,9 @@
        [class.unavailable]="isUnavailable(day.date)"
        (click)="onSelectDate(day.date)">
     <div class="day-msg day-msg-since"
-         *ngIf="isSince(day.date)">LLEGADA</div>
+         *ngIf="isSince(day.date)">{{ "book_since" | translate | uppercase }}</div>
     {{day.date.getDate()}}
     <div class=" day-msg day-msg-until"
-         *ngIf="isUntil(day.date)">SALIDA</div>
+         *ngIf="isUntil(day.date)">{{ "book_until" | translate | uppercase }}</div>
   </div>
 </ng-template>

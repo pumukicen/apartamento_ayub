@@ -18,6 +18,9 @@
 .login-btn {
   margin-left: 1em;
 }
+.btn-idiomas {
+  margin-left: 1em;
+}
 .dropdown-menu.user-settings {
   left: -112px;
   right: 0px;
@@ -81,4 +84,13 @@
 }
 .dropdown-item {
   cursor: pointer;
+}
+.lang-selected {
+  color: #fff;
+  background-color: #f3969a !important;
+}
+.lang-unselected {
+  color: #fff;
+  background-color: #66a593 !important;
+  border: 1px solid #66a593 !important;
 }

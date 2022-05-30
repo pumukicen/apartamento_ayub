@@ -96,19 +96,19 @@ export class ReservaService {
   reservar(): void {
     const overlaped = this.checkOverlapping(this._reservas, this._reserva);
     if (overlaped) {
-      this.myToastrService.error('Ya hay una reserva en estas fechas');
+      this.myToastrService.error('toastr_book_overlap');
       return;
     }
     this._reservasDBList
       .push(this.convertReservaForDB(this._reserva) as Reserva)
       .then(
         () => {
-          this.myToastrService.success('Se ha creado tu solicitud de reserva.');
+          this.myToastrService.success('toastr_book_succes');
           this.cleanReserva();
           this._reservaIsDone = true;
           this.router.navigate(['/confirm']);
         },
-        () => this.myToastrService.error('No ha sido posible crear tu reserva')
+        () => this.myToastrService.error('toastr_book_error')
       );
   }
   private getReservas(): void {

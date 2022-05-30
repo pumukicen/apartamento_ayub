@@ -42,7 +42,7 @@ export class AuthService {
   login({ email, password }: LoginData) {
     from(signInWithEmailAndPassword(this.auth, email, password)).subscribe(
       () => this.redirect(),
-      () => this.myToastrService.error('email o contraseña incorrectos')
+      () => this.myToastrService.error('toastr_login_error')
     );
   }
 
@@ -60,9 +60,10 @@ export class AuthService {
             ...userCredential.user,
             displayName: name as string,
           });
+          this.myToastrService.success('toastr_signup_succes');
           this.redirect();
         },
-        () => this.myToastrService.error('este emai ya está registrado')
+        () => this.myToastrService.error('toastr_signup_error')
       );
   }
 
@@ -84,14 +85,14 @@ export class AuthService {
 
   updateUserData(name: string, surname: string): void {
     if (!this.fireBaseUser) {
-      this.myToastrService.error('No hay ningún usuario registrado');
+      this.myToastrService.error('toastr_update_error');
     } else {
       from(
         updateProfile(this.fireBaseUser, {
           displayName: `${name} ${surname}`,
         })
       ).subscribe(() => {
-        this.myToastrService.success('Se han actualizado tus datos personales');
+        this.myToastrService.success('toastr_update_succes');
         this._user.next({
           ...this._user.value,
           name: name,
@@ -123,12 +124,9 @@ export class AuthService {
     ).subscribe(
       () => {
         this._user.next({ ...(this._user.value as UserData), photo: photo });
-        this.myToastrService.success('Se ha actualizado tu imagen de perfil');
+        this.myToastrService.success('toastr_avatar_succes');
       },
-      () =>
-        this.myToastrService.success(
-          'No se ha podido actualizar tu imagen de perfil'
-        )
+      () => this.myToastrService.error('toastr_avatar_error')
     );
   }
 }

@@ -2,10 +2,10 @@
   <form [formGroup]="form"
         (ngSubmit)="onSubmit()">
     <fieldset>
-      <h3>Iniciar Sesión</h3>
+      <h3>{{ "auth_login" | translate }}</h3>
       <div class="form-group">
         <label for="inputEmail1"
-               class="form-label mt-4">Email</label>
+               class="form-label mt-4">{{ "auth_email" | translate }}</label>
         <input formControlName="email"
                type="email"
                class="form-control"
@@ -13,11 +13,11 @@
                aria-describedby="emailHelp"
                required>
         <small id="emailHelp"
-               class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
+               class="form-text text-muted">{{ "auth_alert_password" | translate }}</small>
       </div>
       <div class="form-group">
         <label for="inputPassword1"
-               class="form-label mt-4">Contraseña</label>
+               class="form-label mt-4">{{ "auth_password" | translate }}</label>
         <input formControlName="password"
                type="password"
                class="form-control"
@@ -27,9 +27,9 @@
       <div class="form-submit-content">
         <button [disabled]="form.invalid"
                 type="submit"
-                class="btn btn-primary">Entrar</button>
+                class="btn btn-primary">{{ "btn_entrar" | translate | uppercase}}</button>
       </div>
     </fieldset>
-    <p>¿No tienes cuenta? <a href="#/auth/signup"><span>Regístrate</span></a></p>
+    <p>{{ "auth_no_cuenta" | translate }} <a href="#/auth/signup"><span>{{ "auth_registrate" | translate }}</span></a></p>
   </form>
 </div>

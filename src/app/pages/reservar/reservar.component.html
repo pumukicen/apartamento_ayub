@@ -1,9 +1,9 @@
 <div class="form-container">
   <form [formGroup]="form">
     <fieldset>
-      <h3>Reserva</h3>
+      <h3>{{ "menu_reservar" | translate }}</h3>
       <div class="form-group">
-        <label class="form-label mt-4">Nombre</label>
+        <label class="form-label mt-4">{{ 'auth_nombre' | translate }}</label>
         <input type="name"
                class="form-control"
                formControlName="name"
@@ -11,7 +11,7 @@
                [readonly]="!!user">
       </div>
       <div class="form-group">
-        <label class="form-label mt-4">Apellidos</label>
+        <label class="form-label mt-4">{{ 'auth_apellidos' | translate }}</label>
         <input type="surname"
                class="form-control"
                formControlName="surname"
@@ -19,14 +19,14 @@
                [readonly]="!!user">
       </div>
       <div class="form-group">
-        <label class="form-label mt-4">Email</label>
+        <label class="form-label mt-4">{{ 'auth_email' | translate }}</label>
         <input type="email"
                class="form-control"
                formControlName="email"
                [readonly]="!!user">
       </div>
       <div class="form-group">
-        <label class="form-label mt-4">Teléfono</label>
+        <label class="form-label mt-4">{{ 'auth_phone' | translate }}</label>
         <input type="phone"
                class="form-control"
                formControlName="phone"
@@ -35,7 +35,7 @@
       <div class="row">
         <div class="form-group  col-6">
           <label class="label-date form-label mt-4">
-            LLegada
+            {{ 'book_since' | translate }}
             <!-- <span class="open-calendar-btn">
               <div class="shrink">?</div>
               <div class="no-shrink">DISPONIBILIDAD</div>
@@ -46,7 +46,6 @@
               <input matInput
                      class="form-control"
                      [matDatepicker]="picker1"
-                     placeholder="Entrada"
                      formControlName="llegada"
                      [max]="dateSalida"
                      [min]="tomorrow"
@@ -59,7 +58,7 @@
         </div>
         <div class="form-group col-6">
           <label class="label-date form-label mt-4">
-            Salida
+            {{ 'book_until' | translate }}
             <!-- <span class="open-calendar-btn">
               <div class="shrink">?</div>
               <div class="no-shrink">DISPONIBILIDAD</div>
@@ -70,7 +69,6 @@
               <input matInput
                      class="form-control"
                      [matDatepicker]="picker2"
-                     placeholder="Salida"
                      formControlName="salida"
                      [min]="dateLlegada"
                      (click)="openCalendar()" />
@@ -83,7 +81,9 @@
       </div>
       <div class="row">
         <div class="col-6">
-          <label class="form-label mt-4">Adultos</label>
+          <label class="form-label mt-4">
+            {{ 'book_adults' | translate }}
+          </label>
           <select class="form-select"
                   aria-label="Default select"
                   placeholder="Adultos"
@@ -95,7 +95,9 @@
           </select>
         </div>
         <div class="col-6">
-          <label class="form-label mt-4">Niños</label>
+          <label class="form-label mt-4">
+            {{ 'book_children' | translate }}
+          </label>
           <select class="form-select"
                   aria-label="Default select"
                   formControlName="niños">
@@ -107,7 +109,9 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label mt-4">Observaciones</label>
+        <label class="form-label mt-4">
+          {{ 'book_observations' | translate }}
+        </label>
         <textarea class="form-control"
                   formControlName="observaciones"
                   rows="3"
@@ -118,7 +122,7 @@
               class="btn btn-primary mt-5"
               style="width:100%;"
               (click)="reservar()"
-              [disabled]="form.invalid">RESERVAR</button>
+              [disabled]="form.invalid">{{ 'btn_reservar' | translate | uppercase }}</button>
     </fieldset>
   </form>
 </div>

@@ -124,3 +124,15 @@ body::-webkit-scrollbar {
 textarea {
   resize: none;
 }
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/material-icons.woff2") format("woff2");
+}
+$fonts: "Material Icons";
+@each $val in $fonts {
+  .font-#{$val} {
+    font-family: $val, serif;
+  }
+}

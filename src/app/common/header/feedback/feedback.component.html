@@ -3,8 +3,8 @@
      (click)="opened = false"></div>
 <div class="dialog-content"
      [class.opened]="opened">
-  <h6>Tu opinión es muy valiosa para nosotros.</h6>
-  <h6>Envíanos tu comentario.</h6>
+  <h6>{{ "client_feedback_msg_1" | translate }}</h6>
+  <h6>{{ "client_feedback_msg_2" | translate }}</h6>
   <br>
   <textarea class="form-control"
             minlength="10"
@@ -14,5 +14,5 @@
   <button type="submit"
           class="btn btn-primary mt-4"
           (click)="enviar()"
-          [disabled]="!valid">Enviar</button>
+          [disabled]="!valid">{{ "btn_enviar" | translate | uppercase }}</button>
 </div>
