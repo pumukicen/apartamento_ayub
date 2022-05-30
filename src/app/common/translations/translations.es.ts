@@ -86,4 +86,22 @@ export const TRANSLATIONS_ES: { [key: string]: string } = {
 
   servicios_text_1:
     'Nos esforzamos en ofrecer todas las comodidas en nuestro apartamento, poque queremos que te sientas como en casa para que disfrutes de todo lo que ofrece nuestro territorio empapándote en su historia, cultura y naturaleza.',
+  servicios_wifi_title: 'Wifi',
+  servicios_wifi_text:
+    'Podrás disfrutar de conexión WiFi en nuestro apartamento, es gratuito para todos nuestros clientes.',
+  servicios_cocina_title: 'Cocina',
+  servicios_cocina_text:
+    'Totalmente equipada con todo lo necesario. Dispone de: batería de cocina, vajilla, cafetera, utensilios de cocina, lavavajillas, microondas, horno y material de limpieza.',
+  servicios_bano_title: 'Baño',
+  servicios_bano_text:
+    'Totalmente equipado con todo lo necesario. Entre otras cosas dispone de: toallas, jabón, champú y gel de baño y secador de pelo.',
+  servicios_calef_title: 'Calefacción',
+  servicios_calef_text:
+    'Nuestro apartamento dispone de calefacción para que podáis disfrutar de una estancia agradable los días de invierno.',
+  servicios_bebe_title: 'Bebes',
+  servicios_bebe_text:
+    'Tenemos cunas, tronas y juegos a tu disposición. Sin coste extra avisando al realizar la reserva.',
+  servicios_parkin_title: 'Parking',
+  servicios_parkin_text:
+    'El parking del casco histórico es de pago excepto fines de semana y festivos, pero a 100 metros hay disponible un aparacamiento libre y gratuito.',
 };
