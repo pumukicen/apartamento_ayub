@@ -81,9 +81,9 @@ export const TRANSLATIONS_ES: { [key: string]: string } = {
 
   location: 'Localización',
 
-  servicios_text_1:
-    'Nos esforzamos en ofrecer todas las comodidas en nuestro apartamento, poque queremos que te sientas como en casa para que disfrutes de todo lo que ofrece nuestro territorio empapándote en su historia, cultura y naturaleza.',
-
   normas: NORMAS_ES,
   condiciones: CONDICIONS_ES,
+
+  servicios_text_1:
+    'Nos esforzamos en ofrecer todas las comodidas en nuestro apartamento, poque queremos que te sientas como en casa para que disfrutes de todo lo que ofrece nuestro territorio empapándote en su historia, cultura y naturaleza.',
 };

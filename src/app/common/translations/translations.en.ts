@@ -83,4 +83,7 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
 
   normas: NORMAS_EN,
   condiciones: CONDICIONS_EN,
+
+  servicios_text_1:
+    'We strive to offer all the comforts in our apartment, because we want you to feel at home to enjoy all that our territory has to offer soaking in its history, culture and nature.',
 };
