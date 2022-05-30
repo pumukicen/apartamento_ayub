@@ -33,14 +33,14 @@
       </div>
 
       <div class="form-group">
-        <label class="form-label mt-4">{{ "auth_language" | translate }}</label>
+        <label class="form-label mt-4">{{ "client_language" | translate }}</label>
         <select class="form-select"
                 aria-label="Default select"
                 formControlName="language"
                 (change)="changeLang()">
           <ng-container *ngFor="let lang of languages">
             <option [value]="lang.key"
-                    [selected]="lang.key == currentLang">{{ ('client_language_' + lang.name) | lowercase | translate }}</option>
+                    [selected]="lang.key == currentLang">{{ ('client_language_' + lang.name) | lowercase | translate }} {{lang.key == currentLang}}</option>
           </ng-container>
         </select>
 

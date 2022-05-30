@@ -59,8 +59,8 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
   client_feedback_msg_1: 'Your opinion is very valuable to us.',
   client_feedback_msg_2: 'Send us your comment.',
   client_language: 'Language',
-  client_language_es: 'Espanish',
-  client_language_en: 'Wnglish',
+  client_language_es: 'Spanish',
+  client_language_en: 'English',
 
   book_since: 'Arrival',
   book_until: 'Leave',
@@ -104,4 +104,13 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
   servicios_parkin_title: 'Parking',
   servicios_parkin_text:
     'The parking lot in the historic center is payable except on weekends and holidays, but free parking is available 100 meters away.',
+
+  inicio_welcome: 'Welcome to the city of Calatayud',
+  inicio_text:
+    'Cradle of 5 cultures, as we have a Celtiberian city (Valdeherrera) at 9 kilometers, a Roman city (Bílbilis) at 6 kilometers, five defensive castles from the Roman period that together with its wall make it the oldest Arab defensive complex of the entire peninsula (VIII century), the Jewish quarter that became one of the largest in Aragon, and of course, three monuments that are World Heritage Sites (the tower, apse and cloister of the Collegiate Church of Santa Maria). Francisco de Goya painted the pendentives in the church of San Juan el Real and Ferdinand the Catholic was named heir in the church of San Pedro de los Francos. After all this tour, I recommend that you take some tapas in any of our bars, leaving room for lunch, where you can taste in our restaurants, the typical dish of the city, chickpeas with conger eel. And if you want to relax afterwards, I recommend you to visit the natural park of the Monasterio de Piedra, an oasis near this city, or try any of the spas located in the surroundings of the city. Calatayud is culture, tradition, nature and gastronomy. <strong><em>Are you up for it?</em></strong>',
+
+  apartamento_text_1:
+    'Enjoy a charming apartment in the heart of Calatayud, in an ideal location to enjoy with your family.',
+  apartamento_text_2:
+    'Apartment located in the center of Calatayud, approximately 5 minutes walk from the most important buildings. The apartment is on the second floor of the building without elevator, has about 80 square meters approximately. With wooden floor and heating. The main bedroom is furnished with a double bed and a built-in closet. The second bedroom is equipped with a single bed that can be made into a double bed. The living area consists of a living-dining room with two balconies overlooking the street that bring natural light to the apartment. In addition to a fully equipped bathroom and kitchen. It has Wifi for the whole apartment.',
 };

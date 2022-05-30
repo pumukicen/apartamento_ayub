@@ -1,17 +1,4 @@
-section {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  .apartamento-slide {
-    width: min(750px, 100%);
-  }
-}
-
-google-map {
-  width: min(750px, 100%);
-  height: 450px;
-  &::ng-deep .map-container {
-    width: 100% !important;
-    height: 100% !important;
-  }
+:host {
+  max-width: 900px;
+  margin: auto;
 }

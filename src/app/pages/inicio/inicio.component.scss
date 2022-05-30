@@ -1,8 +1,4 @@
-.comentarios-list {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-}
-.informacion {
-  padding-bottom: 0px !important;
+:host {
+  max-width: 900px;
+  margin: auto;
 }

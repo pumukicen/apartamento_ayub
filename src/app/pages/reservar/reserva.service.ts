@@ -135,6 +135,7 @@ export class ReservaService {
   }
 
   private checkOverlapping(reservas: Reserva[], miReserva: Reserva): boolean {
+    console.log('ERROR');
     const since = miReserva.llegada;
     const until = miReserva.salida;
     if (!since || !until) return true;

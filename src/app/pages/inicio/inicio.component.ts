@@ -1,29 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Comentario } from 'src/app/common/comentarios/comentarios.model';
-
-import { ComentariosService } from './../../common/comentarios/comentarios.service';
+import { Component } from '@angular/core';
+import { ImagenCarrusel } from 'src/app/common/carrusel/carrusel.component';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.scss'],
 })
-export class InicioComponent implements OnInit {
-  comentarios: Comentario[];
-
-  constructor(private comentariosService: ComentariosService) {}
-
-  ngOnInit(): void {
-    this.comentariosService.comentariosList$.subscribe(
-      (comentarios: Comentario[]) => {
-        this.comentarios = this.randomComentarios(comentarios);
-      }
-    );
-  }
-
-  randomComentarios(comentarios: Comentario[]): Comentario[] {
-    return comentarios
-      .sort(() => (Math.random() > 0.5 ? 1 : -1))
-      .filter((c, i) => i < 3);
-  }
+export class InicioComponent {
+  imagenes: ImagenCarrusel[] = [
+    { img: 'inicio1.jpg' },
+    { img: 'inicio.jpg' },
+    { img: 'inicio4.jpg' },
+    { img: 'inicio2.jpg' },
+    { img: 'inicio3.jpg' },
+    { img: 'inicio7.jpg' },
+  ];
 }
