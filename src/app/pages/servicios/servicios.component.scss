@@ -1,23 +1,33 @@
+:host {
+  padding-top: 36px;
+}
+.servicios-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  position: relative;
+}
 .iconos {
   display: flex;
   flex-wrap: wrap;
 }
 .box-tech {
-  width: 350px;
-  height: 350px;
   background-color: #eeeeee;
   display: flex;
+  max-width: 30%;
+  min-width: min(300px, 100%);
+  flex-grow: 1;
+  height: 300px;
   align-content: center;
   justify-content: center;
   overflow: hidden;
   padding: 2em;
-
+  margin: 5px;
   .content {
     display: flex;
     align-content: center;
-    justify-content: center;
     flex-flow: column;
-    padding-top: 5em;
+    padding-top: 4em;
     transition: all 0.2s ease-in-out;
 
     img {
@@ -45,7 +55,6 @@
         width: 0px;
         margin-top: 0em;
         margin-bottom: 1em;
-
         transition: all 0.2s ease-in-out;
       }
       p {
@@ -60,17 +69,13 @@
   &:hover {
     .content {
       padding-top: 0em;
-      cursor: pointer;
-
       img {
         width: 60px;
         filter: none;
       }
-
       p {
         color: #111111;
       }
-
       .desc {
         display: block !important;
         transform: scale(1, 1);

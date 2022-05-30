@@ -1,3 +1,5 @@
+import { CONDICIONS_ES } from './condiciones/condiciones.es';
+import { NORMAS_ES } from './normas/normas.es';
 export const TRANSLATIONS_ES: { [key: string]: string } = {
   menu_inicio: 'Inicio',
   menu_apartamento: 'Apartamento',
@@ -76,4 +78,12 @@ export const TRANSLATIONS_ES: { [key: string]: string } = {
   footer_text_1:
     'La calidez y el confort de nuestro apartamento<br/>harán que tu estancia sea más que una estancia,<br/>te vas a sentir tan bien como en tu propia casa.',
   footer_follow_us: 'Síguenos en',
+
+  location: 'Localización',
+
+  servicios_text_1:
+    'Nos esforzamos en ofrecer todas las comodidas en nuestro apartamento, poque queremos que te sientas como en casa para que disfrutes de todo lo que ofrece nuestro territorio empapándote en su historia, cultura y naturaleza.',
+
+  normas: NORMAS_ES,
+  condiciones: CONDICIONS_ES,
 };

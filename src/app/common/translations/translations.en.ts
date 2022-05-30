@@ -1,3 +1,6 @@
+import { CONDICIONS_EN } from './condiciones/condiciones.en';
+import { NORMAS_EN } from './normas/normas.en';
+
 export const TRANSLATIONS_EN: { [key: string]: string } = {
   menu_inicio: 'Home',
   menu_apartamento: 'Apartment',
@@ -75,4 +78,9 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
   footer_text_1:
     'The warmth and comfort of our apartment<br/>will make your stay more than just a stay,<br/>you will feel as good as in your own home.',
   footer_follow_us: 'Follow us',
+
+  location: 'Location',
+
+  normas: NORMAS_EN,
+  condiciones: CONDICIONS_EN,
 };

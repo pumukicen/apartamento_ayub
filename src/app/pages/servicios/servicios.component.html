@@ -1,108 +1,44 @@
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">
+  <li class="breadcrumb-item active">
     <font style="vertical-align: inherit;">
-      <font style="vertical-align: inherit;">Información</font>
+      <span style="vertical-align: inherit;">{{ "menu_informacion" | translate }}</span>
     </font>
   </li>
   <li class="breadcrumb-item active">
-    <font style="vertical-align: inherit;">
-      <font style="vertical-align: inherit;">Servicios</font>
-    </font>
+    <font style="vertical-align: inherit;">{{ "menu_informacion_servicios" | translate }}</font>
+    -
+    <a href="#/normas">
+      <font style="vertical-align: inherit;">{{ "menu_informacion_normas" | translate }}</font>
+    </a>
+    -
+    <a href="#/condiciones">
+      <font style="vertical-align: inherit;">{{ "menu_informacion_condiciones" | translate }}</font>
+    </a>
   </li>
 </ol>
 
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10 my-3 text-center">
-      <h3>Servicios</h3>
-      <p>Nos esforzamos en ofrecer todas las comodidas en nuestro apartamento, poque queremos que te sientas como en casa para que disfrutes de todo lo que ofrece nuestro territorio empapándote en su historia, cultura y naturaleza.</p>
+      <h3>{{ 'menu_informacion_servicios' | translate }}</h3>
+      <p>{{ 'servicios_text_1' | translate }}</p>
     </div>
   </div>
   <section class="iconos">
-    <div class="row row-cols-1 row-cols-3 g-4">
-      <div class="col-4">
+    <div class="servicios-container">
+      <ng-container *ngFor="let servicio of servicios">
         <div class="box-tech">
           <div class="content">
-            <img src="./assets/img/wifi.png"
+            <img [src]="'./assets/img/' + servicio.logo + '.png'"
                  alt="">
-            <p>Wifi</p>
+            <p>{{ servicio.title | translate | uppercase }}</p>
             <div class="desc">
               <div class="line"></div>
-              <p>Podrás disfrutar de conexión WiFi en nuestro apartamento, es gratuito para todos nuestros clientes.</p>
+              <p>{{ servicio.text | translate }}</p>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-4">
-        <div class="box-tech">
-          <div class="content">
-            <img src="./assets/img/cocina.png"
-                 alt="">
-            <p>Cocina</p>
-            <div class="desc">
-              <div class="line"></div>
-              <p>Totalmente equipada con todo lo necesario. Dispone de: batería de cocina, vajilla, cafetera, utensilios de cocina, lavavajillas, microondas, horno y material de limpieza.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="box-tech">
-          <div class="content">
-            <img src="./assets/img/baño.png"
-                 alt="">
-            <p>Baño</p>
-            <div class="desc">
-              <div class="line"></div>
-              <p>Totalmente equipado con todo lo necesario. Entre otras cosas dispone de: toallas, jabón, champú y gel de baño y secador de pelo.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="box-tech">
-          <div class="content">
-            <img src="./assets/img/calefaccion.png"
-                 alt="">
-            <p>Calefacción</p>
-            <div class="desc">
-              <div class="line"></div>
-              <p>Nuestro apartamento dispone de calefacción para que podáis disfrutar de una estancia agradable los días de invierno.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="box-tech">
-          <div class="content">
-            <img src="./assets/img/bebe.png"
-                 alt="">
-            <p>Bebés</p>
-            <div class="desc">
-              <div class="line"></div>
-              <p>Tenemos cunas, tronas y juegos a tu disposición. Sin coste extra avisando al realizar la reserva.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="box-tech">
-          <div class="content">
-            <img src="./assets/img/parking.png"
-                 alt="">
-            <p>Parking</p>
-            <div class="desc">
-              <div class="line"></div>
-              <p>El parking del casco histórico es de pago excepto fines de semana y festivos, pero a 100 metros hay disponible un aparacamiento libre y gratuito.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      </ng-container>
     </div>
   </section>
 </div>
