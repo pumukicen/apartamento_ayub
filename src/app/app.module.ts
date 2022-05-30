@@ -18,9 +18,12 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CarruselComponent } from './common/carrusel/carrusel.component';
+import { ComentariosComponent } from './common/comentarios/comentarios.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { FeedbackComponent } from './common/header/feedback/feedback.component';
 import { HeaderComponent } from './common/header/header.component';
+import { MapComponent } from './common/map/map.component';
 import { PageContentDirective } from './common/page-content/page-content.directive';
 import { TranslationsService } from './common/translations/translations.service';
 import { MaterialModule } from './material/material.module';
@@ -62,6 +65,9 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
     PageContentDirective,
     CalendarioComponent,
     FeedbackComponent,
+    MapComponent,
+    CarruselComponent,
+    ComentariosComponent,
   ],
   imports: [
     FormsModule,

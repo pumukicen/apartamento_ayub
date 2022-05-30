@@ -1,16 +1,3 @@
-.mapa-container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  background-color: #78c2ad;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 200ms;
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px #99999978 !important;
-  }
-}
 .container-fluid {
   margin-top: 48px;
 }

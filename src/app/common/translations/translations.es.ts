@@ -104,4 +104,13 @@ export const TRANSLATIONS_ES: { [key: string]: string } = {
   servicios_parkin_title: 'Parking',
   servicios_parkin_text:
     'El parking del casco histórico es de pago excepto fines de semana y festivos, pero a 100 metros hay disponible un aparacamiento libre y gratuito.',
+
+  inicio_welcome: 'Bienvenido a la ciudad de Calatayud',
+  inicio_text:
+    'Cuna de 5 culturas, pues tenemos una ciudad celtíbera (Valdeherrera) a 9 kilómetros, una ciudad romana (Bílbilis) a 6 kilómetros, cinco castillos defensivos de época romana que unidos a su muralla hacen que sea el conjunto defensivo árabe más antiguo de toda la península (siglo VIII), la judería que llegó a ser de las más grandes de Aragón, y por supuesto, tres monumentos que son patrimonio de la humanidad (la torre, ábside y claustro de la Colegiata de santa María). Francisco de Goya pintó las pechinas en la iglesia de San Juan el Real y Fernando el Católico fue nombrado heredero en la iglesia de San Pedro de los Francos. Después de todo este recorrido, te recomiendo que tomes unas tapas en cualquiera de nuestros bares, dejando hueco para la comida, donde podrás degustar en nuestros restaurantes, el plato típico de la ciudad, garbanzos con congrio. Y si después quieres relajarte, te recomiendo que visites el parque natural del Monasterio de Piedra, un oasis cercano a esta ciudad, o probar cualquier balneario situado en los alrededores de la ciudad. Calatayud es cultura, tradición, naturaleza y gastronomía. <strong><em>Te animas?</em></strong>',
+
+  apartamento_text_1:
+    'Disfruta de un encantador apartamento en pleno centro de Calatayud, en una ubicación idónea para disfrutar con tu familia.',
+  apartamento_text_2:
+    'Apartamento ubicado en el centro de Calatayud, aproximadamente a 5 minutos andando de los edificios más importantes. El apartamento esta en la primera planta del edificio sin ascensor, dispone de unos 80 metros cuadrados aproximadamente. Con suelo de madera y calefacción. El dormitorio principal se amuebla con cama de matrimonio y armario empotrado. El segundo dormitorio esta provisto de una cama individual que se puede hacer de matrimonio. La zona de estar se compone de salón-comedor con dos balcones exteriores a la calle que aportan la luz natural al apartamento. Además de un baño y cocina totalmente equipados. Dispone de Wifi para todo el apartamento.',
 };

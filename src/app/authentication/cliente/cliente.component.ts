@@ -41,6 +41,7 @@ export class ClienteComponent {
       ]),
       language: new FormControl({ value: this.currentLang }),
     });
+    console.log(this.currentLang);
     this._subs.push(
       this.authService.user$.subscribe((user) => {
         this.user = user;
