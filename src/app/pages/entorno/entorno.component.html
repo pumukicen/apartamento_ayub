@@ -1,65 +1,30 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-10 my-3 text-center">
-      <h3>Entorno Natural
-      </h3>
-      <p>La atracción de los balnearios, una de las fórmulas turísticas con mayor proyección en Aragón, el encanto del Monasterio de Piedra, la historia y la cultura de Calatayud, el sabor de las poblaciones que conforman esta comarca. un recorrido mágico con infinidad de alternativas con las que complacer los más diversos deleites.</p>
-    </div>
-  </div>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">
+    <font style="vertical-align: inherit;">
+      <span style="vertical-align: inherit;">{{ "menu_experiencias" | translate }}</span>
+    </font>
+  </li>
+  <li class="breadcrumb-item active">
+    <a href="#/restaurantes">
+      <font style="vertical-align: inherit;">{{ "menu_experiencias_restaurantes" | translate }}</font>
+    </a>
+    -
+    <a href="#/lugares">
+      <font style="vertical-align: inherit;">{{ "menu_experiencias_lugares" | translate }}</font>
+    </a>
+    <a href="#/eventos">
+      -
+      <font style="vertical-align: inherit;">{{ "menu_experiencias_eventos" | translate }}</font>
+      -
+    </a>
+    <font style="vertical-align: inherit;">{{ "menu_entorno" | translate }}</font>
+  </li>
+</ol>
 
-  <div class="row row-cols-1 row-cols-2 g-4">
-    <div class="col">
-      <div class="card">
-        <div class="face front">
-          <img src="./assets/img/gallocanta.jpg"
-               class="card-img-top"
-               alt="...">
-        </div>
-        <div class="face back">
-          <h5 class="card-title">Laguna de Gallocanta</h5>
-          <p class="card-text">Es uno de los ecosistemas más singulares de Europa, siendo un auténtico paraíso ornitológico. Cada invierno, es el lugar elegido por la grulla común para hacer un alto en el camino durante el trascurso de sus viajes migratorios, habiéndo llegado a contabilizarse hasta 60.000 ejemplares. Un auténtico espectáculo visual y sonoro que merece la pena vivir.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="face front">
-          <img src="./assets/img/senderismo.jpg"
-               class="card-img-top"
-               alt="...">
-        </div>
-        <div class="face back">
-          <h5>Senderismo</h5>
-          <p>En la Comunidad de Calatayud sus montes y sierras, además de senderos por estepas, profundos valles, desfiladeros y cañones componen un diverso y atractivo territorio para la práctica del senderismo y la bicicleta de montaña. Puedes perderte por caminos de paisajes legendarios por los que paso el mismísimo Cid Campeador en sus batallas.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="face front">
-          <img src="./assets/img/monasterio.jpg"
-               class="card-img-top"
-               alt="...">
-        </div>
-        <div class="face back">
-          <h5 class="card-title">Monasterio de Piedra</h5>
-          <p class="card-text">Uno de los recursos turísticos y monumentales más importantes de Aragón, un oasis natural que rompe la estética árida, un manantial de silencio donde el agua salpica de belleza todo cuanto cubre. Así es el Monasterio de Piedra, fundado por los monjes del Císter en el siglo XII y convertido en el hotel y en el actual paraje natural en el XIX.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="face front">
-          <img src="./assets/img/balneario.jpg"
-               class="card-img-top"
-               alt="...">
-        </div>
-        <div class="face back">
-          <h5 class="card-title">Ruta de los Balnearios</h5>
-          <p class="card-text">La comarca de Calatayud cobija el principal número de balneario de la provincia de Zaragoza que quedan enmarcados en las localidades de Jaraba, Alhama de Aragón y Paracuellos de Jiloca. Seis son las estaciones termales que han hecho de esta parte aragonesa uno de los principales puntos de interés del sector balneario nacional.</p>
-        </div>
-      </div>
-    </div>
+<div class="row justify-content-center">
+  <div class="col-10 my-3 text-center">
+    <h3 class="mb-3">{{ "env_header" | translate }}</h3>
+    <p>{{ "env_text" | translate }}</p>
   </div>
 </div>
+<app-cards [cards]="cards"></app-cards>

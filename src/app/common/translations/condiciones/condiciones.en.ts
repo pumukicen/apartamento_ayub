@@ -1,33 +1,33 @@
-export const CONDICIONS_EN: string = `
+export const CONDICIONES_EN: string = `
   <h3 class="text-center mb-3 mt-3">
     Terms and conditions
   </h3>
   <h5>Conditions for admission:</h5>
   <ol class="listado">
-    <li>Los clientes, sin excepción, estarán obligados a presentar el documento de identificación (DNI/NIE) en el momento de su admisión en el establecimiento.</li>
-    <li>Se prohíbe el acceso de personas acompañadas de animales, a excepción de las personas que precisen de perros guías por presentar disfunción visual.</li>
-    <li>Por razones de seguridad y protección, no están permitidas las visitas al apartamento o su utilización, por personas no inscritas en la reserva. El incumplimiento de esta norma, dará derecho al propietario a tomar las medidas que estime oportunas, incluso desalojo.</li>
-    <li>En caso de cualquier incumplimiento de las normas del alojamiento, el propietario por criterio propio tiene el derecho de pedirle al cliente desocupar el establecimiento y el cliente no tendrá el derecho de ninguna compensación.</li>
+    <li>Customers, without exception, will be required to present their identification document (DNI/NIE) at the time of admission to the establishment.</li>
+    <li>The access of people accompanied by animals is prohibited, except for people who need guide dogs due to visual dysfunction.</li>
+    <li>For security and safety reasons, visits to the apartment or its use by persons not registered in the reservation are not allowed. Failure to comply with this rule, will entitle the owner to take the measures it deems appropriate, including eviction.</li>
+    <li>In case of any non-compliance with the rules of the accommodation, the owner at his own discretion has the right to ask the client to vacate the premises and the client shall not be entitled to any compensation.</li>
   </ol>
-  <h5>Disponibilidad y confirmación de reserva:</h5>
+  <h5>Availability and booking confirmation:</h5>
   <ol class="listado">
-    <li>La petición de información sobre el estado de disponibilidad del establecimiento no implica la aceptación de la reserva por parte del propietario.</li>
-    <li>Todas las reservas se garantizarán mediante una transferencia bancaria antes de las 48 horas siguientes de la aceptación de la "Prerreserva" por parte del propietario.</li>
-    <li>El cliente deberá hacer una transferencia en la cuenta corriente que se le facilita en concepto de anticipo, a efectos de formalizar la Reserva, indicando su nombre y la fecha de entrada.</li>
-    <li>La reserva no quedará efectuada hasta que el propietario no haya recibido el pre-pago de la confirmación. Cuando el pago de reserva no haya sido confirmado por el propietario, el establecimiento se reserva el derecho a proponer el alojamiento a otros clientes.</li>
-    <li>El disfrute del alojamiento y de otros servicios, durará el plazo convenido entre el establecimiento y el cliente. Cualquier ampliación o reducción del plazo previamente pactado tendrá que ser consultado al propietario.</li>
+    <li>The request for information on the availability status of the property does not imply acceptance of the reservation by the owner.</li>
+    <li>All reservations will be guaranteed by bank transfer within 48 hours of the acceptance of the "Pre-reservation" by the owner.</li>
+    <li>The client must make a transfer to the current account provided as an advance payment, in order to formalize the reservation, indicating his name and date of entry.</li>
+    <li>The reservation will not be confirmed until the owner has received the pre-payment of the confirmation. When the reservation payment has not been confirmed by the owner, the establishment reserves the right to offer the accommodation to other clients.</li>
+    <li>The enjoyment of the accommodation and other services, will last the term agreed between the establishment and the client. Any extension or reduction of the previously agreed period will have to be consulted to the owner.</li>
   </ol>
-  <h5>Anulación:</h5>
+  <h5>Cancellation:</h5>
   <ol class="listado">
-    <li>En caso de anulación se aplicarán una serie de gastos en función de la antelación con que se avise. Todos los gastos derivados de la misma irán a cargo del cliente.</li>
-    <li>En caso de abandono del establecimiento con antelación a lo pactado entre las dos partes se cobrará el total de lo acordado para la estancia, en concepto de daños y perjuicios causados.</li>
-    <li>También será aplicable la política de cancelación a aquellas anulaciones realizadas durante la estancia sin haber cumplido con las noches reservadas.</li>
+    <li>In case of cancellation, a series of expenses will be applied depending on the advance notice given. All the expenses derived from the cancellation will be charged to the client.</li>
+    <li>In case of abandonment of the establishment in advance of what has been agreed between the two parties, the total amount agreed for the stay will be charged as damages and losses caused.</li>
+    <li>The cancellation policy also applies to cancellations made during the stay without having fulfilled the nights reserved.</li>
   </ol>
   <h6>COVID-19</h6>
   <ol class="listado">
-    <li>El alojamiento ha sido perfectamente ventilado y desinfectado para que su estancia sea segura. Hemos puesto especial cuidado en la desinfección de pomos, manillas, grifos y lugares y objetos que puedan haber sido objeto de manipulación.</li>
-    <li>Por su seguridad y por la de todos, es importante que compruebe su temperatura y síntomas característicos del Covid-19 antes de iniciar el viaje.</li>
-    <li>En respuesta al coronavirus (COVID-19), el alojamiento aplica medidas sanitarias y de seguridad adicionales en estos momentos.</li>
-    <li>Por favor, tenga en cuenta que la información está sujeta a cambios con el paso del tiempo y supeditada a las decisiones de las autoridades gubernamentales y sanitarias.</li>
+    <li>The accommodation has been perfectly ventilated and disinfected to make your stay safe. Special care has been taken to disinfect knobs, handles, faucets and places and objects that may have been handled.</li>
+    <li>For your safety and everyone else's, it is important that you check your temperature and symptoms characteristic of Covid-19 before you start your trip</li>
+    <li>In response to the coronavirus (COVID-19), the lodge is implementing additional health and safety measures at this time.</li>
+    <li>Please note that the information is subject to change over time and subject to the decisions of governmental and health authorities.</li>
   </ol>
 `;

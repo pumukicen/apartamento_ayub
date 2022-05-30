@@ -1,5 +1,7 @@
 :host {
   padding-top: 36px;
+  max-width: 900px;
+  margin: auto;
 }
 .servicios-container {
   display: flex;
@@ -16,13 +18,13 @@
   background-color: #eeeeee;
   display: flex;
   max-width: 30%;
-  min-width: min(300px, 100%);
+  min-width: min(290px, 100%);
   flex-grow: 1;
   height: 300px;
   align-content: center;
   justify-content: center;
   overflow: hidden;
-  padding: 2em;
+  padding: 26px;
   margin: 5px;
   .content {
     display: flex;

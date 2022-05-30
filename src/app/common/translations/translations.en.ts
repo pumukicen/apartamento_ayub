@@ -1,4 +1,4 @@
-import { CONDICIONS_EN } from './condiciones/condiciones.en';
+import { CONDICIONES_EN } from './condiciones/condiciones.en';
 import { NORMAS_EN } from './normas/normas.en';
 
 export const TRANSLATIONS_EN: { [key: string]: string } = {
@@ -80,9 +80,10 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
   footer_follow_us: 'Follow us',
 
   location: 'Location',
+  comentarios: 'Customer opinions',
 
   normas: NORMAS_EN,
-  condiciones: CONDICIONS_EN,
+  condiciones: CONDICIONES_EN,
 
   servicios_text_1:
     'We strive to offer all the comforts in our apartment, because we want you to feel at home to enjoy all that our territory has to offer soaking in its history, culture and nature.',
@@ -113,4 +114,64 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
     'Enjoy a charming apartment in the heart of Calatayud, in an ideal location to enjoy with your family.',
   apartamento_text_2:
     'Apartment located in the center of Calatayud, approximately 5 minutes walk from the most important buildings. The apartment is on the second floor of the building without elevator, has about 80 square meters approximately. With wooden floor and heating. The main bedroom is furnished with a double bed and a built-in closet. The second bedroom is equipped with a single bed that can be made into a double bed. The living area consists of a living-dining room with two balconies overlooking the street that bring natural light to the apartment. In addition to a fully equipped bathroom and kitchen. It has Wifi for the whole apartment.',
+
+  restaurantes_header: 'Local Gastronomy',
+  restaurantes_text:
+    'The gastronomic culture of Calatayud is well known for two classic references: the "ternasco a la bilbilitana" and the "garbanzos con congrio" (chickpeas with conger eel). Dishes that can be tasted accompanied by its wines of the Designation of Origin of Calatayud, in its different types of restaurants. You can also choose from a wide variety of bars with tapas and a variety of portions to take sitting on their terraces.',
+  restaurante_1_text:
+    'Restaurant located in the heart of the old town of Calatayud, based on traditional market cuisine with a modern personal touch.',
+  restaurante_2_text:
+    'Traditional food restaurant in the historic center of Calatayud. The meal consists of a menu with three starters and a main dish to choose from. Specialty in rice dishes.',
+  restaurante_3_text:
+    'Restaurant in the center of Calatayud, which offers from cold starters and vegetable portions, to grilled meats and fish and not forgetting its delicious homemade desserts.',
+  restaurante_4_text:
+    'They have menu and menu of the day. Seasonal products of the area. Homemade recipes and traditional dishes of Aragonese cuisine, as well as homemade desserts. Generous portions and very good value for money.',
+
+  lugares_header: 'Visiting Calatayud',
+  lugares_text:
+    'Calatayud, a monumental city that fuses between its streets a compendium of cultures, styles and traditions. It has been declared a Historic and Monumental Site since 1967. Calatayud is an essential enclave of Mudejar art. Let yourself be amazed by the highest Mudejar tower in the world, declared a World Heritage Site by UNESCO.',
+
+  lugar_1_name: 'Historic District',
+  lugar_1_text:
+    'The Old Town of Calatayud treasures interesting monuments. There are numerous options to visit it from an architectural, cultural or artistic point of view, highlighting undoubtedly its Mudejar, declared by UNESCO "World Heritage Site". Stroll through a city where there is no rush, because everything is nearby, walking through its streets full of history, dotted with churches and palaces, squares and gardens, and a lifestyle that is the very essence of the city.',
+  lugar_2_name: 'Ayub Castle',
+  lugar_2_text:
+    'Castillo Mayor that forms the fortified complex, one of the most complex and ancient preserved in Al-Andalus. The defensive complex of Calatayud is made up of five castles linked by more than 2,250 meters of walls that are still preserved today. In the wall there is an interesting horseshoe arch of caliphal type.',
+  lugar_3_name: 'Jewish Quarter',
+  lugar_3_text:
+    'The Jewish quarter was located, like a promontory, perched around the castle of Don Álvaro or Doña Martina, also known as the castle of the Jewish quarter. The neighborhood had a main access road that started, possibly through a semicircular arch, from the Plaza de San Andrés, and ascended the slope of Santa Ana.',
+  lugar_4_name: 'Bilbilis archaeological site',
+  lugar_4_text:
+    'The city of Bilbilis extends over the peaks and slopes of the hills of Bámbola, San Paterno and Santa Bárbara. We recommend starting the visit at the Museum of Calatayud, where you will be provided with information about Bilbilis and you can learn about its material remains (impressive remains of Roman painting). Then, visit Bilbilis, it is a free visit with a geographical location that you will love. You will be able to see very interesting buildings such as the theater or the baths, among others.',
+
+  events_text:
+    'The traditional festivals of Calatayud are one of its main signs of identity. Get to know the typical festivities of Calatayud and enjoy them.',
+  event_1_name: 'Bilbilitana Holy Week',
+  event_1_text:
+    'The Holy Week of Calatayud, declared of Tourist Interest in Aragon, is considered by the Ministry of Culture as one of the oldest and most peculiar in Spain. Throughout the week, various events and processions make up the important and abundant program of events. It reaches its climax on Good Friday, when in the afternoon from the church of San Juan el Real, the very ancient procession of the Holy Burial that dates from the fifteenth century. In this great popular manifestation of faith, there are 24 processional floats made between the XVII and XX centuries, carried by the 12 brotherhoods or penitential brotherhoods and more than 300 characters of the Old and New Testament, forming the two parts of the procession, the Old and New Testament. In the Plaza de España, the important and ancient Auto Sacramental del Entierro de Cristo is celebrated.',
+  event_2_name: 'The Alfonsadas',
+  event_2_text:
+    'The Alfonsadas are a medieval historical recreation of the Reconquest of Calatayud by the Aragonese King Alfonso I "El Batallador" in the year 1120. Visually it is a spectacle because the whole city makes a trip back in time to recreate the atmosphere of the reconquest, filled with shields and decorations. You can enjoy the first weekend of June, during all the days of the festival, a huge medieval market, which fills the Plaza of Spain and all the streets of the old town, shows and medieval attractions, exhibition of birds of prey, dances, games, storytelling, knight fights, tournaments, concerts, street performances, etc..',
+  event_3_name: 'Festivities of San Roque',
+  event_3_text:
+    'The festivities in honor of San Roque in Calatayud, are declared a Festival of Regional Tourist Interest. These festivities are organized entirely by the Peñas and the Interpeñas commission. They take place in mid-August, usually from 13 to 16. There are a total of 10 peñas, where the peñistas are usually dressed in white and are complemented by a shirt, which varies in color depending on their peña. Each peña organizes its own festive program, including concerts, shows, meals, etc. The bullfighting festivities held in the Coso de Margarita are noteworthy. One of the main events is the pilgrimage to San Roque, which takes place in the early morning of August 15 to 16. It goes up to the hermitage of the saint where a bell is rung, the gozos are prayed and ends with a glass of chocolate and biscuits that is distributed to all those who have gone up to see the saint.',
+  event_4_name: 'Virgen de la Peña Festivities',
+  event_4_text:
+    'The city of Calatayud, takes as its patron saint the Virgen de la Peña in the nineteenth century, although the city always worshiped her since her miraculous appearance in the twelfth century, when after the reconquest a star rested every night at the same point on a high hill of the city and was heard faintly as a bell ringing. There the intrigued population dug and in a grotto a field appeared and under it the seated image of the Virgin Mary with the child Jesus in her lap. It is so much of an image of the tenth century that was hidden in the Muslim invasion and there remained hidden until the time of its discovery. On this hill or rock a sanctuary was built using part of the building of the Islamic wall, where it remains today and receives its name of Peña.',
+
+  env_header: 'Natural Environment',
+  env_text:
+    'The attraction of the spas, one of the most popular tourist formulas in Aragon, the charm of the Monasterio de Piedra, the history and culture of Calatayud, the flavor of the towns that make up this region, a magical journey with an infinite number of alternatives to please the most diverse delights.',
+  env_1_name: 'Gallocanta Lagoon',
+  env_1_text:
+    'It is one of the most unique ecosystems in Europe, being a true ornithological paradise. Every winter, it is the place chosen by the common crane to make a stop along the way during the course of their migratory journeys, having counted up to 60,000 specimens. An authentic visual and sonorous spectacle that is well worth experiencing.',
+  env_2_name: 'Hiking',
+  env_2_text:
+    'In the Community of Calatayud its mountains and sierras, as well as trails through steppes, deep valleys, gorges and canyons make up a diverse and attractive territory for hiking and mountain biking. You can lose yourself in legendary landscape paths through which the Cid Campeador himself passed in his battles.',
+  env_3_name: 'Stone Monastery',
+  env_3_text:
+    'One of the most important tourist and monumental resources of Aragon, a natural oasis that breaks the arid aesthetics, a spring of silence where water splashes with beauty everything it covers. This is the Monasterio de Piedra, founded by the Cistercian monks in the 12th century and converted into a hotel and the current natural site in the 19th century.',
+  env_4_name: 'Route of the Spas',
+  env_4_text:
+    'The region of Calatayud shelters the main number of spas in the province of Zaragoza, which are framed in the towns of Jaraba, Alhama de Aragón and Paracuellos de Jiloca. Six are the thermal stations that have made of this part of Aragon one of the main points of interest of the national spa sector.',
 };

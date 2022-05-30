@@ -1,108 +1,50 @@
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">
+  <li class="breadcrumb-item active">
     <font style="vertical-align: inherit;">
-      <font style="vertical-align: inherit;">Experincias</font>
+      <span style="vertical-align: inherit;">{{ "menu_experiencias" | translate }}</span>
     </font>
   </li>
   <li class="breadcrumb-item active">
-    <font style="vertical-align: inherit;">
-      <font style="vertical-align: inherit;">Restaurantes</font>
-    </font>
+    <font style="vertical-align: inherit;">{{ "menu_experiencias_restaurantes" | translate }}</font>
+    -
+    <a href="#/lugares">
+      <font style="vertical-align: inherit;">{{ "menu_experiencias_lugares" | translate }}</font>
+    </a>
+    -
+    <a href="#/eventos">
+      <font style="vertical-align: inherit;">{{ "menu_experiencias_eventos" | translate }}</font>
+    </a>
+    -
+    <a href="#/entorno">
+      <font style="vertical-align: inherit;">{{ "menu_entorno" | translate }}</font>
+    </a>
   </li>
 </ol>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-10 my-3 text-center">
-      <h3>Gastronomía Local
-      </h3>
-      <p>La cultura gastronómica de Calatayud es conocida por dos referencias clásicas: el ternasco a la bilbilitana y los garbanzos con congrio. Platos que se pueden degustar acompañados por sus vinos de la Denominación de Origen de Calatayud, en sus distintos tipos de restaurantes. También se puede elegir entre la gran variedad de bares con tapas y raciones muy variadas para tomar sentados en sus terrazas.</p>
-    </div>
-  </div>
-
-  <div class="col-6 d-block mx-auto">
-    <div class="card mb-3">
-      <div class="row g-0">
-        <div class="col-4">
-          <img src="./assets/img/pterrer.jpg"
-               class="img-fluid rounded-start"
-               alt="...">
-        </div>
-        <div class="col-8">
-          <div class="card-body">
-            <h5 class="card-title">Restaurante Puerta Terrer</h5>
-            <p class="card-text">Restaurante situado en el corazón del casco antiguo de Calatayud, basado en una cocina tradicional de mercado con un toque personal moderno.</p>
-            <p><a href="https://restaurantepuertadeterrer.com/"
-                 target="_blank">Restaurante Puerta de Terrer</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-6 d-block mx-auto">
-    <div class="card mb-3">
-      <div class="row g-0">
-        <div class="col-4">
-          <img src="./assets/img/fonduq.jpg"
-               class="img-fluid rounded-start"
-               alt="...">
-        </div>
-        <div class="col-8">
-          <div class="card-body">
-            <h5 class="card-title">Restaurante Fonduq El Pilar</h5>
-            <p class="card-text">Restaurante de comida tradicional en el centro histórico de Calatayud. La comida consta de un menú con tres entrantes y un principal a elegir. Especialidad en arroces.</p>
-            <p><a href="https://fonduqhoteles.com/restaurantes/hotel-el-pilar/"
-                 target="_blank">Restaurante Fonduq El Pilar</a>
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-6 d-block mx-auto">
-    <div class="card mb-3">
-      <div class="row g-0">
-        <div class="col-4">
-          <img src="./assets/img/sanAnton.jpg"
-               class="img-fluid rounded-start"
-               alt="...">
-        </div>
-        <div class="col-8">
-          <div class="card-body">
-            <h5 class="card-title">Restaurante Posada San Antón</h5>
-            <p class="card-text">Restaurante en el centro de Calatayud, que ofrece desde entrantes fríos y raciones de verduras, pasando por carnes y pescados a la brasa y sin olvidar sus deliciosos postres caseros.</p>
-            <p><a href="https://posadasananton.es/"
-                 target="_blank">Restaurante Posada San Antón</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-6 d-block mx-auto">
-    <div class="card mb-3">
-      <div class="row g-0">
-        <div class="col-4">
-          <img src="./assets/img/perla.jpg"
-               class="img-fluid rounded-start"
-               alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Restaurante La Perla</h5>
-            <p class="card-text">Disponen de carta y menú del día. Producto de temporada de la zona. Recetas caseras y platos tradicionales de la cocina aragonesa, así como postres caseros. Raciones generosas y muy buena relación calidad precio.</p>
-
-            <p><a href="https://www.tripadvisor.es/Restaurant_Review-g675038-d4715083-Reviews-La_Perla-Calatayud_Province_of_Zaragoza_Aragon.html"
-                 target="_blank">Restaurante La Perla</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="row justify-content-center">
+  <div class="col-10 my-3 text-center">
+    <h3 class="mb-3">{{ "restaurantes_header" | translate }}</h3>
+    <p>{{ "restaurantes_text" | translate }}</p>
   </div>
 </div>
+<ng-container *ngFor="let restaurante of restaurantes">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-4 restaurante-img"
+           [style.backgroundImage]="restauranteImg(restaurante)">
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ restaurante.name }}</h5>
+          <p class="card-text">{{ restaurante.text | translate }}</p>
+          <p>
+            <a href="{{ restaurante.link }}"
+               target="_blank">
+              {{ restaurante.name }}
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

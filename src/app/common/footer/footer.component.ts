@@ -127,13 +127,12 @@ export class FooterComponent implements OnInit, AfterViewInit {
     const page = document.querySelector('.page-content') as HTMLElement;
     this.renderer.listen(document, 'scroll', () => {
       this.showFooterDetails =
-        (html?.scrollTop || 0) + screen.height >
-        page?.scrollHeight + this.bookHeight;
+        (html?.scrollTop || 0) + screen.height >=
+        page?.scrollHeight + (this.kindOfMobile ? 0 : this.bookHeight);
     });
   }
   private arrangeFooter(): void {
-    const page = document.querySelector('.page-content') as HTMLElement;
-    if (page) page.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     setTimeout(() => (this.showFooterDetails = false));
   }
   intervalExpand(expand: boolean): void {
@@ -146,5 +145,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
         this.expand = true;
       }, 600);
     }
+  }
+  get kindOfMobile(): boolean {
+    return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   }
 }

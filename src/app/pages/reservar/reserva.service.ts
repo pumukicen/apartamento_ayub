@@ -7,7 +7,7 @@ import {
   AngularFireDatabase,
   AngularFireList,
 } from '@angular/fire/compat/database';
-import { endOfDay, startOfDay, addDays } from 'date-fns';
+import { endOfDay, startOfDay, addDays, addHours } from 'date-fns';
 @Injectable({
   providedIn: 'root',
 })
@@ -94,7 +94,7 @@ export class ReservaService {
   }
 
   reservar(): void {
-    const overlaped = this.checkOverlapping(this._reservas, this._reserva);
+    const overlaped = this.checkOverlapping(this._reserva);
     if (overlaped) {
       this.myToastrService.error('toastr_book_overlap');
       return;
@@ -134,17 +134,21 @@ export class ReservaService {
     return reservas.filter((reserva) => reserva.email === user.email);
   }
 
-  private checkOverlapping(reservas: Reserva[], miReserva: Reserva): boolean {
-    console.log('ERROR');
+  private checkOverlapping(miReserva: Reserva): boolean {
     const since = miReserva.llegada;
     const until = miReserva.salida;
-    if (!since || !until) return true;
-    return !!reservas.find((r) => {
-      if (!r.salida || !r.llegada) return false;
-      if (since <= r.salida && since >= r.llegada) return true;
-      if (until >= r.llegada && until <= r.salida) return true;
-      return false;
+    const bookDays = [];
+    let day = addHours(since as Date, 1);
+    while (day < addDays(until as Date, 1)) {
+      bookDays.push(day);
+      day = addDays(day, 1);
+    }
+    const overlapedDay = bookDays.find((d) => {
+      return this._reservas.find((r) => {
+        return d > (r.llegada as Date) && d < (r.salida as Date);
+      });
     });
+    return !!overlapedDay;
   }
 
   private convertReservaForDB(reserva: Reserva): object {

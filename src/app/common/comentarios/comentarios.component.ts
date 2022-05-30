@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UserLangService } from './../translations/user-lang.service';
 import { Comentario } from './comentarios.model';
 import { ComentariosService } from './comentarios.service';
 
@@ -10,12 +11,18 @@ import { ComentariosService } from './comentarios.service';
 })
 export class ComentariosComponent implements OnInit {
   comentarios: Comentario[];
-  constructor(private comentariosService: ComentariosService) {}
+  constructor(
+    private comentariosService: ComentariosService,
+    private userLangService: UserLangService
+  ) {}
 
   ngOnInit(): void {
     this.comentariosService.comentariosList$.subscribe(
       (comentarios: Comentario[]) => {
-        this.comentarios = this.randomComentarios(comentarios);
+        const comentariosByLang = comentarios.filter((c) =>
+          c.lang ? c.lang === this.userLangService.getCurrentLang() : true
+        );
+        this.comentarios = this.randomComentarios(comentariosByLang);
       }
     );
   }

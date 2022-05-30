@@ -3,8 +3,9 @@ import {
   AngularFireDatabase,
   AngularFireList,
 } from '@angular/fire/compat/database';
-import { BehaviorSubject, from, map, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, from, map, Observable, of } from 'rxjs';
 
+import { UserLangService } from '../translations/user-lang.service';
 import { AuthService, UserData } from './../../authentication/auth.service';
 import { Comentario } from './comentarios.model';
 
@@ -28,7 +29,8 @@ export class ComentariosService {
 
   constructor(
     private db: AngularFireDatabase,
-    private authService: AuthService
+    private authService: AuthService,
+    private userLangService: UserLangService
   ) {
     this._comentariosDBList = this.db.list('comments');
     this._comentariosDBList
@@ -60,6 +62,7 @@ export class ComentariosService {
         img: this.authService.currentUser()?.photo as string,
         email: this.authService.currentUser()?.email as string,
         date: new Date().valueOf(),
+        lang: this.userLangService.getCurrentLang(),
       };
       return from(this._comentariosDBList.push(newComment)).pipe(
         map(

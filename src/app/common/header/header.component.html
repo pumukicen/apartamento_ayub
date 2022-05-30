@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand"
-       href="#">Apartamento Ayub</a>
+    <div class="navbar-brand">Apartamento Ayub</div>
     <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -21,7 +20,6 @@
             <ng-container *ngIf="item.link; else dropdown">
               <a class="nav-link"
                  [class.active]="item.active"
-                 href="#"
                  [routerLink]="item.link">
                 {{ item.name | translate }}
               </a>
@@ -29,10 +27,10 @@
             <ng-template #dropdown>
               <a class="nav-link dropdown-toggle"
                  data-bs-toggle="dropdown"
-                 href="#"
                  role="button"
                  aria-haspopup="true"
-                 aria-expanded="false">
+                 aria-expanded="false"
+                 [class.active]="item.active">
                 {{ item.name | translate }}
               </a>
               <div class="dropdown-menu"
@@ -60,12 +58,13 @@
                     aria-expanded="false">
               {{ currentUser.name | uppercase }}
             </button>
-            <div class="dropdown-menu user-settings"
+            <div class="dropdown-menu user-settings user-dropdwon"
                  data-bs-popper="none">
               <div class="user-profile">
                 <div class="user-data">
                   <span>{{ currentUser.name }}</span>
-                  <span class="user-email">{{ currentUser.email }}</span>
+                  <span class="user-email"
+                        title="{{currentUser.email}}">{{ currentUser.email }}</span>
                 </div>
                 <div class="user-avatar"
                      [style.backgroundImage]="userAvatar">
@@ -96,9 +95,9 @@
           <button type="button"
                   class="btn btn-secondary login-btn"
                   routerLink="auth/login">{{ "btn_login" | translate | uppercase }}</button>
-          <button type="button"
+          <!-- <button type="button"
                   class="btn btn-secondary login-btn"
-                  routerLink="auth/signup">{{ "btn_signup" | translate | uppercase }}</button>
+                  routerLink="auth/signup">{{ "btn_signup" | translate | uppercase }}</button> -->
           <ng-container *ngTemplateOutlet="idiomas"></ng-container>
         </div>
       </ng-template>

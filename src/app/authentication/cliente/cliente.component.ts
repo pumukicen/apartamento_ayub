@@ -1,4 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ViewChild,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -20,7 +25,7 @@ import { AvatarComponent } from './avatar/avatar.component';
   templateUrl: './cliente.component.html',
   styleUrls: ['./cliente.component.scss'],
 })
-export class ClienteComponent {
+export class ClienteComponent implements AfterViewInit {
   @ViewChild(AvatarComponent) avatar: AvatarComponent;
   form: FormGroup;
   _subs: (Subscription | undefined)[] = [];
@@ -30,7 +35,8 @@ export class ClienteComponent {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private userLangService: UserLangService
+    private userLangService: UserLangService,
+    private cdr: ChangeDetectorRef
   ) {
     this.form = this.formBuilder.group({
       name: new FormControl(this.user?.name, [Validators.required]),
@@ -39,9 +45,8 @@ export class ClienteComponent {
         Validators.required,
         Validators.email,
       ]),
-      language: new FormControl({ value: this.currentLang }),
+      language: new FormControl({ value: this.currentLang?.toString() }),
     });
-    console.log(this.currentLang);
     this._subs.push(
       this.authService.user$.subscribe((user) => {
         this.user = user;
@@ -53,7 +58,10 @@ export class ClienteComponent {
       })
     );
   }
-
+  ngAfterViewInit(): void {
+    this.form.controls['language'].setValue(this.currentLang);
+    this.cdr.detectChanges();
+  }
   get currentLang(): string | undefined {
     return this.userLangService.getCurrentLang();
   }

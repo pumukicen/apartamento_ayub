@@ -30,16 +30,15 @@ export class HeaderComponent implements OnInit {
   @ViewChild(FeedbackComponent) feedback: FeedbackComponent;
   menuItems: MenuItem[] = [
     { name: 'menu_inicio', link: '/inicio' },
-    { name: 'menu_apartamento', link: '/apartamento' },
     {
       name: 'menu_experiencias',
       children: [
         { name: 'menu_experiencias_restaurantes', link: '/restaurantes' },
         { name: 'menu_experiencias_lugares', link: '/lugares' },
         { name: 'menu_experiencias_eventos', link: '/eventos' },
+        { name: 'menu_entorno', link: '/entorno' },
       ],
     },
-    { name: 'menu_entorno', link: '/entorno' },
     {
       name: 'menu_informacion',
       children: [
@@ -48,7 +47,7 @@ export class HeaderComponent implements OnInit {
         { name: 'menu_informacion_condiciones', link: '/condiciones' },
       ],
     },
-    { name: 'menu_blog', link: '/blog' },
+    // { name: 'menu_blog', link: '/blog' },
     { name: 'menu_contacto', link: '/contacto' },
     { name: 'menu_reservar', link: '/reservar' },
   ];
@@ -108,18 +107,22 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  private findItemByUrl(url: string, items: MenuItem[]): MenuItem {
+  private findItemByUrl(url: string, items: MenuItem[]): MenuItem | undefined {
     for (let item of items) {
       if (item.link === url) return item;
       if (item.children) {
         const child = item.children.find((ch) => ch.link === url);
-        if (child) return child;
+        if (child) {
+          item.active = true;
+          return child;
+        }
       }
     }
-    return this.menuItems[0];
+    return undefined;
   }
 
-  private activeItem(item: MenuItem, active: boolean): void {
+  private activeItem(item: MenuItem | undefined, active: boolean): void {
+    if (!item) return;
     item.active = active;
     if (!active && item.children) this.unactiveItems(item.children);
   }

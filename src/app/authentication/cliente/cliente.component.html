@@ -7,6 +7,7 @@
              [style.backgroundImage]="photoUrl"
              (click)="changeAvatar()">
           <div class="add-avatar">
+            <mat-icon>add</mat-icon>
           </div>
         </div>
       </div>
@@ -39,11 +40,9 @@
                 formControlName="language"
                 (change)="changeLang()">
           <ng-container *ngFor="let lang of languages">
-            <option [value]="lang.key"
-                    [selected]="lang.key == currentLang">{{ ('client_language_' + lang.name) | lowercase | translate }} {{lang.key == currentLang}}</option>
+            <option [value]="lang.key">{{ ('client_language_' + lang.name) | lowercase | translate }}</option>
           </ng-container>
         </select>
-
       </div>
 
       <button type="submit"

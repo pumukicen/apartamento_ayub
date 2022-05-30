@@ -42,6 +42,7 @@ import { CalendarioComponent } from './pages/reservar/calendario/calendario.comp
 import { ReservarComponent } from './pages/reservar/reservar.component';
 import { RestaurantesComponent } from './pages/restaurantes/restaurantes.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
+import { CardsComponent } from './common/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
     MapComponent,
     CarruselComponent,
     ComentariosComponent,
+    CardsComponent,
   ],
   imports: [
     FormsModule,

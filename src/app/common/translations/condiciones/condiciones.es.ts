@@ -1,4 +1,4 @@
-export const CONDICIONS_ES: string = `
+export const CONDICIONES_ES: string = `
   <h3 class="text-center mb-3 mt-3">
     Condiciones generales
   </h3>
