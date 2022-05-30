@@ -23,7 +23,7 @@ import { FeedbackComponent } from './common/header/feedback/feedback.component';
 import { HeaderComponent } from './common/header/header.component';
 import { PageContentDirective } from './common/page-content/page-content.directive';
 import { TranslationsService } from './common/translations/translations.service';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './material/material.module';
 import { ApartamentoComponent } from './pages/apartamento/apartamento.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { CondicionesComponent } from './pages/condiciones/condiciones.component';

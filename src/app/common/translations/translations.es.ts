@@ -13,4 +13,7 @@ export const TRANSLATIONS_ES: { [key: string]: string } = {
   menu_blog: 'Blog',
   menu_contacto: 'Contacto',
   menu_reservar: 'Reservar',
+
+  auth_login: 'Iniciar sesión',
+  auth_registrate: 'Regístrate',
 };
