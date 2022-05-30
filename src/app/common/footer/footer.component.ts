@@ -127,7 +127,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
     const page = document.querySelector('.page-content') as HTMLElement;
     this.renderer.listen(document, 'scroll', () => {
       this.showFooterDetails =
-        (html?.scrollTop || 0) + screen.height >=
+        (html?.scrollTop || 0) + screen.height + 1 >=
         page?.scrollHeight + (this.kindOfMobile ? 0 : this.bookHeight);
     });
   }

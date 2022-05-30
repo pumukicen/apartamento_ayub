@@ -24,7 +24,7 @@
 .dropdown-menu.user-settings {
   left: -170px;
   right: 0px;
-
+  overflow: hidden;
   min-width: 164px;
   a {
     text-align: right;
@@ -58,7 +58,6 @@
     align-items: flex-end;
     .user-email {
       font-size: 0.8rem;
-      width: calc(100% - 50px);
       text-align: right;
       overflow: hidden;
       text-overflow: ellipsis;
