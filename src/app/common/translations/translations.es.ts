@@ -1,5 +1,7 @@
 import { CONDICIONES_ES as CONDICIONES_ES } from './condiciones/condiciones.es';
 import { NORMAS_ES } from './normas/normas.es';
+import { PRIVACIDAD_ES } from './privacidad/privacidad.es';
+
 export const TRANSLATIONS_ES: { [key: string]: string } = {
   menu_inicio: 'Inicio',
   menu_apartamento: 'Apartamento',
@@ -174,4 +176,26 @@ export const TRANSLATIONS_ES: { [key: string]: string } = {
   env_4_name: 'Ruta de los Balnearios',
   env_4_text:
     'La comarca de Calatayud cobija el principal número de balneario de la provincia de Zaragoza que quedan enmarcados en las localidades de Jaraba, Alhama de Aragón y Paracuellos de Jiloca. Seis son las estaciones termales que han hecho de esta parte aragonesa uno de los principales puntos de interés del sector balneario nacional.',
+
+  tarifas_title: 'Tarifas',
+  tarifas_days: 'Días',
+  tarifas_week: 'Lunes a Jueves',
+  tarifas_weekend: 'Viernes a Domingo',
+  tarifas_1_room: '1 Habitación',
+  tarifas_2_room: '2 Habitaciones',
+  tarifas_info: `
+  <ul>
+    <li>cuna de viaje, <strong>gratis</strong>.</li>
+    <li>
+      <em>late check in</em> a partir de las 22:30h., <strong>10 €.</strong>
+    </li>
+    <li><em>late check out, </em><strong>10 €.</strong></li>
+    <li>Temporada alta, <strong>20 €.</strong></li>
+  </ul>
+  <p>___________</p>
+  <p>Temporada alta: Diciembre, Agosto y Septiembre</p>
+  <p>Consultar tarifas telefónicamente para fechas especiales.</p>`,
+
+  privacidad_title: 'Politica de privacidad',
+  privacidad: PRIVACIDAD_ES,
 };

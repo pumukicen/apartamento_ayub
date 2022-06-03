@@ -11,8 +11,8 @@ export class MyToastrService {
     private translateService: TranslateService
   ) {}
 
-  success(msg: string, title?: string): void {
-    this.toastrService.success(this.translateService.instant(msg), title, {
+  success(msg: string): void {
+    this.toastrService.success(this.translateService.instant(msg), undefined, {
       closeButton: true,
     });
   }

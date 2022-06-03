@@ -43,6 +43,7 @@ import { ReservarComponent } from './pages/reservar/reservar.component';
 import { RestaurantesComponent } from './pages/restaurantes/restaurantes.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { CardsComponent } from './common/cards/cards.component';
+import { PrivacidadComponent } from './pages/privacidad/privacidad.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { CardsComponent } from './common/cards/cards.component';
     CarruselComponent,
     ComentariosComponent,
     CardsComponent,
+    PrivacidadComponent,
   ],
   imports: [
     FormsModule,

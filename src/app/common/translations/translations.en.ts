@@ -1,5 +1,6 @@
 import { CONDICIONES_EN } from './condiciones/condiciones.en';
 import { NORMAS_EN } from './normas/normas.en';
+import { PRIVACIDAD_EN } from './privacidad/privacidad.en';
 
 export const TRANSLATIONS_EN: { [key: string]: string } = {
   menu_inicio: 'Home',
@@ -174,4 +175,26 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
   env_4_name: 'Route of the Spas',
   env_4_text:
     'The region of Calatayud shelters the main number of spas in the province of Zaragoza, which are framed in the towns of Jaraba, Alhama de Aragón and Paracuellos de Jiloca. Six are the thermal stations that have made of this part of Aragon one of the main points of interest of the national spa sector.',
+
+  tarifas_title: 'Prices',
+  tarifas_days: 'Days',
+  tarifas_week: 'Moonday to Tuesday',
+  tarifas_weekend: 'Friday to sunday',
+  tarifas_1_room: '1 Room',
+  tarifas_2_room: '2 Rooms',
+  tarifas_info: `
+    <ul>
+      <li>travel cot, <strong>free</strong>.</li>
+      <li>
+        <em>late check in</em> from 22:30 onwards., <strong>10 €.</strong>
+      </li>
+      <li><em>late check out, </em><strong>10 €.</strong></li>
+      <li>High season, <strong>20 €.</strong></li>
+    </ul>
+    <p>___________</p>
+    <p>High season: december, august and september</p>
+    <p>Check prices by phone for special dates.</p>`,
+
+  privacidad_title: 'Privacy Policy',
+  privacidad: PRIVACIDAD_EN,
 };
