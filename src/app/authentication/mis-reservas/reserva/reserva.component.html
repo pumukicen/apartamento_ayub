@@ -1,0 +1,19 @@
+<div>
+  <b>{{ "book_since_date" | translate }}:</b> {{ reserva.llegada | dfnsFormat: 'dd/MM/yyyy'}}
+</div>
+<div>
+  <b>{{ "book_until_date" | translate }}:</b> {{ reserva.salida | dfnsFormat: 'dd/MM/yyyy' }}
+</div>
+<div>
+  <b>{{ "book_adults" | translate }}:</b> {{ reserva.adultos }}
+</div>
+<div *ngIf="children">
+  <b>{{ "book_children" | translate }}:</b> {{ children }}
+</div>
+<div *ngIf="reserva.observaciones">
+  <b>{{ "book_observations" | translate }}:</b> {{ reserva.observaciones }}
+</div>
+<div class="reserva-estado"
+     [ngClass]="estadoStyle">
+  {{ estado | translate | uppercase }}
+</div>

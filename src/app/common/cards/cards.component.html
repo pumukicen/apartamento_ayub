@@ -1,0 +1,11 @@
+<ng-container *ngFor="let card of cards">
+  <div class="card">
+    <div class="card-img"
+         [style.backgroundImage]="getImg(card)">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ card.title | translate }}</h5>
+      <p class="card-text">{{ card.text | translate }}</p>
+    </div>
+  </div>
+</ng-container>

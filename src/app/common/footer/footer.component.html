@@ -1,0 +1,127 @@
+<footer class="text-center"
+        [style.bottom]="footerBottom"
+        (mouseleave)="intervalExpand(false)">
+  <div #footerBook
+       class="barra-reserva container-fluid mb-2 bg-dark"
+       [class.ocultar]="isReservaOpened">
+    <form style="text-align: left"
+          [formGroup]="form">
+      <div class="col-3">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="col-12 date-input">
+              <input matInput
+                     class="form-control"
+                     [matDatepicker]="picker1"
+                     [placeholder]="'book_since' | translate"
+                     formControlName="llegada"
+                     [max]="dateSalida"
+                     [min]="tomorrow"
+                     (click)="picker1.opened = true" />
+              <mat-datepicker-toggle matSuffix
+                                     [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="col-12 date-input">
+              <input matInput
+                     class="form-control"
+                     [matDatepicker]="picker2"
+                     [placeholder]="'book_until' | translate"
+                     formControlName="salida"
+                     [min]="min"
+                     (click)="picker2.opened = true" />
+              <mat-datepicker-toggle matSuffix
+                                     [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <select class="form-select"
+                formControlName="adultos">
+          <option hidden
+                  selected
+                  value="0">{{ "book_adults" | translate }}</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <button type="submit"
+                class="btn btn-primary"
+                style="width:100%;"
+                (click)="reservar()"
+                [disabled]="isReservaOpened">
+          {{ "btn_reservar" | translate | uppercase }}
+        </button>
+      </div>
+    </form>
+    <div class="hidden-line"
+         (mouseenter)="intervalExpand(true)"></div>
+  </div>
+  <div #footerDetails
+       class="footer-details bg-light"
+       (mouseenter)="intervalExpand(true)">
+    <section class="social-links mb-1">
+      <span class="text-muted">{{ "footer_follow_us" | translate }}</span>
+      <a class="btn btn-outline-dark btn-floating m-2"
+         href="https://www.facebook.com/Apartamento-Ayub-109749835086147"
+         target="_blank"
+         role="button"><i class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-2"
+         href="https://www.instagram.com/apartamentoayub/"
+         target="_blank"
+         role="button"><i class="fab fa-instagram"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-2"
+         href="https://twitter.com/apartamentoayub"
+         target="_blank"
+         role="button"><i class="fab fa-twitter"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-2"
+         href="https://wa.me/34685848829/?text=Contacta%20con%20nosotros"
+         target="_blank"
+         role="button"><i class="fab fa-whatsapp"></i></a>
+    </section>
+    <section class="empresa">
+      <div class="row">
+        <div class="col-6">
+          <h6 class="text-uppercase fw-bold">Apartamento Ayub</h6>
+          <p [innerHTML]="'footer_text_1' | translate"></p>
+        </div>
+        <div class="col-6">
+          <h6 class="text-uppercase fw-bold">{{ 'menu_contacto' | translate }}</h6>
+          <p class="credits">
+            Cl. Valentin Gómez, Nº 12 - 1º D<br />
+            50.300 Calatayud (Zaragoza)<br />
+            {{ 'auth_phone' | translate }}:
+            <a href="https://wa.me/34685848829/?text=Contacta%20con%20nosotros"
+               title="685848829"
+               target="_blank">685848829</a><br />
+            {{ 'auth_email' | translate }}:
+            <a href="mailto:apartamentoayub@gmail.com"
+               title="Apartamento Ayub">apartamentoayub@gmail.com</a><br />
+          </p>
+        </div>
+      </div>
+      <!-- <div class="col">
+      <a href="#!"
+         class="text">Politica de privacidad</a>
+    </div>-->
+    </section>
+    <section class="copyright text-center p-3"
+             style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2020 Copyright:
+      <span class="text-white">Apartamento Ayub</span>
+      -
+      <a routerLink="/privacidad">{{ "privacidad_title" | translate}}</a>
+    </section>
+  </div>
+</footer>

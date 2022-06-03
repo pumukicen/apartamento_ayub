@@ -1,0 +1,202 @@
+<div class="form-container">
+  <form [formGroup]="form">
+    <fieldset>
+      <h3>{{ "menu_reservar" | translate }}</h3>
+      <div class="form-group">
+        <label class="form-label mt-4">{{ "auth_nombre" | translate }}</label>
+        <input type="name"
+               class="form-control"
+               formControlName="name"
+               minlength="3"
+               [readonly]="!!user" />
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-4">{{
+          "auth_apellidos" | translate
+        }}</label>
+        <input type="surname"
+               class="form-control"
+               formControlName="surname"
+               minlength="3"
+               [readonly]="!!user" />
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-4">{{ "auth_email" | translate }}</label>
+        <input type="email"
+               class="form-control"
+               formControlName="email"
+               [readonly]="!!user" />
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-4">{{ "auth_phone" | translate }}</label>
+        <input type="phone"
+               class="form-control"
+               formControlName="phone"
+               minlength="9" />
+      </div>
+      <div class="row">
+        <div class="form-group col-6">
+          <label class="label-date form-label mt-4">
+            {{ "book_since" | translate }}
+            <!-- <span class="open-calendar-btn">
+              <div class="shrink">?</div>
+              <div class="no-shrink">DISPONIBILIDAD</div>
+            </span> -->
+          </label>
+          <div class="input-group">
+            <div class="col-12 date-input">
+              <input matInput
+                     class="form-control"
+                     [matDatepicker]="picker1"
+                     formControlName="llegada"
+                     [max]="dateSalida"
+                     [min]="tomorrow"
+                     (click)="openCalendar()" />
+              <mat-datepicker-toggle matSuffix
+                                     [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label class="label-date form-label mt-4">
+            {{ "book_until" | translate }}
+            <!-- <span class="open-calendar-btn">
+              <div class="shrink">?</div>
+              <div class="no-shrink">DISPONIBILIDAD</div>
+            </span> -->
+          </label>
+          <div class="input-group">
+            <div class="col-12 date-input">
+              <input matInput
+                     class="form-control"
+                     [matDatepicker]="picker2"
+                     formControlName="salida"
+                     [min]="dateLlegada"
+                     (click)="openCalendar()" />
+              <mat-datepicker-toggle matSuffix
+                                     [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <label class="form-label mt-4">
+            {{ "book_adults" | translate }}
+          </label>
+          <select class="form-select"
+                  aria-label="Default select"
+                  placeholder="Adultos"
+                  formControlName="adultos">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label class="form-label mt-4">
+            {{ "book_children" | translate }}
+          </label>
+          <select class="form-select"
+                  aria-label="Default select"
+                  formControlName="niños">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-4">
+          {{ "book_observations" | translate }}
+        </label>
+        <textarea class="form-control"
+                  formControlName="observaciones"
+                  rows="3"
+                  minlength="10"
+                  maslength="300"></textarea>
+      </div>
+      <button type="submit"
+              class="btn btn-primary mt-5"
+              style="width: 100%"
+              (click)="reservar()"
+              [disabled]="form.invalid">
+        {{ "btn_reservar" | translate | uppercase }}
+      </button>
+    </fieldset>
+  </form>
+  <div class="tarifas mt-5">
+    <div class="row">
+      <h2>Tarifas</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col-3">
+              <font style="vertical-align: inherit">
+                <font style="vertical-align: inherit">{{ "tarifas_days" | translate }}</font>
+              </font>
+            </th>
+            <th scope="col-3">
+              <font style="vertical-align: inherit">
+                <font style="vertical-align: inherit">{{ "tarifas_1_room" | translate }}</font>
+              </font>
+            </th>
+            <th scope="col-3">
+              <font style="vertical-align: inherit">
+                <font style="vertical-align: inherit">{{ "tarifas_2_room" | translate }}</font>
+              </font>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-defecto">
+            <th scope="row">
+              <font style="vertical-align: inherit">
+                <font style="vertical-align: inherit">{{ "tarifas_week" | translate }}</font>
+              </font>
+            </th>
+            <td>
+              <font style="vertical-align: inherit">
+                <font style="vertical-align: inherit">80 €</font>
+              </font>
+            </td>
+            <td>
+              <font style="vertical-align: inherit">
+                <font style="vertical-align: inherit">100 €</font>
+              </font>
+            </td>
+          </tr>
+          <tr class="table-activo">
+            <th scope="row">
+              <font style="vertical-align: inherit">
+                <font style="vertical-align: inherit">{{ "tarifas_weekend" | translate }}</font>
+              </font>
+            </th>
+            <td>
+              <font style="vertical-align: inherit">
+                <font style="vertical-align: inherit">100 €</font>
+              </font>
+            </td>
+            <td>
+              <font style="vertical-align: inherit">
+                <font style="vertical-align: inherit">120 €</font>
+              </font>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div [innerHTML]="'tarifas_info' | translate">
+    </div>
+  </div>
+</div>
+<app-calendario class="app-dialog"
+                [alertMsg]="calendarAlert"
+                [since]="llegada"
+                [until]="dateSalida"
+                [nextBook]="nextBook"
+                (selectDate)="onSelectDate($event)"></app-calendario>

@@ -11,16 +11,22 @@ export class SignupComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private fb: FormBuilder,
     private readonly authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
+    if (this.authService.currentUser()) this.authService.redirect();
+    this.form = this.fb.group({
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
+      password2: ['', Validators.required],
     });
-    console.log(this.authService.currentUser());
+  }
+
+  get name() {
+    return this.form.get('name');
   }
 
   get email() {
@@ -32,21 +38,13 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
+    const name: string = this.name?.value;
     const email: string = this.email?.value;
     const password: string = this.password?.value;
-    this.register({ email, password });
-    // this.formData.emit(this.form.value);
+    this.register({ name, email, password });
   }
 
-  private register(loginData: LoginData) {
-    this.authService
-      .register(loginData)
-      // .then(() => this.router.navigate(['/dashboard']))
-      .then((data) => {
-        console.log('SIGNUP DONE');
-        console.log(data);
-        console.log(this.authService.currentUser());
-      })
-      .catch((e) => console.log(e.message));
+  register(loginData: LoginData) {
+    this.authService.register(loginData);
   }
 }

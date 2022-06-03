@@ -4,16 +4,16 @@
 
 export const environment = {
   firebase: {
-    projectId: 'apartamento-ayub',
-    appId: '1:787875081285:web:1c8e8c7fb654ea6133872c',
-    databaseURL: 'https://apartamento-ayub-default-rtdb.firebaseio.com',
-    storageBucket: 'apartamento-ayub.appspot.com',
+    apiKey: 'AIzaSyD6MzCf0aeMvz8k_av1xPNVUqCZqmI8UnQ',
+    authDomain: 'apartamentoayub-9a511.firebaseapp.com',
+    databaseURL: 'https://apartamentoayub-9a511-default-rtdb.firebaseio.com',
+    projectId: 'apartamentoayub-9a511',
+    storageBucket: 'apartamentoayub-9a511.appspot.com',
+    messagingSenderId: '354879712433',
+    appId: '1:354879712433:web:5bddcb4f431e79f8d70690',
     locationId: 'europe-west',
-    apiKey: 'AIzaSyDQ8JKThgzhVYV71u_8P4qwCScusOWDa0A',
-    authDomain: 'apartamento-ayub.firebaseapp.com',
-    messagingSenderId: '787875081285',
   },
-  production: false
+  production: false,
 };
 
 /*

@@ -1,0 +1,18 @@
+<div class="dialog-bg"
+     [class.opened]="opened"
+     (click)="opened = false"></div>
+<div class="dialog-content"
+     [class.opened]="opened">
+  <h6>{{ "client_feedback_msg_1" | translate }}</h6>
+  <h6>{{ "client_feedback_msg_2" | translate }}</h6>
+  <br>
+  <textarea class="form-control"
+            minlength="10"
+            maxlength="300"
+            rows="6"
+            [(ngModel)]="comment"></textarea>
+  <button type="submit"
+          class="btn btn-primary mt-4"
+          (click)="enviar()"
+          [disabled]="!valid">{{ "btn_enviar" | translate | uppercase }}</button>
+</div>

@@ -1,0 +1,10 @@
+<ng-container *ngIf="comentarios.length">
+  <div class="col text-center pt-5">
+    <h3 class="mb-3">{{ 'comentarios' | translate }}</h3>
+  </div>
+  <div class="comentarios-list">
+    <ng-container *ngFor="let comentario of comentarios">
+      <app-comentario [comentario]="comentario"></app-comentario>
+    </ng-container>
+  </div>
+</ng-container>

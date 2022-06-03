@@ -1,45 +1,17 @@
-<h3>
-  Localización
-</h3>
-<google-map width="750px"
-            height="450px"
-            [center]="position">
-  <map-marker [position]="position"></map-marker>
-</google-map>
-<form>
-  <fieldset>
-    <legend>Contacto</legend>
-    <div class="form-group">
-      <label for="exampleInputName"
-             class="form-label mt-4">Nombre</label>
-      <input type="name"
-             class="form-control"
-             id="exampleInputName"
-             aria-describedby="nameHelp">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputemail1"
-             class="form-label mt-4">Email</label>
-      <input type="email"
-             class="form-control"
-             id="exampleInputEmail1"
-             aria-describedby="emailHelp">
-    </div>
-    <div class="form-group">
-      <label for="Asunto"
-             class="form-label mt-4">Asunto</label>
-      <textarea class="form-control"
-                id="exampleAsunto"
-                rows="1"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="Mensaje"
-             class="form-label mt-4">Mensaje</label>
-      <textarea class="form-control"
-                id="mensaje"
-                rows="4"></textarea>
-    </div>
-    <button type="submit"
-            class="btn btn-primary">Enviar</button>
-  </fieldset>
-</form>
+<div class="container-fluid">
+  <h3 class="text-center">{{ 'menu_contacto' | translate }}</h3>
+  <p class="text-center">
+    Cl. Valentin Gómez, Nº 12 - 1º D<br />
+    50.300 Calatayud (Zaragoza)<br />
+    {{ 'auth_phone' | translate }}:
+    <a href="https://wa.me/34685848829/?text=Contacta%20con%20nosotros"
+       title="685848829"
+       target="_blank">685848829</a><br />
+    {{ 'auth_email' | translate }}:
+    <a href="mailto:apartamentoayub@gmail.com"
+       title="Apartamento Ayub">apartamentoayub@gmail.com</a><br />
+  </p>
+</div>
+<div class="container-fluid">
+  <app-map></app-map>
+</div>

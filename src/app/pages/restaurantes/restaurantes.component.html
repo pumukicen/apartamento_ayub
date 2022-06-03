@@ -1,1 +1,38 @@
-<p>restaurantes works!</p>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">
+    <font style="vertical-align: inherit;">
+      <span style="vertical-align: inherit;">{{ "menu_experiencias" | translate }}</span>
+    </font>
+  </li>
+  <li class="breadcrumb-item active">
+    <font style="vertical-align: inherit;">{{ "menu_experiencias_restaurantes" | translate }}</font>
+  </li>
+</ol>
+
+<div class="row justify-content-center">
+  <div class="col-10 my-3 text-center">
+    <h3 class="mb-3">{{ "restaurantes_header" | translate }}</h3>
+    <p>{{ "restaurantes_text" | translate }}</p>
+  </div>
+</div>
+<ng-container *ngFor="let restaurante of restaurantes">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-4 restaurante-img"
+           [style.backgroundImage]="restauranteImg(restaurante)">
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ restaurante.name }}</h5>
+          <p class="card-text">{{ restaurante.text | translate }}</p>
+          <p>
+            <a href="{{ restaurante.link }}"
+               target="_blank">
+              {{ restaurante.name }}
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

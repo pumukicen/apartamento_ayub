@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand"
-       href="#">ICONO APLICACION</a>
+    <div class="navbar-brand">Apartamento Ayub</div>
     <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -11,7 +10,8 @@
             aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse"
+    <div #navbar
+         class="collapse navbar-collapse"
          id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <ng-container *ngFor="let item of menuItems">
@@ -20,7 +20,6 @@
             <ng-container *ngIf="item.link; else dropdown">
               <a class="nav-link"
                  [class.active]="item.active"
-                 href="#"
                  [routerLink]="item.link">
                 {{ item.name | translate }}
               </a>
@@ -28,10 +27,10 @@
             <ng-template #dropdown>
               <a class="nav-link dropdown-toggle"
                  data-bs-toggle="dropdown"
-                 href="#"
                  role="button"
                  aria-haspopup="true"
-                 aria-expanded="false">
+                 aria-expanded="false"
+                 [class.active]="item.active">
                 {{ item.name | translate }}
               </a>
               <div class="dropdown-menu"
@@ -47,35 +46,85 @@
             </ng-template>
           </li>
         </ng-container>
-
       </ul>
-      <button type="button"
-              class="btn btn-secondary login-btn"
-              routerLink="auth/login">LOGIN</button>
-      <button type="button"
-              class="btn btn-secondary login-btn"
-              routerLink="auth/signup">SIGNUP</button>
-      <button type="button"
-              class="btn btn-secondary login-btn"
-              (click)="logout()">LOGOUT</button>
-      <div class="btn-group"
-           role="group"
-           aria-label="Basic radio toggle button group">
-        <ng-container *ngFor="let lang of languages">
-          <input type="radio"
-                 class="btn-check"
-                 name="btnradio"
-                 [attr.id]="lang.name"
-                 autocomplete="off"
-                 [attr.checked]="lang.key == currentLang"
-                 (click)="changeCurrentLanguage(lang)">
-          <label class="btn btn-outline-secondary"
-                 [attr.for]="lang.name"
-                 (click)="changeCurrentLanguage(lang)">
-            {{ lang.name}}
-          </label>
-        </ng-container>
-      </div>
+      <ng-container *ngIf="currentUser; else logOptions">
+        <ul class="navbar-nav ">
+          <li class="nav-item dropdown user-button">
+            <button class="nav-link dropdown-toggle login-btn btn btn-secondary user-options"
+                    data-bs-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              {{ currentUser.name | uppercase }}
+            </button>
+            <div class="dropdown-menu user-settings user-dropdwon"
+                 data-bs-popper="none">
+              <div class="user-profile">
+                <div class="user-data">
+                  <span>{{ currentUser.name }}</span>
+                  <span class="user-email"
+                        title="{{currentUser.email}}">{{ currentUser.email }}</span>
+                </div>
+                <div class="user-avatar"
+                     [style.backgroundImage]="userAvatar">
+                </div>
+              </div>
+              <a class="dropdown-item"
+                 routerLink="auth/cliente">
+                {{ "client_data" | translate }}
+              </a>
+              <a class="dropdown-item"
+                 routerLink="auth/reservas">
+                {{ "client_books" | translate }}
+              </a>
+              <a class="dropdown-item"
+                 (click)="openFeedback()">
+                {{ "client_feedback" | translate }}
+              </a>
+              <a class="dropdown-item"
+                 (click)="logout()">
+                {{ "client_logout" | translate }}
+              </a>
+            </div>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #logOptions>
+        <div class="log-options">
+          <button type="button"
+                  class="btn btn-secondary login-btn"
+                  routerLink="auth/login">{{ "btn_login" | translate | uppercase }}</button>
+          <!-- <button type="button"
+                  class="btn btn-secondary login-btn"
+                  routerLink="auth/signup">{{ "btn_signup" | translate | uppercase }}</button> -->
+          <ng-container *ngTemplateOutlet="idiomas"></ng-container>
+        </div>
+      </ng-template>
     </div>
   </div>
 </nav>
+<app-feedback class="app-dialog"></app-feedback>
+<ng-template #idiomas>
+  <div *ngIf="!!currentLang"
+       class="btn-group btn-idiomas"
+       role="group"
+       aria-label="Basic radio toggle button group">
+    <ng-container *ngFor="let lang of languages">
+      <input type="radio"
+             class="btn-check"
+             name="btnradio"
+             [attr.id]="lang.name"
+             autocomplete="off"
+             [attr.checked]="lang.key == currentLang"
+             (click)="changeCurrentLanguage(lang)">
+      <label class="btn btn-outline-secondary"
+             [attr.for]="lang.name"
+             [class.lang-selected]="lang.key == currentLang"
+             [class.lang-unselected]="lang.key != currentLang"
+             (click)="changeCurrentLanguage(lang)">
+        {{ lang.name }}
+      </label>
+    </ng-container>
+  </div>
+</ng-template>

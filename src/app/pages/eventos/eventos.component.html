@@ -1,1 +1,17 @@
-<p>eventos works!</p>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">
+    <font style="vertical-align: inherit;">
+      <span style="vertical-align: inherit;">{{ "menu_experiencias" | translate }}</span>
+    </font>
+  </li>
+  <li class="breadcrumb-item active">
+    <font style="vertical-align: inherit;">{{ "menu_experiencias_eventos" | translate }}</font>
+  </li>
+</ol>
+<div class="row justify-content-center">
+  <div class="col-10 my-3 text-center">
+    <h3 class="mb-3">{{ "menu_experiencias_eventos" | translate }}</h3>
+    <p>{{ "events_text" | translate }}</p>
+  </div>
+</div>
+<app-cards [cards]="cards"></app-cards>

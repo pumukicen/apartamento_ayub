@@ -1,0 +1,60 @@
+<div class="form-container">
+  <form [formGroup]="form">
+    <fieldset>
+      <h3>{{ "client_personal_data" | translate }}</h3>
+      <div class="form-group">
+        <div class="cliente-avatar"
+             [style.backgroundImage]="photoUrl"
+             (click)="changeAvatar()">
+          <div class="add-avatar">
+            <mat-icon>add</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-4">{{ "auth_nombre" | translate }}</label>
+        <input type="name"
+               class="form-control"
+               formControlName="name"
+               minlength="3" />
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-4">{{ "auth_apellidos" | translate }}</label>
+        <input type="surname"
+               class="form-control"
+               formControlName="surname"
+               minlength="3" />
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-4">{{ "auth_email" | translate }}</label>
+        <input type="email"
+               class="form-control"
+               formControlName="email"
+               readonly />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label mt-4">{{ "client_language" | translate }}</label>
+        <select class="form-select"
+                aria-label="Default select"
+                formControlName="language"
+                (change)="changeLang()">
+          <ng-container *ngFor="let lang of languages">
+            <option [value]="lang.key">{{ ('client_language_' + lang.name) | lowercase | translate }}</option>
+          </ng-container>
+        </select>
+      </div>
+
+      <button type="submit"
+              class="btn btn-primary mt-5"
+              style="width: 100%"
+              (click)="modificarDatos()"
+              [disabled]="form.invalid">
+        {{ "btn_modificar" | translate | uppercase }}
+      </button>
+    </fieldset>
+  </form>
+</div>
+<div class="recaptcha-container"
+     id="recaptcha-container"></div>
+<app-avatar class="app-dialog"></app-avatar>

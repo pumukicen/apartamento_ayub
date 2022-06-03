@@ -1,0 +1,39 @@
+.cliente-avatar {
+  width: 120px;
+  height: 120px;
+  background-color: #eee;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 30px;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 0 12px #99999978 !important;
+  cursor: pointer;
+  transition: 200ms;
+  &:hover {
+    transform: scale(1.06);
+    .add-avatar {
+      transform: scale(1);
+    }
+  }
+  position: relative;
+  .add-avatar {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background-color: #f3969a;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transform: scale(0);
+    transition: 250ms;
+  }
+}
+h3 {
+  margin: auto;
+  text-align: center;
+}

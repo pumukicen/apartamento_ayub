@@ -1,1 +1,34 @@
-<p>servicios works!</p>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">
+    <font style="vertical-align: inherit;">
+      <span style="vertical-align: inherit;">{{ "menu_informacion" | translate }}</span>
+    </font>
+  </li>
+  <li class="breadcrumb-item active">
+    <font style="vertical-align: inherit;">{{ "menu_informacion_servicios" | translate }}</font>
+  </li>
+</ol>
+
+<div class="row justify-content-center">
+  <div class="col-10 my-3 text-center">
+    <h3>{{ 'menu_informacion_servicios' | translate }}</h3>
+    <p>{{ 'servicios_text_1' | translate }}</p>
+  </div>
+</div>
+<section class="iconos">
+  <div class="servicios-container">
+    <ng-container *ngFor="let servicio of servicios">
+      <div class="box-tech">
+        <div class="content">
+          <img [src]="'./assets/img/' + servicio.logo + '.png'"
+               alt="">
+          <p>{{ servicio.title | translate | uppercase }}</p>
+          <div class="desc">
+            <div class="line"></div>
+            <p>{{ servicio.text | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>
