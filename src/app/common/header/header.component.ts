@@ -31,20 +31,20 @@ export class HeaderComponent implements OnInit {
   menuItems: MenuItem[] = [
     { name: 'menu_inicio', link: '/inicio' },
     {
+      name: 'menu_informacion',
+      children: [
+        { name: 'menu_informacion_servicios', link: '/servicios' },
+        { name: 'menu_informacion_normas', link: '/normas' },
+        { name: 'menu_informacion_condiciones', link: '/condiciones' },
+      ],
+    },
+    {
       name: 'menu_experiencias',
       children: [
         { name: 'menu_experiencias_restaurantes', link: '/restaurantes' },
         { name: 'menu_experiencias_lugares', link: '/lugares' },
         { name: 'menu_experiencias_eventos', link: '/eventos' },
         { name: 'menu_entorno', link: '/entorno' },
-      ],
-    },
-    {
-      name: 'menu_informacion',
-      children: [
-        { name: 'menu_informacion_servicios', link: '/servicios' },
-        { name: 'menu_informacion_normas', link: '/normas' },
-        { name: 'menu_informacion_condiciones', link: '/condiciones' },
       ],
     },
     // { name: 'menu_blog', link: '/blog' },

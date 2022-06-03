@@ -115,7 +115,7 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
   apartamento_text_2:
     'Apartment located in the center of Calatayud, approximately 5 minutes walk from the most important buildings. The apartment is on the second floor of the building without elevator, has about 80 square meters approximately. With wooden floor and heating. The main bedroom is furnished with a double bed and a built-in closet. The second bedroom is equipped with a single bed that can be made into a double bed. The living area consists of a living-dining room with two balconies overlooking the street that bring natural light to the apartment. In addition to a fully equipped bathroom and kitchen. It has Wifi for the whole apartment.',
 
-  restaurantes_header: 'Local Gastronomy',
+  restaurantes_header: 'Restaurants',
   restaurantes_text:
     'The gastronomic culture of Calatayud is well known for two classic references: the "ternasco a la bilbilitana" and the "garbanzos con congrio" (chickpeas with conger eel). Dishes that can be tasted accompanied by its wines of the Designation of Origin of Calatayud, in its different types of restaurants. You can also choose from a wide variety of bars with tapas and a variety of portions to take sitting on their terraces.',
   restaurante_1_text:
@@ -127,7 +127,7 @@ export const TRANSLATIONS_EN: { [key: string]: string } = {
   restaurante_4_text:
     'They have menu and menu of the day. Seasonal products of the area. Homemade recipes and traditional dishes of Aragonese cuisine, as well as homemade desserts. Generous portions and very good value for money.',
 
-  lugares_header: 'Visiting Calatayud',
+  lugares_header: 'Places',
   lugares_text:
     'Calatayud, a monumental city that fuses between its streets a compendium of cultures, styles and traditions. It has been declared a Historic and Monumental Site since 1967. Calatayud is an essential enclave of Mudejar art. Let yourself be amazed by the highest Mudejar tower in the world, declared a World Heritage Site by UNESCO.',
 

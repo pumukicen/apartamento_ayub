@@ -115,7 +115,7 @@ export const TRANSLATIONS_ES: { [key: string]: string } = {
   apartamento_text_2:
     'Apartamento ubicado en el centro de Calatayud, aproximadamente a 5 minutos andando de los edificios más importantes. El apartamento esta en la primera planta del edificio sin ascensor, dispone de unos 80 metros cuadrados aproximadamente. Con suelo de madera y calefacción. El dormitorio principal se amuebla con cama de matrimonio y armario empotrado. El segundo dormitorio esta provisto de una cama individual que se puede hacer de matrimonio. La zona de estar se compone de salón-comedor con dos balcones exteriores a la calle que aportan la luz natural al apartamento. Además de un baño y cocina totalmente equipados. Dispone de Wifi para todo el apartamento.',
 
-  restaurantes_header: 'Gastronomía Local',
+  restaurantes_header: 'Restaurantes',
   restaurantes_text:
     'La cultura gastronómica de Calatayud es conocida por dos referencias clásicas: el ternasco a la bilbilitana y los garbanzos con congrio. Platos que se pueden degustar acompañados por sus vinos de la Denominación de Origen de Calatayud, en sus distintos tipos de restaurantes. También se puede elegir entre la gran variedad de bares con tapas y raciones muy variadas para tomar sentados en sus terrazas.',
   restaurante_1_text:
@@ -127,7 +127,7 @@ export const TRANSLATIONS_ES: { [key: string]: string } = {
   restaurante_4_text:
     'Disponen de carta y menú del día. Producto de temporada de la zona. Recetas caseras y platos tradicionales de la cocina aragonesa, así como postres caseros. Raciones generosas y muy buena relación calidad precio',
 
-  lugares_header: 'Visitar Calatayud',
+  lugares_header: 'Lugares',
   lugares_text:
     'Calatayud, una ciudad monumental que fusiona entre sus calles un compendio de culturas, estilos y tradiciones. Está declarada Conjunto Histórico y Monumental desde 1967. Calatayud es un enclave indispensable del arte mudéjar. Déjate maravillar por la torre mudéjar más alta del mundo, declarada Patrimonio de la Humanidad por la UNESCO.',
 
