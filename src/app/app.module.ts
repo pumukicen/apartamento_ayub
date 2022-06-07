@@ -6,7 +6,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -79,7 +78,6 @@ import { PrivacidadComponent } from './pages/privacidad/privacidad.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    GoogleMapsModule,
     MaterialModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
